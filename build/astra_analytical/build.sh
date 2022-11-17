@@ -29,6 +29,11 @@ function compile {
     make
 }
 
+function compile_debug {
+    cd "${BUILD_DIR}" || exit
+    cmake -DCMAKE_BUILD_TYPE=Debug ..
+    CFLAGS='-g -o0 -Wall -Wextra' make
+}
 
 # Main Script
 case "$1" in
@@ -40,6 +45,9 @@ case "$1" in
 -c|--compile)
     setup
     compile;;
+-cd|--compileDebug)
+    setup
+    compile_debug;;
 -h|--help|*)
     echo "AnalyticalAstra build script."
     echo "Run $0 -c to compile.";;
