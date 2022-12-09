@@ -1,0 +1,296 @@
+[CostModel] Added TileToTileLink: 32
+(T-T Link) Added cost: 8000 (BW: 250, count: 32, unit_cost: 50)
+[HierarchicalTopology, constructor] [Warning] Links-count at dimension 1 (FullyConnected) has 8 links (not a multiple of 7).
+[CostModel] Added NVLink: 112
+(NVLink) Added cost: 5600 (BW: 25, count: 112, unit_cost: 100)
+[CostModel] Added NVLink: 32
+(NVLink) Added cost: 800 (BW: 12.5, count: 32, unit_cost: 100)
+[CostModel] Added NPU: 32
+(Resource) Added cost: 0 (count: 32, unit_cost: 0)
+Success in opening system file
+Var is: scheduling-policy: ,val is: LIFO
+Var is: endpoint-delay: ,val is: 10
+Var is: active-chunks-per-dimension: ,val is: 1
+Var is: preferred-dataset-splits: ,val is: 1
+Var is: boost-mode: ,val is: 0
+Var is: all-reduce-implementation: ,val is: doubleBinaryTree_doubleBinaryTree_doubleBinaryTree
+Var is: all-gather-implementation: ,val is: ring_ring_ring
+Var is: reduce-scatter-implementation: ,val is: ring_ring_ring
+Var is: all-to-all-implementation: ,val is: oneDirect
+Var is: collective-optimization: ,val is: localBWAware
+Var is:  ,val is: localBWAware
+The final active chunks per dimension after allocating to queues is: 100000000
+Node 0: Double binary tree created with total nodes: 2 ,start: 0 ,stride: 1
+Node 0: Double binary tree created with total nodes: 8 ,start: 0 ,stride: 2
+Node 0: Double binary tree created with total nodes: 2 ,start: 0 ,stride: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 2total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 16total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 2total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 16total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 32 index in ring: 0 offset: 1total nodes in ring: 32
+total nodes: 32
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+Shared bus modeling enabled? false
+LogGP model, the L is:0 ,o is: 0 ,g is: 0 ,G is: 0.0038
+communication delay (in the case of disabled shared bus): 10
+Shared bus modeling enabled? false
+LogGP model, the L is:0 ,o is: 0 ,g is: 0 ,G is: 0
+communication delay (in the case of disabled shared bus): 10
+Success in opening workload file
+****************** info: DLRM workload last bottom layer is: 4
+id: Embedding , depen: -1 , wg_comp_time: 300
+id: MLP_Bottom_0 , depen: -1 , wg_comp_time: 896
+id: MLP_Bottom_1 , depen: -1 , wg_comp_time: 1792
+id: MLP_Bottom_2 , depen: -1 , wg_comp_time: 1792
+id: MLP_Bottom_3 , depen: -1 , wg_comp_time: 800
+id: MLP_Top_0 , depen: -1 , wg_comp_time: 4480
+id: MLP_Top_1 , depen: -1 , wg_comp_time: 1792
+id: MLP_Top_2 , depen: -1 , wg_comp_time: 1792
+type: HYBRID_DLRM ,num passes: 1 ,lines: 8 compute scale: 0.26 ,comm scale: 50
+stat path: /Users/aakashsharma/work/astra-sim/examples/../results/DDL_3d// ,total rows: 6 ,stat row: 12
+info: all-to-all forward pass collective issued for layer: Embedding, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+*************************layer changed to: 1
+*************************layer changed to: 2
+*************************layer changed to: 3
+*************************layer changed to: 4
+***** info: fwd pass comm collective for layer: Embedding is finished************
+*************************layer changed to: 5
+*************************layer changed to: 6
+*************************layer changed to: 7
+*************************layer changed to: 7
+info: all-reduce weight grad collective issued for layer: MLP_Top_2 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+*************************layer changed to: 6 in ig
+info: all-reduce weight grad collective issued for layer: MLP_Top_1 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+*************************layer changed to: 5 in ig
+info: all-reduce weight grad collective issued for layer: MLP_Top_0 with size: 53248000, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-to-all input grad collective issued for layer: Embedding, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+*************************layer changed to: 4 in ig
+info: all-reduce weight grad collective issued for layer: MLP_Bottom_3 with size: 819200, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+*************************layer changed to: 3 in ig
+info: all-reduce weight grad collective issued for layer: MLP_Bottom_2 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+*************************layer changed to: 2 in ig
+info: all-reduce weight grad collective issued for layer: MLP_Bottom_1 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+*************************layer changed to: 1 in ig
+info: all-reduce weight grad collective issued for layer: MLP_Bottom_0 with size: 665600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+*************************layer changed to: 0 in ig
+info: no weight grad collective for layer: Embedding
+***** info: input gradient collective for layer: Embedding is finished************
+pass: 0 finished at time: 113161
+***** info: weight gradient collective for layer: MLP_Bottom_0 is finished************
+***** info: weight gradient collective for layer: MLP_Bottom_1 is finished************
+***** info: weight gradient collective for layer: MLP_Bottom_2 is finished************
+***** info: weight gradient collective for layer: MLP_Bottom_3 is finished************
+***** info: weight gradient collective for layer: MLP_Top_0 is finished************
+***** info: weight gradient collective for layer: MLP_Top_1 is finished************
+***** info: weight gradient collective for layer: MLP_Top_2 is finished************
+*******************
+Layer id: Embedding
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* Embedding
+id: Embedding ,Total cycles spent on fwd pass compute: 77
+id: Embedding ,Total cycles spent on weight grad compute: 77
+id: Embedding ,Total cycles spent on input grad compute: 0
+id: Embedding ,Total cycles spent idle waiting for fwd finish: 4017
+id: Embedding ,Total cycles spent idle waiting for weight grad finish: 0
+id: Embedding ,Total cycles spent idle waiting for input grad finish: 95782
+id: Embedding ,Total cycles spent on fwd pass comm: 5890
+id: Embedding ,Total cycles spent on weight grad comm: 0
+id: Embedding ,Total cycles spent on input grad comm: 99105
+*************************  Queuing stats  ************************* Embedding
+id: Embedding ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Embedding ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 46607.5
+*************************  Network stats  ************************* Embedding
+id: Embedding ,Average cycles spent on network for phase 1 of algorithm (per message): 5572.45
+*******************
+Layer id: MLP_Bottom_0
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* MLP_Bottom_0
+id: MLP_Bottom_0 ,Total cycles spent on fwd pass compute: 332
+id: MLP_Bottom_0 ,Total cycles spent on weight grad compute: 232
+id: MLP_Bottom_0 ,Total cycles spent on input grad compute: 206
+id: MLP_Bottom_0 ,Total cycles spent idle waiting for fwd finish: 0
+id: MLP_Bottom_0 ,Total cycles spent idle waiting for weight grad finish: 0
+id: MLP_Bottom_0 ,Total cycles spent idle waiting for input grad finish: 0
+id: MLP_Bottom_0 ,Total cycles spent on fwd pass comm: 0
+id: MLP_Bottom_0 ,Total cycles spent on weight grad comm: 12110855
+id: MLP_Bottom_0 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* MLP_Bottom_0
+id: MLP_Bottom_0 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: MLP_Bottom_0 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 95969
+id: MLP_Bottom_0 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 5.85192e+06
+id: MLP_Bottom_0 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.80456e+06
+id: MLP_Bottom_0 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 4.00594e+06
+id: MLP_Bottom_0 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* MLP_Bottom_0
+id: MLP_Bottom_0 ,Average cycles spent on network for phase 1 of algorithm (per message): 2491
+id: MLP_Bottom_0 ,Average cycles spent on network for phase 2 of algorithm (per message): 148835
+id: MLP_Bottom_0 ,Average cycles spent on network for phase 3 of algorithm (per message): 49703
+id: MLP_Bottom_0 ,Average cycles spent on network for phase 4 of algorithm (per message): 74421
+id: MLP_Bottom_0 ,Average cycles spent on network for phase 5 of algorithm (per message): 1249
+*******************
+Layer id: MLP_Bottom_1
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* MLP_Bottom_1
+id: MLP_Bottom_1 ,Total cycles spent on fwd pass compute: 665
+id: MLP_Bottom_1 ,Total cycles spent on weight grad compute: 465
+id: MLP_Bottom_1 ,Total cycles spent on input grad compute: 665
+id: MLP_Bottom_1 ,Total cycles spent idle waiting for fwd finish: 0
+id: MLP_Bottom_1 ,Total cycles spent idle waiting for weight grad finish: 0
+id: MLP_Bottom_1 ,Total cycles spent idle waiting for input grad finish: 0
+id: MLP_Bottom_1 ,Total cycles spent on fwd pass comm: 0
+id: MLP_Bottom_1 ,Total cycles spent on weight grad comm: 23928040
+id: MLP_Bottom_1 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* MLP_Bottom_1
+id: MLP_Bottom_1 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: MLP_Bottom_1 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 99379
+id: MLP_Bottom_1 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 5.90293e+06
+id: MLP_Bottom_1 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+id: MLP_Bottom_1 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 4.05567e+06
+id: MLP_Bottom_1 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* MLP_Bottom_1
+id: MLP_Bottom_1 ,Average cycles spent on network for phase 1 of algorithm (per message): 97822
+id: MLP_Bottom_1 ,Average cycles spent on network for phase 2 of algorithm (per message): 5.8602e+06
+id: MLP_Bottom_1 ,Average cycles spent on network for phase 3 of algorithm (per message): 976622
+id: MLP_Bottom_1 ,Average cycles spent on network for phase 4 of algorithm (per message): 2.93003e+06
+id: MLP_Bottom_1 ,Average cycles spent on network for phase 5 of algorithm (per message): 48838
+*******************
+Layer id: MLP_Bottom_2
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* MLP_Bottom_2
+id: MLP_Bottom_2 ,Total cycles spent on fwd pass compute: 665
+id: MLP_Bottom_2 ,Total cycles spent on weight grad compute: 465
+id: MLP_Bottom_2 ,Total cycles spent on input grad compute: 665
+id: MLP_Bottom_2 ,Total cycles spent idle waiting for fwd finish: 0
+id: MLP_Bottom_2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: MLP_Bottom_2 ,Total cycles spent idle waiting for input grad finish: 0
+id: MLP_Bottom_2 ,Total cycles spent on fwd pass comm: 0
+id: MLP_Bottom_2 ,Total cycles spent on weight grad comm: 29789394
+id: MLP_Bottom_2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* MLP_Bottom_2
+id: MLP_Bottom_2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: MLP_Bottom_2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 198353
+id: MLP_Bottom_2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 1.18142e+07
+id: MLP_Bottom_2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+id: MLP_Bottom_2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 3.90681e+06
+id: MLP_Bottom_2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* MLP_Bottom_2
+id: MLP_Bottom_2 ,Average cycles spent on network for phase 1 of algorithm (per message): 97822
+id: MLP_Bottom_2 ,Average cycles spent on network for phase 2 of algorithm (per message): 5.8602e+06
+id: MLP_Bottom_2 ,Average cycles spent on network for phase 3 of algorithm (per message): 1.95339e+06
+id: MLP_Bottom_2 ,Average cycles spent on network for phase 4 of algorithm (per message): 2.93003e+06
+id: MLP_Bottom_2 ,Average cycles spent on network for phase 5 of algorithm (per message): 48838
+*******************
+Layer id: MLP_Bottom_3
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* MLP_Bottom_3
+id: MLP_Bottom_3 ,Total cycles spent on fwd pass compute: 207
+id: MLP_Bottom_3 ,Total cycles spent on weight grad compute: 207
+id: MLP_Bottom_3 ,Total cycles spent on input grad compute: 332
+id: MLP_Bottom_3 ,Total cycles spent idle waiting for fwd finish: 0
+id: MLP_Bottom_3 ,Total cycles spent idle waiting for weight grad finish: 0
+id: MLP_Bottom_3 ,Total cycles spent idle waiting for input grad finish: 0
+id: MLP_Bottom_3 ,Total cycles spent on fwd pass comm: 0
+id: MLP_Bottom_3 ,Total cycles spent on weight grad comm: 41964812
+id: MLP_Bottom_3 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* MLP_Bottom_3
+id: MLP_Bottom_3 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: MLP_Bottom_3 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 296994
+id: MLP_Bottom_3 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 2.93918e+07
+id: MLP_Bottom_3 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+id: MLP_Bottom_3 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 1.18423e+07
+id: MLP_Bottom_3 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* MLP_Bottom_3
+id: MLP_Bottom_3 ,Average cycles spent on network for phase 1 of algorithm (per message): 3063
+id: MLP_Bottom_3 ,Average cycles spent on network for phase 2 of algorithm (per message): 183167
+id: MLP_Bottom_3 ,Average cycles spent on network for phase 3 of algorithm (per message): 30577
+id: MLP_Bottom_3 ,Average cycles spent on network for phase 4 of algorithm (per message): 91587
+id: MLP_Bottom_3 ,Average cycles spent on network for phase 5 of algorithm (per message): 1535
+*******************
+Layer id: MLP_Top_0
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* MLP_Top_0
+id: MLP_Top_0 ,Total cycles spent on fwd pass compute: 1663
+id: MLP_Top_0 ,Total cycles spent on weight grad compute: 1164
+id: MLP_Top_0 ,Total cycles spent on input grad compute: 1663
+id: MLP_Top_0 ,Total cycles spent idle waiting for fwd finish: 0
+id: MLP_Top_0 ,Total cycles spent idle waiting for weight grad finish: 0
+id: MLP_Top_0 ,Total cycles spent idle waiting for input grad finish: 0
+id: MLP_Top_0 ,Total cycles spent on fwd pass comm: 0
+id: MLP_Top_0 ,Total cycles spent on weight grad comm: 59927096
+id: MLP_Top_0 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* MLP_Top_0
+id: MLP_Top_0 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: MLP_Top_0 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 301949
+id: MLP_Top_0 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 2.93762e+07
+id: MLP_Top_0 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+id: MLP_Top_0 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 2.07568e+06
+id: MLP_Top_0 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* MLP_Top_0
+id: MLP_Top_0 ,Average cycles spent on network for phase 1 of algorithm (per message): 198692
+id: MLP_Top_0 ,Average cycles spent on network for phase 2 of algorithm (per message): 1.19035e+07
+id: MLP_Top_0 ,Average cycles spent on network for phase 3 of algorithm (per message): 3.96771e+06
+id: MLP_Top_0 ,Average cycles spent on network for phase 4 of algorithm (per message): 5.95159e+06
+id: MLP_Top_0 ,Average cycles spent on network for phase 5 of algorithm (per message): 99192
+*******************
+Layer id: MLP_Top_1
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* MLP_Top_1
+id: MLP_Top_1 ,Total cycles spent on fwd pass compute: 665
+id: MLP_Top_1 ,Total cycles spent on weight grad compute: 465
+id: MLP_Top_1 ,Total cycles spent on input grad compute: 665
+id: MLP_Top_1 ,Total cycles spent idle waiting for fwd finish: 0
+id: MLP_Top_1 ,Total cycles spent idle waiting for weight grad finish: 0
+id: MLP_Top_1 ,Total cycles spent idle waiting for input grad finish: 0
+id: MLP_Top_1 ,Total cycles spent on fwd pass comm: 0
+id: MLP_Top_1 ,Total cycles spent on weight grad comm: 65687738
+id: MLP_Top_1 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* MLP_Top_1
+id: MLP_Top_1 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: MLP_Top_1 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 502492
+id: MLP_Top_1 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 4.13651e+07
+id: MLP_Top_1 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+id: MLP_Top_1 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 9.9501e+06
+id: MLP_Top_1 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* MLP_Top_1
+id: MLP_Top_1 ,Average cycles spent on network for phase 1 of algorithm (per message): 97822
+id: MLP_Top_1 ,Average cycles spent on network for phase 2 of algorithm (per message): 5.8602e+06
+id: MLP_Top_1 ,Average cycles spent on network for phase 3 of algorithm (per message): 976622
+id: MLP_Top_1 ,Average cycles spent on network for phase 4 of algorithm (per message): 2.93003e+06
+id: MLP_Top_1 ,Average cycles spent on network for phase 5 of algorithm (per message): 48838
+*******************
+Layer id: MLP_Top_2
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* MLP_Top_2
+id: MLP_Top_2 ,Total cycles spent on fwd pass compute: 665
+id: MLP_Top_2 ,Total cycles spent on weight grad compute: 465
+id: MLP_Top_2 ,Total cycles spent on input grad compute: 665
+id: MLP_Top_2 ,Total cycles spent idle waiting for fwd finish: 0
+id: MLP_Top_2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: MLP_Top_2 ,Total cycles spent idle waiting for input grad finish: 0
+id: MLP_Top_2 ,Total cycles spent on fwd pass comm: 0
+id: MLP_Top_2 ,Total cycles spent on weight grad comm: 71549092
+id: MLP_Top_2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* MLP_Top_2
+id: MLP_Top_2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: MLP_Top_2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 0
+id: MLP_Top_2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 0
+id: MLP_Top_2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+id: MLP_Top_2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 5.7679e+07
+id: MLP_Top_2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* MLP_Top_2
+id: MLP_Top_2 ,Average cycles spent on network for phase 1 of algorithm (per message): 97822
+id: MLP_Top_2 ,Average cycles spent on network for phase 2 of algorithm (per message): 5.8602e+06
+id: MLP_Top_2 ,Average cycles spent on network for phase 3 of algorithm (per message): 1.95339e+06
+id: MLP_Top_2 ,Average cycles spent on network for phase 4 of algorithm (per message): 2.93003e+06
+id: MLP_Top_2 ,Average cycles spent on network for phase 5 of algorithm (per message): 48838
+*************************  Chunk Stats Per Logical Dimension (for all layers) ************************* MLP_Top_2
+ ,Average chunk latency for logical dimension  1 of topology: 75183.2
+ ,Average chunk latency for logical dimension  2 of topology: 5.09663e+06
+ ,Average chunk latency for logical dimension  3 of topology: 1.69889e+06
+*************************
+all passes finished at time: 71558521, id of first layer: Embedding

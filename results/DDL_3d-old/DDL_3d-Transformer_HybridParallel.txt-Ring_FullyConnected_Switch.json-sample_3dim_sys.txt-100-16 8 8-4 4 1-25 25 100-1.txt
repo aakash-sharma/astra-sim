@@ -1,0 +1,46 @@
+[CostModel] Added NVLink: 32
+(NVLink) Added cost: 16000 (BW: 250, count: 32, unit_cost: 100)
+[CostModel] Added NVLink: 112
+(NVLink) Added cost: 5600 (BW: 25, count: 112, unit_cost: 100)
+[CostModel] Added NVLink: 64
+(NVLink) Added cost: 1600 (BW: 12.5, count: 64, unit_cost: 100)
+[CostModel] Added NVSwitch: 2
+(Resource) Added cost: 47396 (count: 2, unit_cost: 23698)
+[CostModel] Added NPU: 32
+(Resource) Added cost: 0 (count: 32, unit_cost: 0)
+Success in opening system file
+Var is: scheduling-policy: ,val is: LIFO
+Var is: endpoint-delay: ,val is: 10
+Var is: active-chunks-per-dimension: ,val is: 1
+Var is: preferred-dataset-splits: ,val is: 1
+Var is: boost-mode: ,val is: 0
+Var is: all-reduce-implementation: ,val is: doubleBinaryTree_doubleBinaryTree_doubleBinaryTree
+Var is: all-gather-implementation: ,val is: ring_ring_ring
+Var is: reduce-scatter-implementation: ,val is: ring_ring_ring
+Var is: all-to-all-implementation: ,val is: oneDirect
+Var is: collective-optimization: ,val is: localBWAware
+Var is:  ,val is: localBWAware
+The final active chunks per dimension after allocating to queues is: 100000000
+Node 0: Double binary tree created with total nodes: 2 ,start: 0 ,stride: 1
+Node 0: Double binary tree created with total nodes: 8 ,start: 0 ,stride: 2
+Node 0: Double binary tree created with total nodes: 2 ,start: 0 ,stride: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 2total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 16total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 2total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 16total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 32 index in ring: 0 offset: 1total nodes in ring: 32
+total nodes: 32
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+Shared bus modeling enabled? false
+LogGP model, the L is:0 ,o is: 0 ,g is: 0 ,G is: 0.0038
+communication delay (in the case of disabled shared bus): 10
+Shared bus modeling enabled? false
+LogGP model, the L is:0 ,o is: 0 ,g is: 0 ,G is: 0
+communication delay (in the case of disabled shared bus): 10
+Success in opening workload file
+model_parallel_NPU_group: is: 4

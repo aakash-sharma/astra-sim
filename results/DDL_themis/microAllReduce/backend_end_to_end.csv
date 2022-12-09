@@ -1,0 +1,7 @@
+RunName,CommsTime,ComputeTime,ExposedCommsTime,Cost,TotalPayloadSize,PayloadSize_Dim0,PayloadSize_Dim1,PayloadSize_Dim2,PayloadSize_Dim3,PayloadSize_Dim4,PayloadSize_Dim5,PayloadSize_Dim6
+DDL_themis-microAllReduce.txt-2d_switch.json-2d_switch_themis_scf.txt-100-16 64-6 1-25 100-1,807.601000,0.000000,807.601000,896842.000000,199.804688,118.286133,81.518555,-1,-1,-1,-1,-1
+DDL_themis-microAllReduce.txt-3d_switch_homo.json-3d_switch_homo_themis_scf.txt-100-16 8 8-4 4 1-25 25 100-1,665.227000,0.000000,665.227000,1205218.000000,199.804688,67.977905,66.586304,65.240479,-1,-1,-1,-1
+DDL_themis-microAllReduce.txt-3d_switch_hetero.json-3d_switch_hetero_themis_scf.txt-100-16 8 8-8 4 1-25 25 50-1,565.373000,0.000000,565.373000,1153414.000000,199.804688,113.479614,57.785034,28.540039,-1,-1,-1,-1
+DDL_themis-microAllReduce.txt-3d_fc_ring_switch.json-3d_fc_ring_switch_themis_scf.txt-100-8 16 8-7 4 1-25 25 50-1,628.583000,0.000000,628.583000,1000148.000000,199.804688,106.106567,61.569214,32.128906,-1,-1,-1,-1
+DDL_themis-microAllReduce.txt-4d_ring_switch_switch_switch.json-4d_ring_switch_switch_switch_themis_scf.txt-100-4 4 8 8-2 8 4 1-125 25 25 50-1,335.904000,0.000000,335.904000,1409414.000000,199.804688,82.360840,66.687012,34.222412,16.534424,-1,-1,-1
+DDL_themis-microAllReduce.txt-4d_ring_fc_ring_switch.json-4d_ring_fc_ring_switch_themis_scf.txt-100-4 8 4 8-2 7 6 1-187.5 25 25 100-1,257.783000,0.000000,257.783000,1537748.000000,199.804688,92.944336,43.322754,38.671875,24.865723,-1,-1,-1

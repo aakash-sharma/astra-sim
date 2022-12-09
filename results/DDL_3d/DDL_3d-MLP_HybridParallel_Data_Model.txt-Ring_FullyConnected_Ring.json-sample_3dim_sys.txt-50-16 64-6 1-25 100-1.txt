@@ -1,0 +1,225 @@
+[CostModel] Added TileToTileLink: 32
+(T-T Link) Added cost: 8000 (BW: 250, count: 32, unit_cost: 50)
+[HierarchicalTopology, constructor] [Warning] Links-count at dimension 1 (FullyConnected) has 8 links (not a multiple of 7).
+[CostModel] Added NVLink: 112
+(NVLink) Added cost: 5600 (BW: 25, count: 112, unit_cost: 100)
+[CostModel] Added NVLink: 32
+(NVLink) Added cost: 800 (BW: 12.5, count: 32, unit_cost: 100)
+[CostModel] Added NPU: 32
+(Resource) Added cost: 0 (count: 32, unit_cost: 0)
+Success in opening system file
+Var is: scheduling-policy: ,val is: LIFO
+Var is: endpoint-delay: ,val is: 10
+Var is: active-chunks-per-dimension: ,val is: 1
+Var is: preferred-dataset-splits: ,val is: 1
+Var is: boost-mode: ,val is: 0
+Var is: all-reduce-implementation: ,val is: doubleBinaryTree_doubleBinaryTree_doubleBinaryTree
+Var is: all-gather-implementation: ,val is: ring_ring_ring
+Var is: reduce-scatter-implementation: ,val is: ring_ring_ring
+Var is: all-to-all-implementation: ,val is: oneDirect
+Var is: collective-optimization: ,val is: localBWAware
+Var is:  ,val is: localBWAware
+The final active chunks per dimension after allocating to queues is: 100000000
+Node 0: Double binary tree created with total nodes: 2 ,start: 0 ,stride: 1
+Node 0: Double binary tree created with total nodes: 8 ,start: 0 ,stride: 2
+Node 0: Double binary tree created with total nodes: 2 ,start: 0 ,stride: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 2total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 16total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 2total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 16total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 32 index in ring: 0 offset: 1total nodes in ring: 32
+total nodes: 32
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+Shared bus modeling enabled? false
+LogGP model, the L is:0 ,o is: 0 ,g is: 0 ,G is: 0.0038
+communication delay (in the case of disabled shared bus): 10
+Shared bus modeling enabled? false
+LogGP model, the L is:0 ,o is: 0 ,g is: 0 ,G is: 0
+communication delay (in the case of disabled shared bus): 10
+Success in opening workload file
+id: layer_64_2_mlp0 , depen: -1 , wg_comp_time: 32291
+id: layer_64_2_mlp1 , depen: -1 , wg_comp_time: 7488
+id: layer_64_2_mlp2 , depen: -1 , wg_comp_time: 7488
+id: layer_64_2_mlp3 , depen: -1 , wg_comp_time: 14144
+id: layer_64_2_mlp4 , depen: -1 , wg_comp_time: 7488
+id: layer_64_2_mlp5 , depen: -1 , wg_comp_time: 9984
+type: HYBRID_DATA_MODEL ,num passes: 1 ,lines: 6 compute scale: 0.26 ,comm scale: 50
+stat path: /Users/aakashsharma/work/astra-sim/examples/../results/DDL_3d// ,total rows: 6 ,stat row: 14
+info: all-gather forward pass collective issued for layer: layer_64_2_mlp0, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: layer_64_2_mlp0 is finished************
+info: all-gather forward pass collective issued for layer: layer_64_2_mlp1, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: layer_64_2_mlp1 is finished************
+info: all-gather forward pass collective issued for layer: layer_64_2_mlp2, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: layer_64_2_mlp2 is finished************
+info: all-gather forward pass collective issued for layer: layer_64_2_mlp3, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: layer_64_2_mlp3 is finished************
+info: all-gather forward pass collective issued for layer: layer_64_2_mlp4, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: layer_64_2_mlp4 is finished************
+info: all-gather forward pass collective issued for layer: layer_64_2_mlp5, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: layer_64_2_mlp5 is finished************
+info: all-reduce input grad collective issued for layer: layer_64_2_mlp5, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: layer_64_2_mlp5 with size: 3276800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: layer_64_2_mlp5 is finished************
+info: all-reduce input grad collective issued for layer: layer_64_2_mlp4, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: layer_64_2_mlp4 with size: 3276800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: layer_64_2_mlp4 is finished************
+info: all-reduce input grad collective issued for layer: layer_64_2_mlp3, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: layer_64_2_mlp3 with size: 7372800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: layer_64_2_mlp3 is finished************
+info: all-reduce input grad collective issued for layer: layer_64_2_mlp2, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: layer_64_2_mlp2 with size: 3276800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: layer_64_2_mlp2 is finished************
+info: all-reduce input grad collective issued for layer: layer_64_2_mlp1, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: layer_64_2_mlp1 with size: 3276800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: layer_64_2_mlp1 is finished************
+info: all-reduce weight grad collective issued for layer: layer_64_2_mlp0 with size: 1881600, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+pass: 0 finished at time: 180284
+***** info: weight gradient collective for layer: layer_64_2_mlp5 is finished************
+***** info: weight gradient collective for layer: layer_64_2_mlp4 is finished************
+***** info: weight gradient collective for layer: layer_64_2_mlp3 is finished************
+***** info: weight gradient collective for layer: layer_64_2_mlp2 is finished************
+***** info: weight gradient collective for layer: layer_64_2_mlp1 is finished************
+***** info: weight gradient collective for layer: layer_64_2_mlp0 is finished************
+*******************
+Layer id: layer_64_2_mlp0
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* layer_64_2_mlp0
+id: layer_64_2_mlp0 ,Total cycles spent on fwd pass compute: 8395
+id: layer_64_2_mlp0 ,Total cycles spent on weight grad compute: 8395
+id: layer_64_2_mlp0 ,Total cycles spent on input grad compute: 8395
+id: layer_64_2_mlp0 ,Total cycles spent idle waiting for fwd finish: 6753
+id: layer_64_2_mlp0 ,Total cycles spent idle waiting for weight grad finish: 10037097
+id: layer_64_2_mlp0 ,Total cycles spent idle waiting for input grad finish: 0
+id: layer_64_2_mlp0 ,Total cycles spent on fwd pass comm: 6753
+id: layer_64_2_mlp0 ,Total cycles spent on weight grad comm: 10037098
+id: layer_64_2_mlp0 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layer_64_2_mlp0
+id: layer_64_2_mlp0 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_2_mlp0 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 4.52608e+06
+id: layer_64_2_mlp0 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 0
+id: layer_64_2_mlp0 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+*************************  Network stats  ************************* layer_64_2_mlp0
+id: layer_64_2_mlp0 ,Average cycles spent on network for phase 1 of algorithm (per message): 212084
+id: layer_64_2_mlp0 ,Average cycles spent on network for phase 2 of algorithm (per message): 35077.5
+id: layer_64_2_mlp0 ,Average cycles spent on network for phase 3 of algorithm (per message): 105166
+*******************
+Layer id: layer_64_2_mlp1
+Total collectives issued for this layer: 3
+*************************  Workload stats  ************************* layer_64_2_mlp1
+id: layer_64_2_mlp1 ,Total cycles spent on fwd pass compute: 1946
+id: layer_64_2_mlp1 ,Total cycles spent on weight grad compute: 1946
+id: layer_64_2_mlp1 ,Total cycles spent on input grad compute: 1946
+id: layer_64_2_mlp1 ,Total cycles spent idle waiting for fwd finish: 6872
+id: layer_64_2_mlp1 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_2_mlp1 ,Total cycles spent idle waiting for input grad finish: 11056
+id: layer_64_2_mlp1 ,Total cycles spent on fwd pass comm: 6872
+id: layer_64_2_mlp1 ,Total cycles spent on weight grad comm: 9080767
+id: layer_64_2_mlp1 ,Total cycles spent on input grad comm: 13003
+*************************  Queuing stats  ************************* layer_64_2_mlp1
+id: layer_64_2_mlp1 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_2_mlp1 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 1.2563e+06
+id: layer_64_2_mlp1 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 0
+id: layer_64_2_mlp1 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.20056e+06
+*************************  Network stats  ************************* layer_64_2_mlp1
+id: layer_64_2_mlp1 ,Average cycles spent on network for phase 1 of algorithm (per message): 250299
+id: layer_64_2_mlp1 ,Average cycles spent on network for phase 2 of algorithm (per message): 81422.7
+id: layer_64_2_mlp1 ,Average cycles spent on network for phase 3 of algorithm (per message): 122092
+*******************
+Layer id: layer_64_2_mlp2
+Total collectives issued for this layer: 3
+*************************  Workload stats  ************************* layer_64_2_mlp2
+id: layer_64_2_mlp2 ,Total cycles spent on fwd pass compute: 1946
+id: layer_64_2_mlp2 ,Total cycles spent on weight grad compute: 1946
+id: layer_64_2_mlp2 ,Total cycles spent on input grad compute: 1946
+id: layer_64_2_mlp2 ,Total cycles spent idle waiting for fwd finish: 6872
+id: layer_64_2_mlp2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_2_mlp2 ,Total cycles spent idle waiting for input grad finish: 11056
+id: layer_64_2_mlp2 ,Total cycles spent on fwd pass comm: 6872
+id: layer_64_2_mlp2 ,Total cycles spent on weight grad comm: 8363137
+id: layer_64_2_mlp2 ,Total cycles spent on input grad comm: 13003
+*************************  Queuing stats  ************************* layer_64_2_mlp2
+id: layer_64_2_mlp2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_2_mlp2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 1.01709e+06
+id: layer_64_2_mlp2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 0
+id: layer_64_2_mlp2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.20056e+06
+*************************  Network stats  ************************* layer_64_2_mlp2
+id: layer_64_2_mlp2 ,Average cycles spent on network for phase 1 of algorithm (per message): 248259
+id: layer_64_2_mlp2 ,Average cycles spent on network for phase 2 of algorithm (per message): 40710
+id: layer_64_2_mlp2 ,Average cycles spent on network for phase 3 of algorithm (per message): 122092
+*******************
+Layer id: layer_64_2_mlp3
+Total collectives issued for this layer: 3
+*************************  Workload stats  ************************* layer_64_2_mlp3
+id: layer_64_2_mlp3 ,Total cycles spent on fwd pass compute: 3677
+id: layer_64_2_mlp3 ,Total cycles spent on weight grad compute: 3677
+id: layer_64_2_mlp3 ,Total cycles spent on input grad compute: 3677
+id: layer_64_2_mlp3 ,Total cycles spent idle waiting for fwd finish: 15166
+id: layer_64_2_mlp3 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_2_mlp3 ,Total cycles spent idle waiting for input grad finish: 25272
+id: layer_64_2_mlp3 ,Total cycles spent on fwd pass comm: 15166
+id: layer_64_2_mlp3 ,Total cycles spent on weight grad comm: 7660388
+id: layer_64_2_mlp3 ,Total cycles spent on input grad comm: 28950
+*************************  Queuing stats  ************************* layer_64_2_mlp3
+id: layer_64_2_mlp3 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_2_mlp3 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 477399
+id: layer_64_2_mlp3 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 0
+id: layer_64_2_mlp3 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 793611
+*************************  Network stats  ************************* layer_64_2_mlp3
+id: layer_64_2_mlp3 ,Average cycles spent on network for phase 1 of algorithm (per message): 563152
+id: layer_64_2_mlp3 ,Average cycles spent on network for phase 2 of algorithm (per message): 183156
+id: layer_64_2_mlp3 ,Average cycles spent on network for phase 3 of algorithm (per message): 274696
+*******************
+Layer id: layer_64_2_mlp4
+Total collectives issued for this layer: 3
+*************************  Workload stats  ************************* layer_64_2_mlp4
+id: layer_64_2_mlp4 ,Total cycles spent on fwd pass compute: 1946
+id: layer_64_2_mlp4 ,Total cycles spent on weight grad compute: 1946
+id: layer_64_2_mlp4 ,Total cycles spent on input grad compute: 1946
+id: layer_64_2_mlp4 ,Total cycles spent idle waiting for fwd finish: 6872
+id: layer_64_2_mlp4 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_2_mlp4 ,Total cycles spent idle waiting for input grad finish: 11056
+id: layer_64_2_mlp4 ,Total cycles spent on fwd pass comm: 6872
+id: layer_64_2_mlp4 ,Total cycles spent on weight grad comm: 6029907
+id: layer_64_2_mlp4 ,Total cycles spent on input grad comm: 13003
+*************************  Queuing stats  ************************* layer_64_2_mlp4
+id: layer_64_2_mlp4 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_2_mlp4 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 239343
+id: layer_64_2_mlp4 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 0
+id: layer_64_2_mlp4 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.20056e+06
+*************************  Network stats  ************************* layer_64_2_mlp4
+id: layer_64_2_mlp4 ,Average cycles spent on network for phase 1 of algorithm (per message): 248259
+id: layer_64_2_mlp4 ,Average cycles spent on network for phase 2 of algorithm (per message): 40710
+id: layer_64_2_mlp4 ,Average cycles spent on network for phase 3 of algorithm (per message): 122092
+*******************
+Layer id: layer_64_2_mlp5
+Total collectives issued for this layer: 3
+*************************  Workload stats  ************************* layer_64_2_mlp5
+id: layer_64_2_mlp5 ,Total cycles spent on fwd pass compute: 2595
+id: layer_64_2_mlp5 ,Total cycles spent on weight grad compute: 2595
+id: layer_64_2_mlp5 ,Total cycles spent on input grad compute: 2595
+id: layer_64_2_mlp5 ,Total cycles spent idle waiting for fwd finish: 7121
+id: layer_64_2_mlp5 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_2_mlp5 ,Total cycles spent idle waiting for input grad finish: 10656
+id: layer_64_2_mlp5 ,Total cycles spent on fwd pass comm: 7121
+id: layer_64_2_mlp5 ,Total cycles spent on weight grad comm: 5312126
+id: layer_64_2_mlp5 ,Total cycles spent on input grad comm: 13252
+*************************  Queuing stats  ************************* layer_64_2_mlp5
+id: layer_64_2_mlp5 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_2_mlp5 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 0
+id: layer_64_2_mlp5 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 0
+id: layer_64_2_mlp5 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.20056e+06
+*************************  Network stats  ************************* layer_64_2_mlp5
+id: layer_64_2_mlp5 ,Average cycles spent on network for phase 1 of algorithm (per message): 250299
+id: layer_64_2_mlp5 ,Average cycles spent on network for phase 2 of algorithm (per message): 81422.7
+id: layer_64_2_mlp5 ,Average cycles spent on network for phase 3 of algorithm (per message): 122092
+*************************  Chunk Stats Per Logical Dimension (for all layers) ************************* layer_64_2_mlp5
+ ,Average chunk latency for logical dimension  1 of topology: 10756.4
+ ,Average chunk latency for logical dimension  2 of topology: 833206
+ ,Average chunk latency for logical dimension  3 of topology: 277828
+*************************
+all passes finished at time: 10217382, id of first layer: layer_64_2_mlp0

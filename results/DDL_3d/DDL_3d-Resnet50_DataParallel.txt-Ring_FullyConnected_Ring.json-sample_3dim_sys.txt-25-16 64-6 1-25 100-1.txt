@@ -1,0 +1,498 @@
+[CostModel] Added TileToTileLink: 32
+(T-T Link) Added cost: 8000 (BW: 250, count: 32, unit_cost: 50)
+[HierarchicalTopology, constructor] [Warning] Links-count at dimension 1 (FullyConnected) has 8 links (not a multiple of 7).
+[CostModel] Added NVLink: 112
+(NVLink) Added cost: 5600 (BW: 25, count: 112, unit_cost: 100)
+[CostModel] Added NVLink: 32
+(NVLink) Added cost: 800 (BW: 12.5, count: 32, unit_cost: 100)
+[CostModel] Added NPU: 32
+(Resource) Added cost: 0 (count: 32, unit_cost: 0)
+Success in opening system file
+Var is: scheduling-policy: ,val is: LIFO
+Var is: endpoint-delay: ,val is: 10
+Var is: active-chunks-per-dimension: ,val is: 1
+Var is: preferred-dataset-splits: ,val is: 1
+Var is: boost-mode: ,val is: 0
+Var is: all-reduce-implementation: ,val is: doubleBinaryTree_doubleBinaryTree_doubleBinaryTree
+Var is: all-gather-implementation: ,val is: ring_ring_ring
+Var is: reduce-scatter-implementation: ,val is: ring_ring_ring
+Var is: all-to-all-implementation: ,val is: oneDirect
+Var is: collective-optimization: ,val is: localBWAware
+Var is:  ,val is: localBWAware
+The final active chunks per dimension after allocating to queues is: 100000000
+Node 0: Double binary tree created with total nodes: 2 ,start: 0 ,stride: 1
+Node 0: Double binary tree created with total nodes: 8 ,start: 0 ,stride: 2
+Node 0: Double binary tree created with total nodes: 2 ,start: 0 ,stride: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 2total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 16total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 2total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 16total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 32 index in ring: 0 offset: 1total nodes in ring: 32
+total nodes: 32
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+Shared bus modeling enabled? false
+LogGP model, the L is:0 ,o is: 0 ,g is: 0 ,G is: 0.0038
+communication delay (in the case of disabled shared bus): 10
+Shared bus modeling enabled? false
+LogGP model, the L is:0 ,o is: 0 ,g is: 0 ,G is: 0
+communication delay (in the case of disabled shared bus): 10
+Success in opening workload file
+id: conv1 , depen: -1 , wg_comp_time: 32291
+id: layer_64_1_conv4 , depen: -1 , wg_comp_time: 7488
+id: layer_64_1_conv1 , depen: -1 , wg_comp_time: 7488
+id: layer_64_1_conv2 , depen: -1 , wg_comp_time: 14144
+id: layer_64_1_conv3 , depen: -1 , wg_comp_time: 7488
+id: layer_64_2_conv1 , depen: -1 , wg_comp_time: 9984
+id: layer_64_2_conv2 , depen: -1 , wg_comp_time: 14144
+id: layer_64_2_conv3 , depen: -1 , wg_comp_time: 7488
+id: layer_64_3_conv1 , depen: -1 , wg_comp_time: 9984
+id: layer_64_3_conv2 , depen: -1 , wg_comp_time: 14144
+id: layer_64_3_conv3 , depen: -1 , wg_comp_time: 7488
+id: layer_128_1_conv4 , depen: -1 , wg_comp_time: 6144
+id: layer_128_1_conv1 , depen: -1 , wg_comp_time: 9984
+id: layer_128_1_conv2 , depen: -1 , wg_comp_time: 6656
+id: layer_128_1_conv3 , depen: -1 , wg_comp_time: 5120
+id: layer_128_2_conv1 , depen: -1 , wg_comp_time: 4096
+id: layer_128_2_conv2 , depen: -1 , wg_comp_time: 6656
+id: layer_128_2_conv3 , depen: -1 , wg_comp_time: 5120
+id: layer_128_3_conv1 , depen: -1 , wg_comp_time: 4096
+id: layer_128_3_conv2 , depen: -1 , wg_comp_time: 6656
+id: layer_128_3_conv3 , depen: -1 , wg_comp_time: 5120
+id: layer_128_4_conv1 , depen: -1 , wg_comp_time: 4096
+id: layer_128_4_conv2 , depen: -1 , wg_comp_time: 6656
+id: layer_128_4_conv3 , depen: -1 , wg_comp_time: 5120
+id: layer_256_1_conv4 , depen: -1 , wg_comp_time: 3856
+id: layer_256_1_conv1 , depen: -1 , wg_comp_time: 4096
+id: layer_256_1_conv2 , depen: -1 , wg_comp_time: 2756
+id: layer_256_1_conv3 , depen: -1 , wg_comp_time: 2832
+id: layer_256_2_conv1 , depen: -1 , wg_comp_time: 1476
+id: layer_256_2_conv2 , depen: -1 , wg_comp_time: 2756
+id: layer_256_2_conv3 , depen: -1 , wg_comp_time: 2832
+id: layer_256_3_conv1 , depen: -1 , wg_comp_time: 1476
+id: layer_256_3_conv2 , depen: -1 , wg_comp_time: 2756
+id: layer_256_3_conv3 , depen: -1 , wg_comp_time: 2832
+id: layer_256_4_conv1 , depen: -1 , wg_comp_time: 1476
+id: layer_256_4_conv2 , depen: -1 , wg_comp_time: 2756
+id: layer_256_4_conv3 , depen: -1 , wg_comp_time: 2832
+id: layer_256_5_conv1 , depen: -1 , wg_comp_time: 1476
+id: layer_256_5_conv2 , depen: -1 , wg_comp_time: 2756
+id: layer_256_5_conv3 , depen: -1 , wg_comp_time: 2832
+id: layer_256_6_conv1 , depen: -1 , wg_comp_time: 1476
+id: layer_256_6_conv2 , depen: -1 , wg_comp_time: 2756
+id: layer_256_6_conv3 , depen: -1 , wg_comp_time: 2832
+id: layer_512_1_conv4 , depen: -1 , wg_comp_time: 10632
+id: layer_512_1_conv1 , depen: -1 , wg_comp_time: 2952
+id: layer_512_1_conv2 , depen: -1 , wg_comp_time: 9826
+id: layer_512_1_conv3 , depen: -1 , wg_comp_time: 6536
+id: layer_512_2_conv1 , depen: -1 , wg_comp_time: 4706
+id: layer_512_2_conv2 , depen: -1 , wg_comp_time: 9826
+id: layer_512_2_conv3 , depen: -1 , wg_comp_time: 6536
+id: layer_512_3_conv1 , depen: -1 , wg_comp_time: 4706
+id: layer_512_3_conv2 , depen: -1 , wg_comp_time: 9826
+id: layer_512_3_conv3 , depen: -1 , wg_comp_time: 6536
+id: fc1000 , depen: -1 , wg_comp_time: 9220
+type: DATA ,num passes: 1 ,lines: 54 compute scale: 0.26 ,comm scale: 25
+stat path: /Users/aakashsharma/work/astra-sim/examples/../results/DDL_3d// ,total rows: 6 ,stat row: 6
+info: all-reduce weight grad collective issued for layer: fc1000 with size: 204800000, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_512_3_conv3 with size: 104857600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_512_3_conv2 with size: 235929600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_512_3_conv1 with size: 104857600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_512_2_conv3 with size: 104857600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_512_2_conv2 with size: 235929600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_512_2_conv1 with size: 104857600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_512_1_conv3 with size: 104857600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_512_1_conv2 with size: 235929600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_512_1_conv1 with size: 52428800, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_512_1_conv4 with size: 209715200, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_6_conv3 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_6_conv2 with size: 58982400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_6_conv1 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_5_conv3 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_5_conv2 with size: 58982400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_5_conv1 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_4_conv3 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_4_conv2 with size: 58982400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_4_conv1 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_3_conv3 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_3_conv2 with size: 58982400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_3_conv1 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_2_conv3 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_2_conv2 with size: 58982400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_2_conv1 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_1_conv3 with size: 26214400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_1_conv2 with size: 58982400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_1_conv1 with size: 13107200, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_256_1_conv4 with size: 52428800, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_128_4_conv3 with size: 6553600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_128_4_conv2 with size: 14745600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_128_4_conv1 with size: 6553600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_128_3_conv3 with size: 6553600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_128_3_conv2 with size: 14745600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_128_3_conv1 with size: 6553600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_128_2_conv3 with size: 6553600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_128_2_conv2 with size: 14745600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_128_2_conv1 with size: 6553600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_128_1_conv3 with size: 6553600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_128_1_conv2 with size: 14745600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_128_1_conv1 with size: 3276800, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_128_1_conv4 with size: 13107200, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_64_3_conv3 with size: 1638400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_64_3_conv2 with size: 3686400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_64_3_conv1 with size: 1638400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_64_2_conv3 with size: 1638400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_64_2_conv2 with size: 3686400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_64_2_conv1 with size: 1638400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_64_1_conv3 with size: 1638400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_64_1_conv2 with size: 3686400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_64_1_conv1 with size: 409600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: layer_64_1_conv4 with size: 1638400, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce weight grad collective issued for layer: conv1 with size: 940800, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+pass: 0 finished at time: 281506
+***** info: weight gradient collective for layer: conv1 is finished************
+***** info: weight gradient collective for layer: layer_64_1_conv4 is finished************
+***** info: weight gradient collective for layer: layer_64_1_conv1 is finished************
+***** info: weight gradient collective for layer: layer_64_1_conv2 is finished************
+***** info: weight gradient collective for layer: layer_64_1_conv3 is finished************
+***** info: weight gradient collective for layer: layer_64_2_conv1 is finished************
+***** info: weight gradient collective for layer: layer_64_2_conv2 is finished************
+***** info: weight gradient collective for layer: layer_64_2_conv3 is finished************
+***** info: weight gradient collective for layer: layer_64_3_conv1 is finished************
+***** info: weight gradient collective for layer: layer_64_3_conv2 is finished************
+***** info: weight gradient collective for layer: layer_64_3_conv3 is finished************
+***** info: weight gradient collective for layer: layer_128_1_conv4 is finished************
+***** info: weight gradient collective for layer: layer_128_1_conv1 is finished************
+***** info: weight gradient collective for layer: layer_128_1_conv2 is finished************
+***** info: weight gradient collective for layer: layer_128_1_conv3 is finished************
+***** info: weight gradient collective for layer: layer_128_2_conv1 is finished************
+***** info: weight gradient collective for layer: layer_128_2_conv2 is finished************
+***** info: weight gradient collective for layer: layer_128_2_conv3 is finished************
+***** info: weight gradient collective for layer: layer_128_3_conv1 is finished************
+***** info: weight gradient collective for layer: layer_128_3_conv2 is finished************
+***** info: weight gradient collective for layer: layer_128_3_conv3 is finished************
+***** info: weight gradient collective for layer: layer_128_4_conv1 is finished************
+***** info: weight gradient collective for layer: layer_128_4_conv2 is finished************
+***** info: weight gradient collective for layer: layer_128_4_conv3 is finished************
+***** info: weight gradient collective for layer: layer_256_1_conv4 is finished************
+***** info: weight gradient collective for layer: layer_256_1_conv1 is finished************
+***** info: weight gradient collective for layer: layer_256_1_conv2 is finished************
+***** info: weight gradient collective for layer: layer_256_1_conv3 is finished************
+***** info: weight gradient collective for layer: layer_256_2_conv1 is finished************
+***** info: weight gradient collective for layer: layer_256_2_conv2 is finished************
+***** info: weight gradient collective for layer: layer_256_2_conv3 is finished************
+***** info: weight gradient collective for layer: layer_256_3_conv1 is finished************
+***** info: weight gradient collective for layer: layer_256_3_conv2 is finished************
+***** info: weight gradient collective for layer: layer_256_3_conv3 is finished************
+***** info: weight gradient collective for layer: layer_256_4_conv1 is finished************
+***** info: weight gradient collective for layer: layer_256_4_conv2 is finished************
+***** info: weight gradient collective for layer: layer_256_4_conv3 is finished************
+***** info: weight gradient collective for layer: layer_256_5_conv1 is finished************
+***** info: weight gradient collective for layer: layer_256_5_conv2 is finished************
+***** info: weight gradient collective for layer: layer_256_5_conv3 is finished************
+***** info: weight gradient collective for layer: layer_256_6_conv1 is finished************
+***** info: weight gradient collective for layer: layer_256_6_conv2 is finished************
+***** info: weight gradient collective for layer: layer_256_6_conv3 is finished************
+***** info: weight gradient collective for layer: layer_512_1_conv4 is finished************
+***** info: weight gradient collective for layer: layer_512_1_conv1 is finished************
+***** info: weight gradient collective for layer: layer_512_1_conv2 is finished************
+***** info: weight gradient collective for layer: layer_512_1_conv3 is finished************
+***** info: weight gradient collective for layer: layer_512_2_conv1 is finished************
+***** info: weight gradient collective for layer: layer_512_2_conv2 is finished************
+***** info: weight gradient collective for layer: layer_512_2_conv3 is finished************
+***** info: weight gradient collective for layer: layer_512_3_conv1 is finished************
+***** info: weight gradient collective for layer: layer_512_3_conv2 is finished************
+***** info: weight gradient collective for layer: layer_512_3_conv3 is finished************
+***** info: weight gradient collective for layer: fc1000 is finished************
+*******************
+Layer id: conv1
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* conv1
+id: conv1 ,Total cycles spent on fwd pass compute: 3380
+id: conv1 ,Total cycles spent on weight grad compute: 8395
+id: conv1 ,Total cycles spent on input grad compute: 0
+id: conv1 ,Total cycles spent idle waiting for fwd finish: 0
+id: conv1 ,Total cycles spent idle waiting for weight grad finish: 64741740
+id: conv1 ,Total cycles spent idle waiting for input grad finish: 0
+id: conv1 ,Total cycles spent on fwd pass comm: 0
+id: conv1 ,Total cycles spent on weight grad comm: 64741741
+id: conv1 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* conv1
+id: conv1 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: conv1 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 583919
+id: conv1 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 4.5779e+07
+id: conv1 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.50498e+07
+id: conv1 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 2.82775e+06
+id: conv1 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* conv1
+id: conv1 ,Average cycles spent on network for phase 1 of algorithm (per message): 3517
+id: conv1 ,Average cycles spent on network for phase 2 of algorithm (per message): 210347
+id: conv1 ,Average cycles spent on network for phase 3 of algorithm (per message): 35107
+id: conv1 ,Average cycles spent on network for phase 4 of algorithm (per message): 105177
+id: conv1 ,Average cycles spent on network for phase 5 of algorithm (per message): 1762
+*******************
+Layer id: layer_64_1_conv4
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* layer_64_1_conv4
+id: layer_64_1_conv4 ,Total cycles spent on fwd pass compute: 898
+id: layer_64_1_conv4 ,Total cycles spent on weight grad compute: 1946
+id: layer_64_1_conv4 ,Total cycles spent on input grad compute: 948
+id: layer_64_1_conv4 ,Total cycles spent idle waiting for fwd finish: 0
+id: layer_64_1_conv4 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_1_conv4 ,Total cycles spent idle waiting for input grad finish: 0
+id: layer_64_1_conv4 ,Total cycles spent on fwd pass comm: 0
+id: layer_64_1_conv4 ,Total cycles spent on weight grad comm: 65117535
+id: layer_64_1_conv4 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layer_64_1_conv4
+id: layer_64_1_conv4 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_1_conv4 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 596801
+id: layer_64_1_conv4 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 4.59833e+07
+id: layer_64_1_conv4 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.47537e+07
+id: layer_64_1_conv4 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 2.91591e+06
+id: layer_64_1_conv4 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* layer_64_1_conv4
+id: layer_64_1_conv4 ,Average cycles spent on network for phase 1 of algorithm (per message): 6121
+id: layer_64_1_conv4 ,Average cycles spent on network for phase 2 of algorithm (per message): 366305
+id: layer_64_1_conv4 ,Average cycles spent on network for phase 3 of algorithm (per message): 122189
+id: layer_64_1_conv4 ,Average cycles spent on network for phase 4 of algorithm (per message): 183153
+id: layer_64_1_conv4 ,Average cycles spent on network for phase 5 of algorithm (per message): 3061
+*******************
+Layer id: layer_64_1_conv1
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* layer_64_1_conv1
+id: layer_64_1_conv1 ,Total cycles spent on fwd pass compute: 898
+id: layer_64_1_conv1 ,Total cycles spent on weight grad compute: 1946
+id: layer_64_1_conv1 ,Total cycles spent on input grad compute: 898
+id: layer_64_1_conv1 ,Total cycles spent idle waiting for fwd finish: 0
+id: layer_64_1_conv1 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_1_conv1 ,Total cycles spent idle waiting for input grad finish: 0
+id: layer_64_1_conv1 ,Total cycles spent on fwd pass comm: 0
+id: layer_64_1_conv1 ,Total cycles spent on weight grad comm: 65207412
+id: layer_64_1_conv1 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layer_64_1_conv1
+id: layer_64_1_conv1 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_1_conv1 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 605788
+id: layer_64_1_conv1 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 4.6348e+07
+id: layer_64_1_conv1 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.47843e+07
+id: layer_64_1_conv1 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 3.25158e+06
+id: layer_64_1_conv1 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* layer_64_1_conv1
+id: layer_64_1_conv1 ,Average cycles spent on network for phase 1 of algorithm (per message): 1534
+id: layer_64_1_conv1 ,Average cycles spent on network for phase 2 of algorithm (per message): 91598
+id: layer_64_1_conv1 ,Average cycles spent on network for phase 3 of algorithm (per message): 15318
+id: layer_64_1_conv1 ,Average cycles spent on network for phase 4 of algorithm (per message): 45804
+id: layer_64_1_conv1 ,Average cycles spent on network for phase 5 of algorithm (per message): 772
+*******************
+Layer id: layer_64_1_conv2
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* layer_64_1_conv2
+id: layer_64_1_conv2 ,Total cycles spent on fwd pass compute: 2845
+id: layer_64_1_conv2 ,Total cycles spent on weight grad compute: 3677
+id: layer_64_1_conv2 ,Total cycles spent on input grad compute: 2695
+id: layer_64_1_conv2 ,Total cycles spent idle waiting for fwd finish: 0
+id: layer_64_1_conv2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_1_conv2 ,Total cycles spent idle waiting for input grad finish: 0
+id: layer_64_1_conv2 ,Total cycles spent on fwd pass comm: 0
+id: layer_64_1_conv2 ,Total cycles spent on weight grad comm: 66049098
+id: layer_64_1_conv2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layer_64_1_conv2
+id: layer_64_1_conv2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_1_conv2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 611985
+id: layer_64_1_conv2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 4.64259e+07
+id: layer_64_1_conv2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.39908e+07
+id: layer_64_1_conv2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 3.06839e+06
+id: layer_64_1_conv2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* layer_64_1_conv2
+id: layer_64_1_conv2 ,Average cycles spent on network for phase 1 of algorithm (per message): 13763
+id: layer_64_1_conv2 ,Average cycles spent on network for phase 2 of algorithm (per message): 824129
+id: layer_64_1_conv2 ,Average cycles spent on network for phase 3 of algorithm (per message): 274789
+id: layer_64_1_conv2 ,Average cycles spent on network for phase 4 of algorithm (per message): 412059
+id: layer_64_1_conv2 ,Average cycles spent on network for phase 5 of algorithm (per message): 6876
+*******************
+Layer id: layer_64_1_conv3
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* layer_64_1_conv3
+id: layer_64_1_conv3 ,Total cycles spent on fwd pass compute: 898
+id: layer_64_1_conv3 ,Total cycles spent on weight grad compute: 1946
+id: layer_64_1_conv3 ,Total cycles spent on input grad compute: 948
+id: layer_64_1_conv3 ,Total cycles spent idle waiting for fwd finish: 0
+id: layer_64_1_conv3 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_1_conv3 ,Total cycles spent idle waiting for input grad finish: 0
+id: layer_64_1_conv3 ,Total cycles spent on fwd pass comm: 0
+id: layer_64_1_conv3 ,Total cycles spent on weight grad comm: 66411743
+id: layer_64_1_conv3 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layer_64_1_conv3
+id: layer_64_1_conv3 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_1_conv3 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 630395
+id: layer_64_1_conv3 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 4.72439e+07
+id: layer_64_1_conv3 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.38993e+07
+id: layer_64_1_conv3 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 3.77033e+06
+id: layer_64_1_conv3 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* layer_64_1_conv3
+id: layer_64_1_conv3 ,Average cycles spent on network for phase 1 of algorithm (per message): 6121
+id: layer_64_1_conv3 ,Average cycles spent on network for phase 2 of algorithm (per message): 366305
+id: layer_64_1_conv3 ,Average cycles spent on network for phase 3 of algorithm (per message): 61095
+id: layer_64_1_conv3 ,Average cycles spent on network for phase 4 of algorithm (per message): 183153
+id: layer_64_1_conv3 ,Average cycles spent on network for phase 5 of algorithm (per message): 3061
+*******************
+Layer id: layer_64_2_conv1
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* layer_64_2_conv1
+id: layer_64_2_conv1 ,Total cycles spent on fwd pass compute: 948
+id: layer_64_2_conv1 ,Total cycles spent on weight grad compute: 2595
+id: layer_64_2_conv1 ,Total cycles spent on input grad compute: 898
+id: layer_64_2_conv1 ,Total cycles spent idle waiting for fwd finish: 0
+id: layer_64_2_conv1 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_2_conv1 ,Total cycles spent idle waiting for input grad finish: 0
+id: layer_64_2_conv1 ,Total cycles spent on fwd pass comm: 0
+id: layer_64_2_conv1 ,Total cycles spent on weight grad comm: 66781163
+id: layer_64_2_conv1 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layer_64_2_conv1
+id: layer_64_2_conv1 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_2_conv1 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 639382
+id: layer_64_2_conv1 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 4.76041e+07
+id: layer_64_2_conv1 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.36551e+07
+id: layer_64_2_conv1 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 4.01445e+06
+id: layer_64_2_conv1 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* layer_64_2_conv1
+id: layer_64_2_conv1 ,Average cycles spent on network for phase 1 of algorithm (per message): 6121
+id: layer_64_2_conv1 ,Average cycles spent on network for phase 2 of algorithm (per message): 366305
+id: layer_64_2_conv1 ,Average cycles spent on network for phase 3 of algorithm (per message): 122189
+id: layer_64_2_conv1 ,Average cycles spent on network for phase 4 of algorithm (per message): 183153
+id: layer_64_2_conv1 ,Average cycles spent on network for phase 5 of algorithm (per message): 3061
+*******************
+Layer id: layer_64_2_conv2
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* layer_64_2_conv2
+id: layer_64_2_conv2 ,Total cycles spent on fwd pass compute: 2845
+id: layer_64_2_conv2 ,Total cycles spent on weight grad compute: 3677
+id: layer_64_2_conv2 ,Total cycles spent on input grad compute: 2695
+id: layer_64_2_conv2 ,Total cycles spent idle waiting for fwd finish: 0
+id: layer_64_2_conv2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_2_conv2 ,Total cycles spent idle waiting for input grad finish: 0
+id: layer_64_2_conv2 ,Total cycles spent on fwd pass comm: 0
+id: layer_64_2_conv2 ,Total cycles spent on weight grad comm: 67618662
+id: layer_64_2_conv2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layer_64_2_conv2
+id: layer_64_2_conv2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_2_conv2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 650815
+id: layer_64_2_conv2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 4.79566e+07
+id: layer_64_2_conv2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.29532e+07
+id: layer_64_2_conv2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 4.10597e+06
+id: layer_64_2_conv2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* layer_64_2_conv2
+id: layer_64_2_conv2 ,Average cycles spent on network for phase 1 of algorithm (per message): 13763
+id: layer_64_2_conv2 ,Average cycles spent on network for phase 2 of algorithm (per message): 824129
+id: layer_64_2_conv2 ,Average cycles spent on network for phase 3 of algorithm (per message): 137389
+id: layer_64_2_conv2 ,Average cycles spent on network for phase 4 of algorithm (per message): 412059
+id: layer_64_2_conv2 ,Average cycles spent on network for phase 5 of algorithm (per message): 6876
+*******************
+Layer id: layer_64_2_conv3
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* layer_64_2_conv3
+id: layer_64_2_conv3 ,Total cycles spent on fwd pass compute: 898
+id: layer_64_2_conv3 ,Total cycles spent on weight grad compute: 1946
+id: layer_64_2_conv3 ,Total cycles spent on input grad compute: 948
+id: layer_64_2_conv3 ,Total cycles spent idle waiting for fwd finish: 0
+id: layer_64_2_conv3 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_2_conv3 ,Total cycles spent idle waiting for input grad finish: 0
+id: layer_64_2_conv3 ,Total cycles spent on fwd pass comm: 0
+id: layer_64_2_conv3 ,Total cycles spent on weight grad comm: 67981307
+id: layer_64_2_conv3 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layer_64_2_conv3
+id: layer_64_2_conv3 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_2_conv3 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 669225
+id: layer_64_2_conv3 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 4.87746e+07
+id: layer_64_2_conv3 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.28617e+07
+id: layer_64_2_conv3 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 4.80791e+06
+id: layer_64_2_conv3 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* layer_64_2_conv3
+id: layer_64_2_conv3 ,Average cycles spent on network for phase 1 of algorithm (per message): 6121
+id: layer_64_2_conv3 ,Average cycles spent on network for phase 2 of algorithm (per message): 366305
+id: layer_64_2_conv3 ,Average cycles spent on network for phase 3 of algorithm (per message): 122189
+id: layer_64_2_conv3 ,Average cycles spent on network for phase 4 of algorithm (per message): 183153
+id: layer_64_2_conv3 ,Average cycles spent on network for phase 5 of algorithm (per message): 3061
+*******************
+Layer id: layer_64_3_conv1
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* layer_64_3_conv1
+id: layer_64_3_conv1 ,Total cycles spent on fwd pass compute: 948
+id: layer_64_3_conv1 ,Total cycles spent on weight grad compute: 2595
+id: layer_64_3_conv1 ,Total cycles spent on input grad compute: 898
+id: layer_64_3_conv1 ,Total cycles spent idle waiting for fwd finish: 0
+id: layer_64_3_conv1 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_3_conv1 ,Total cycles spent idle waiting for input grad finish: 0
+id: layer_64_3_conv1 ,Total cycles spent on fwd pass comm: 0
+id: layer_64_3_conv1 ,Total cycles spent on weight grad comm: 68350727
+id: layer_64_3_conv1 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layer_64_3_conv1
+id: layer_64_3_conv1 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_3_conv1 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 678212
+id: layer_64_3_conv1 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 4.91348e+07
+id: layer_64_3_conv1 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.26176e+07
+id: layer_64_3_conv1 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 5.05202e+06
+id: layer_64_3_conv1 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* layer_64_3_conv1
+id: layer_64_3_conv1 ,Average cycles spent on network for phase 1 of algorithm (per message): 6121
+id: layer_64_3_conv1 ,Average cycles spent on network for phase 2 of algorithm (per message): 366305
+id: layer_64_3_conv1 ,Average cycles spent on network for phase 3 of algorithm (per message): 61095
+id: layer_64_3_conv1 ,Average cycles spent on network for phase 4 of algorithm (per message): 183153
+id: layer_64_3_conv1 ,Average cycles spent on network for phase 5 of algorithm (per message): 3061
+*******************
+Layer id: layer_64_3_conv2
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* layer_64_3_conv2
+id: layer_64_3_conv2 ,Total cycles spent on fwd pass compute: 2845
+id: layer_64_3_conv2 ,Total cycles spent on weight grad compute: 3677
+id: layer_64_3_conv2 ,Total cycles spent on input grad compute: 2695
+id: layer_64_3_conv2 ,Total cycles spent idle waiting for fwd finish: 0
+id: layer_64_3_conv2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_3_conv2 ,Total cycles spent idle waiting for input grad finish: 0
+id: layer_64_3_conv2 ,Total cycles spent on fwd pass comm: 0
+id: layer_64_3_conv2 ,Total cycles spent on weight grad comm: 69188226
+id: layer_64_3_conv2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layer_64_3_conv2
+id: layer_64_3_conv2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_3_conv2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 689645
+id: layer_64_3_conv2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 4.94873e+07
+id: layer_64_3_conv2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.19156e+07
+id: layer_64_3_conv2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 5.14354e+06
+id: layer_64_3_conv2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* layer_64_3_conv2
+id: layer_64_3_conv2 ,Average cycles spent on network for phase 1 of algorithm (per message): 13763
+id: layer_64_3_conv2 ,Average cycles spent on network for phase 2 of algorithm (per message): 824129
+id: layer_64_3_conv2 ,Average cycles spent on network for phase 3 of algorithm (per message): 274789
+id: layer_64_3_conv2 ,Average cycles spent on network for phase 4 of algorithm (per message): 412059
+id: layer_64_3_conv2 ,Average cycles spent on network for phase 5 of algorithm (per message): 6876
+*******************
+Layer id: layer_64_3_conv3
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* layer_64_3_conv3
+id: layer_64_3_conv3 ,Total cycles spent on fwd pass compute: 898
+id: layer_64_3_conv3 ,Total cycles spent on weight grad compute: 1946
+id: layer_64_3_conv3 ,Total cycles spent on input grad compute: 948
+id: layer_64_3_conv3 ,Total cycles spent idle waiting for fwd finish: 0
+id: layer_64_3_conv3 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layer_64_3_conv3 ,Total cycles spent idle waiting for input grad finish: 0
+id: layer_64_3_conv3 ,Total cycles spent on fwd pass comm: 0
+id: layer_64_3_conv3 ,Total cycles spent on weight grad comm: 69550871
+id: layer_64_3_conv3 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layer_64_3_conv3
+id: layer_64_3_conv3 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: layer_64_3_conv3 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 708055
+id: layer_64_3_conv3 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 5.03053e+07
+id: layer_64_3_conv3 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 1.18241e+07
+id: layer_64_3_conv3 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 5.84548e+06
+id: layer_64_3_conv3 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* layer_64_3_conv3
+id: layer_64_3_conv3 ,Average cycles spent on network for phase 1 of algorithm (per message): 6121
+id: layer_64_3_conv3 ,Average cycles spent on network for phase 2 of algorithm (per message): 366305
+id: layer_64_3_conv3 ,Average cycles spent on network for phase 3 of algorithm (per message): 61095
+id: layer_64_3_conv3 ,Average cycles spent on network for phase 4 of algorithm (per message): 183153
+id: layer_64_3_conv3 ,Average cycles spent on network for phase 5 of algorithm (per message): 3061
+*******************
+Layer id: layer_128_1_conv4
+Total collectives issued for this layer: 1

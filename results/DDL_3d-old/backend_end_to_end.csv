@@ -1,0 +1,13 @@
+RunName,CommsTime,ComputeTime,ExposedCommsTime,Cost,TotalPayloadSize,PayloadSize_Dim0,PayloadSize_Dim1,PayloadSize_Dim2,PayloadSize_Dim3,PayloadSize_Dim4,PayloadSize_Dim5,PayloadSize_Dim6
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+
+
+
+
+
+
+
+
+
+DDL_3d-microAllReduce.txt-Ring_FullyConnected_Switch.json-sample_3dim_sys.txt-100-16 8 8-4 4 1-25 25 100-1

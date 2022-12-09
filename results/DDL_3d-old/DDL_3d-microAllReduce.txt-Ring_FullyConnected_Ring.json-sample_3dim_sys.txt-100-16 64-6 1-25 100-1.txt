@@ -1,0 +1,81 @@
+[CostModel] Added TileToTileLink: 32
+(T-T Link) Added cost: 8000 (BW: 250, count: 32, unit_cost: 50)
+[HierarchicalTopology, constructor] [Warning] Links-count at dimension 1 (FullyConnected) has 8 links (not a multiple of 7).
+[CostModel] Added NVLink: 112
+(NVLink) Added cost: 5600 (BW: 25, count: 112, unit_cost: 100)
+[CostModel] Added NVLink: 32
+(NVLink) Added cost: 800 (BW: 12.5, count: 32, unit_cost: 100)
+[CostModel] Added NPU: 32
+(Resource) Added cost: 0 (count: 32, unit_cost: 0)
+Success in opening system file
+Var is: scheduling-policy: ,val is: LIFO
+Var is: endpoint-delay: ,val is: 10
+Var is: active-chunks-per-dimension: ,val is: 1
+Var is: preferred-dataset-splits: ,val is: 1
+Var is: boost-mode: ,val is: 0
+Var is: all-reduce-implementation: ,val is: doubleBinaryTree_doubleBinaryTree_doubleBinaryTree
+Var is: all-gather-implementation: ,val is: ring_ring_ring
+Var is: reduce-scatter-implementation: ,val is: ring_ring_ring
+Var is: all-to-all-implementation: ,val is: oneDirect
+Var is: collective-optimization: ,val is: localBWAware
+Var is:  ,val is: localBWAware
+The final active chunks per dimension after allocating to queues is: 100000000
+Node 0: Double binary tree created with total nodes: 2 ,start: 0 ,stride: 1
+Node 0: Double binary tree created with total nodes: 8 ,start: 0 ,stride: 2
+Node 0: Double binary tree created with total nodes: 2 ,start: 0 ,stride: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 2total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 16total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 2total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 16total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 32 index in ring: 0 offset: 1total nodes in ring: 32
+total nodes: 32
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+Shared bus modeling enabled? false
+LogGP model, the L is:0 ,o is: 0 ,g is: 0 ,G is: 0.0038
+communication delay (in the case of disabled shared bus): 10
+Shared bus modeling enabled? false
+LogGP model, the L is:0 ,o is: 0 ,g is: 0 ,G is: 0
+communication delay (in the case of disabled shared bus): 10
+Success in opening workload file
+id: conv1 , depen: -1 , wg_comp_time: 5
+type: MICRO ,num passes: 1 ,lines: 1 compute scale: 0.26 ,comm scale: 100
+stat path: /Users/aakashsharma/work/astra-sim/examples/../results/DDL_3d// ,total rows: 2 ,stat row: 10
+info: all-reduce weight grad collective issued for layer: conv1 with size: 104857600, involved dimensions:  1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: weight gradient collective for layer: conv1 is finished************
+*******************
+Layer id: conv1
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* conv1
+id: conv1 ,Total cycles spent on fwd pass compute: 0
+id: conv1 ,Total cycles spent on weight grad compute: 0
+id: conv1 ,Total cycles spent on input grad compute: 0
+id: conv1 ,Total cycles spent idle waiting for fwd finish: 0
+id: conv1 ,Total cycles spent idle waiting for weight grad finish: 55477234
+id: conv1 ,Total cycles spent idle waiting for input grad finish: 0
+id: conv1 ,Total cycles spent on fwd pass comm: 0
+id: conv1 ,Total cycles spent on weight grad comm: 55477234
+id: conv1 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* conv1
+id: conv1 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: conv1 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 0
+id: conv1 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 0
+id: conv1 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+id: conv1 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: conv1 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 0
+*************************  Network stats  ************************* conv1
+id: conv1 ,Average cycles spent on network for phase 1 of algorithm (per message): 391261
+id: conv1 ,Average cycles spent on network for phase 2 of algorithm (per message): 2.34407e+07
+id: conv1 ,Average cycles spent on network for phase 3 of algorithm (per message): 7.81324e+06
+id: conv1 ,Average cycles spent on network for phase 4 of algorithm (per message): 1.172e+07
+id: conv1 ,Average cycles spent on network for phase 5 of algorithm (per message): 195322
+*************************  Chunk Stats Per Logical Dimension (for all layers) ************************* conv1
+ ,Average chunk latency for logical dimension  1 of topology: 391281
+ ,Average chunk latency for logical dimension  2 of topology: 2.34407e+07
+ ,Average chunk latency for logical dimension  3 of topology: 7.81326e+06
+*************************
+all passes finished at time: 55477234, id of first layer: conv1

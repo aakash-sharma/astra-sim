@@ -1,0 +1,3752 @@
+[CostModel] Added NVLink: 3584
+(NVLink) Added cost: 179200 (BW: 25, count: 3584, unit_cost: 100)
+[CostModel] Added NVLink: 2048
+(NVLink) Added cost: 102400 (BW: 25, count: 2048, unit_cost: 100)
+[CostModel] Added NVLink: 1024
+(NVLink) Added cost: 102400 (BW: 50, count: 1024, unit_cost: 100)
+[CostModel] Added NVSwitch: 26
+(Resource) Added cost: 616148 (count: 26, unit_cost: 23698)
+[CostModel] Added NPU: 1024
+(Resource) Added cost: 0 (count: 1024, unit_cost: 0)
+Success in opening system file
+Var is: scheduling-policy: ,val is: LIFO
+Var is: endpoint-delay: ,val is: 1
+Var is: active-chunks-per-dimension: ,val is: 1
+Var is: preferred-dataset-splits: ,val is: 64
+Var is: boost-mode: ,val is: 1
+Var is: all-reduce-implementation: ,val is: direct_ring_halvingDoubling
+Var is: all-gather-implementation: ,val is: direct_ring_halvingDoubling
+Var is: reduce-scatter-implementation: ,val is: direct_ring_halvingDoubling
+Var is: all-to-all-implementation: ,val is: direct_direct_direct
+Var is: collective-optimization: ,val is: localBWAware
+Var is: intra-dimension-scheduling: ,val is: smallestFirst
+Var is: inter-dimension-scheduling: ,val is: offlineGreedy
+Var is:  ,val is: offlineGreedy
+The final active chunks per dimension after allocating to queues is: 100000000
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 1total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 8total nodes in ring: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 128total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 1total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 8total nodes in ring: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 128total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 1total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 8total nodes in ring: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 128total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 1total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 8total nodes in ring: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 128total nodes in ring: 8
+total nodes: 1024
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+LogGP model, the local reduction delay is: 1
+Shared bus modeling enabled? false
+LogGP model, the L is:0 ,o is: 0 ,g is: 0 ,G is: 0.0038
+communication delay (in the case of disabled shared bus): 1
+Shared bus modeling enabled? false
+LogGP model, the L is:0 ,o is: 0 ,g is: 0 ,G is: 0
+communication delay (in the case of disabled shared bus): 1
+Success in opening workload file
+model_parallel_NPU_group: is: 4
+
+ring of node 0, id: 0 dimension: local total nodes in ring: 4 index in ring: 0 offset: 1total nodes in ring: 4
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 4total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 8total nodes in ring: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 128total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 4 index in ring: 0 offset: 1total nodes in ring: 4
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 4total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 8total nodes in ring: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 128total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 4 index in ring: 0 offset: 1total nodes in ring: 4
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 4total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 8total nodes in ring: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 128total nodes in ring: 8
+ring of node 0, id: 0 dimension: local total nodes in ring: 4 index in ring: 0 offset: 1total nodes in ring: 4
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 4total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 8total nodes in ring: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 8 index in ring: 0 offset: 128total nodes in ring: 8
+id: Embedding , depen: -1 , wg_comp_time: 1
+id: Q1 , depen: -1 , wg_comp_time: 2228224
+id: K1 , depen: -1 , wg_comp_time: 2228224
+id: V1 , depen: -1 , wg_comp_time: 2228224
+id: Softmax1 , depen: -1 , wg_comp_time: 768
+id: QKV1 , depen: -1 , wg_comp_time: 768
+id: Concat1 , depen: -1 , wg_comp_time: 2228224
+id: Relu1 , depen: -1 , wg_comp_time: 8912896
+id: X1W2b2 , depen: -1 , wg_comp_time: 8912896
+id: layernorm1 , depen: -1 , wg_comp_time: 139264
+id: Q2 , depen: -1 , wg_comp_time: 2228224
+id: K2 , depen: -1 , wg_comp_time: 2228224
+id: V2 , depen: -1 , wg_comp_time: 2228224
+id: Softmax2 , depen: -1 , wg_comp_time: 768
+id: QKV2 , depen: -1 , wg_comp_time: 768
+id: Concat2 , depen: -1 , wg_comp_time: 2228224
+id: Relu2 , depen: -1 , wg_comp_time: 8912896
+id: X2W2b2 , depen: -1 , wg_comp_time: 8912896
+id: layernorm2 , depen: -1 , wg_comp_time: 139264
+id: Q3 , depen: -1 , wg_comp_time: 2228224
+id: K3 , depen: -1 , wg_comp_time: 2228224
+id: V3 , depen: -1 , wg_comp_time: 2228224
+id: Softmax3 , depen: -1 , wg_comp_time: 768
+id: QKV3 , depen: -1 , wg_comp_time: 768
+id: Concat3 , depen: -1 , wg_comp_time: 2228224
+id: Relu3 , depen: -1 , wg_comp_time: 8912896
+id: X3W2b2 , depen: -1 , wg_comp_time: 8912896
+id: layernorm2 , depen: -1 , wg_comp_time: 139264
+id: Q4 , depen: -1 , wg_comp_time: 2228224
+id: K4 , depen: -1 , wg_comp_time: 2228224
+id: V4 , depen: -1 , wg_comp_time: 2228224
+id: Softmax4 , depen: -1 , wg_comp_time: 768
+id: QKV4 , depen: -1 , wg_comp_time: 768
+id: Concat4 , depen: -1 , wg_comp_time: 2228224
+id: Relu4 , depen: -1 , wg_comp_time: 8912896
+id: X4W2b2 , depen: -1 , wg_comp_time: 8912896
+id: layernorm4 , depen: -1 , wg_comp_time: 139264
+id: Q5 , depen: -1 , wg_comp_time: 2228224
+id: K5 , depen: -1 , wg_comp_time: 2228224
+id: V5 , depen: -1 , wg_comp_time: 2228224
+id: Softmax5 , depen: -1 , wg_comp_time: 768
+id: QKV5 , depen: -1 , wg_comp_time: 768
+id: Concat5 , depen: -1 , wg_comp_time: 2228224
+id: Relu5 , depen: -1 , wg_comp_time: 8912896
+id: X5W2b2 , depen: -1 , wg_comp_time: 8912896
+id: layernorm5 , depen: -1 , wg_comp_time: 139264
+id: Q6 , depen: -1 , wg_comp_time: 2228224
+id: K6 , depen: -1 , wg_comp_time: 2228224
+id: V6 , depen: -1 , wg_comp_time: 2228224
+id: Softmax6 , depen: -1 , wg_comp_time: 768
+id: QKV6 , depen: -1 , wg_comp_time: 768
+id: Concat6 , depen: -1 , wg_comp_time: 2228224
+id: Relu6 , depen: -1 , wg_comp_time: 8912896
+id: X6W2b2 , depen: -1 , wg_comp_time: 8912896
+id: layernorm6 , depen: -1 , wg_comp_time: 139264
+id: fc , depen: -1 , wg_comp_time: 1253376
+id: softmax , depen: -1 , wg_comp_time: 313344
+type: HYBRID_TRANSFORMER ,num passes: 1 ,lines: 57 compute scale: 0.26 ,comm scale: 100
+stat path: /Users/aakashsharma/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/work/astra-sim/examples/../results/DDL_themis/Transformer_HybridParallel/ ,total rows: 6 ,stat row: 3
+Themis is configured with the following parameters: 
+Dim size: 4, 2, 16, 8, 
+BW per dim: 175, 175, 100, 50, 
+
+
+
+
+
+
+
+
+
+Node 9 has been totally disabled
+
+Node 10 has been totally disabled
+
+Node 11 has been totally disabled
+
+Node 12 has been totally disabled
+
+Node 13 has been totally disabled
+
+Node 14 has been totally disabled
+
+Node 15 has been totally disabled
+
+
+Node 17 has been totally disabled
+
+Node 18 has been totally disabled
+
+Node 19 has been totally disabled
+
+Node 20 has been totally disabled
+
+Node 21 has been totally disabled
+
+Node 22 has been totally disabled
+
+Node 23 has been totally disabled
+
+
+Node 25 has been totally disabled
+
+Node 26 has been totally disabled
+
+Node 27 has been totally disabled
+
+Node 28 has been totally disabled
+
+Node 29 has been totally disabled
+
+Node 30 has been totally disabled
+
+Node 31 has been totally disabled
+
+
+Node 33 has been totally disabled
+
+Node 34 has been totally disabled
+
+Node 35 has been totally disabled
+
+Node 36 has been totally disabled
+
+Node 37 has been totally disabled
+
+Node 38 has been totally disabled
+
+Node 39 has been totally disabled
+
+
+Node 41 has been totally disabled
+
+Node 42 has been totally disabled
+
+Node 43 has been totally disabled
+
+Node 44 has been totally disabled
+
+Node 45 has been totally disabled
+
+Node 46 has been totally disabled
+
+Node 47 has been totally disabled
+
+
+Node 49 has been totally disabled
+
+Node 50 has been totally disabled
+
+Node 51 has been totally disabled
+
+Node 52 has been totally disabled
+
+Node 53 has been totally disabled
+
+Node 54 has been totally disabled
+
+Node 55 has been totally disabled
+
+
+Node 57 has been totally disabled
+
+Node 58 has been totally disabled
+
+Node 59 has been totally disabled
+
+Node 60 has been totally disabled
+
+Node 61 has been totally disabled
+
+Node 62 has been totally disabled
+
+Node 63 has been totally disabled
+
+
+Node 65 has been totally disabled
+
+Node 66 has been totally disabled
+
+Node 67 has been totally disabled
+
+Node 68 has been totally disabled
+
+Node 69 has been totally disabled
+
+Node 70 has been totally disabled
+
+Node 71 has been totally disabled
+
+
+Node 73 has been totally disabled
+
+Node 74 has been totally disabled
+
+Node 75 has been totally disabled
+
+Node 76 has been totally disabled
+
+Node 77 has been totally disabled
+
+Node 78 has been totally disabled
+
+Node 79 has been totally disabled
+
+
+Node 81 has been totally disabled
+
+Node 82 has been totally disabled
+
+Node 83 has been totally disabled
+
+Node 84 has been totally disabled
+
+Node 85 has been totally disabled
+
+Node 86 has been totally disabled
+
+Node 87 has been totally disabled
+
+
+Node 89 has been totally disabled
+
+Node 90 has been totally disabled
+
+Node 91 has been totally disabled
+
+Node 92 has been totally disabled
+
+Node 93 has been totally disabled
+
+Node 94 has been totally disabled
+
+Node 95 has been totally disabled
+
+
+Node 97 has been totally disabled
+
+Node 98 has been totally disabled
+
+Node 99 has been totally disabled
+
+Node 100 has been totally disabled
+
+Node 101 has been totally disabled
+
+Node 102 has been totally disabled
+
+Node 103 has been totally disabled
+
+
+Node 105 has been totally disabled
+
+Node 106 has been totally disabled
+
+Node 107 has been totally disabled
+
+Node 108 has been totally disabled
+
+Node 109 has been totally disabled
+
+Node 110 has been totally disabled
+
+Node 111 has been totally disabled
+
+
+Node 113 has been totally disabled
+
+Node 114 has been totally disabled
+
+Node 115 has been totally disabled
+
+Node 116 has been totally disabled
+
+Node 117 has been totally disabled
+
+Node 118 has been totally disabled
+
+Node 119 has been totally disabled
+
+
+Node 121 has been totally disabled
+
+Node 122 has been totally disabled
+
+Node 123 has been totally disabled
+
+Node 124 has been totally disabled
+
+Node 125 has been totally disabled
+
+Node 126 has been totally disabled
+
+Node 127 has been totally disabled
+
+
+Node 129 has been totally disabled
+
+Node 130 has been totally disabled
+
+Node 131 has been totally disabled
+
+Node 132 has been totally disabled
+
+Node 133 has been totally disabled
+
+Node 134 has been totally disabled
+
+Node 135 has been totally disabled
+
+Node 136 has been totally disabled
+
+Node 137 has been totally disabled
+
+Node 138 has been totally disabled
+
+Node 139 has been totally disabled
+
+Node 140 has been totally disabled
+
+Node 141 has been totally disabled
+
+Node 142 has been totally disabled
+
+Node 143 has been totally disabled
+
+Node 144 has been totally disabled
+
+Node 145 has been totally disabled
+
+Node 146 has been totally disabled
+
+Node 147 has been totally disabled
+
+Node 148 has been totally disabled
+
+Node 149 has been totally disabled
+
+Node 150 has been totally disabled
+
+Node 151 has been totally disabled
+
+Node 152 has been totally disabled
+
+Node 153 has been totally disabled
+
+Node 154 has been totally disabled
+
+Node 155 has been totally disabled
+
+Node 156 has been totally disabled
+
+Node 157 has been totally disabled
+
+Node 158 has been totally disabled
+
+Node 159 has been totally disabled
+
+Node 160 has been totally disabled
+
+Node 161 has been totally disabled
+
+Node 162 has been totally disabled
+
+Node 163 has been totally disabled
+
+Node 164 has been totally disabled
+
+Node 165 has been totally disabled
+
+Node 166 has been totally disabled
+
+Node 167 has been totally disabled
+
+Node 168 has been totally disabled
+
+Node 169 has been totally disabled
+
+Node 170 has been totally disabled
+
+Node 171 has been totally disabled
+
+Node 172 has been totally disabled
+
+Node 173 has been totally disabled
+
+Node 174 has been totally disabled
+
+Node 175 has been totally disabled
+
+Node 176 has been totally disabled
+
+Node 177 has been totally disabled
+
+Node 178 has been totally disabled
+
+Node 179 has been totally disabled
+
+Node 180 has been totally disabled
+
+Node 181 has been totally disabled
+
+Node 182 has been totally disabled
+
+Node 183 has been totally disabled
+
+Node 184 has been totally disabled
+
+Node 185 has been totally disabled
+
+Node 186 has been totally disabled
+
+Node 187 has been totally disabled
+
+Node 188 has been totally disabled
+
+Node 189 has been totally disabled
+
+Node 190 has been totally disabled
+
+Node 191 has been totally disabled
+
+Node 192 has been totally disabled
+
+Node 193 has been totally disabled
+
+Node 194 has been totally disabled
+
+Node 195 has been totally disabled
+
+Node 196 has been totally disabled
+
+Node 197 has been totally disabled
+
+Node 198 has been totally disabled
+
+Node 199 has been totally disabled
+
+Node 200 has been totally disabled
+
+Node 201 has been totally disabled
+
+Node 202 has been totally disabled
+
+Node 203 has been totally disabled
+
+Node 204 has been totally disabled
+
+Node 205 has been totally disabled
+
+Node 206 has been totally disabled
+
+Node 207 has been totally disabled
+
+Node 208 has been totally disabled
+
+Node 209 has been totally disabled
+
+Node 210 has been totally disabled
+
+Node 211 has been totally disabled
+
+Node 212 has been totally disabled
+
+Node 213 has been totally disabled
+
+Node 214 has been totally disabled
+
+Node 215 has been totally disabled
+
+Node 216 has been totally disabled
+
+Node 217 has been totally disabled
+
+Node 218 has been totally disabled
+
+Node 219 has been totally disabled
+
+Node 220 has been totally disabled
+
+Node 221 has been totally disabled
+
+Node 222 has been totally disabled
+
+Node 223 has been totally disabled
+
+Node 224 has been totally disabled
+
+Node 225 has been totally disabled
+
+Node 226 has been totally disabled
+
+Node 227 has been totally disabled
+
+Node 228 has been totally disabled
+
+Node 229 has been totally disabled
+
+Node 230 has been totally disabled
+
+Node 231 has been totally disabled
+
+Node 232 has been totally disabled
+
+Node 233 has been totally disabled
+
+Node 234 has been totally disabled
+
+Node 235 has been totally disabled
+
+Node 236 has been totally disabled
+
+Node 237 has been totally disabled
+
+Node 238 has been totally disabled
+
+Node 239 has been totally disabled
+
+Node 240 has been totally disabled
+
+Node 241 has been totally disabled
+
+Node 242 has been totally disabled
+
+Node 243 has been totally disabled
+
+Node 244 has been totally disabled
+
+Node 245 has been totally disabled
+
+Node 246 has been totally disabled
+
+Node 247 has been totally disabled
+
+Node 248 has been totally disabled
+
+Node 249 has been totally disabled
+
+Node 250 has been totally disabled
+
+Node 251 has been totally disabled
+
+Node 252 has been totally disabled
+
+Node 253 has been totally disabled
+
+Node 254 has been totally disabled
+
+Node 255 has been totally disabled
+
+
+Node 257 has been totally disabled
+
+Node 258 has been totally disabled
+
+Node 259 has been totally disabled
+
+Node 260 has been totally disabled
+
+Node 261 has been totally disabled
+
+Node 262 has been totally disabled
+
+Node 263 has been totally disabled
+
+Node 264 has been totally disabled
+
+Node 265 has been totally disabled
+
+Node 266 has been totally disabled
+
+Node 267 has been totally disabled
+
+Node 268 has been totally disabled
+
+Node 269 has been totally disabled
+
+Node 270 has been totally disabled
+
+Node 271 has been totally disabled
+
+Node 272 has been totally disabled
+
+Node 273 has been totally disabled
+
+Node 274 has been totally disabled
+
+Node 275 has been totally disabled
+
+Node 276 has been totally disabled
+
+Node 277 has been totally disabled
+
+Node 278 has been totally disabled
+
+Node 279 has been totally disabled
+
+Node 280 has been totally disabled
+
+Node 281 has been totally disabled
+
+Node 282 has been totally disabled
+
+Node 283 has been totally disabled
+
+Node 284 has been totally disabled
+
+Node 285 has been totally disabled
+
+Node 286 has been totally disabled
+
+Node 287 has been totally disabled
+
+Node 288 has been totally disabled
+
+Node 289 has been totally disabled
+
+Node 290 has been totally disabled
+
+Node 291 has been totally disabled
+
+Node 292 has been totally disabled
+
+Node 293 has been totally disabled
+
+Node 294 has been totally disabled
+
+Node 295 has been totally disabled
+
+Node 296 has been totally disabled
+
+Node 297 has been totally disabled
+
+Node 298 has been totally disabled
+
+Node 299 has been totally disabled
+
+Node 300 has been totally disabled
+
+Node 301 has been totally disabled
+
+Node 302 has been totally disabled
+
+Node 303 has been totally disabled
+
+Node 304 has been totally disabled
+
+Node 305 has been totally disabled
+
+Node 306 has been totally disabled
+
+Node 307 has been totally disabled
+
+Node 308 has been totally disabled
+
+Node 309 has been totally disabled
+
+Node 310 has been totally disabled
+
+Node 311 has been totally disabled
+
+Node 312 has been totally disabled
+
+Node 313 has been totally disabled
+
+Node 314 has been totally disabled
+
+Node 315 has been totally disabled
+
+Node 316 has been totally disabled
+
+Node 317 has been totally disabled
+
+Node 318 has been totally disabled
+
+Node 319 has been totally disabled
+
+Node 320 has been totally disabled
+
+Node 321 has been totally disabled
+
+Node 322 has been totally disabled
+
+Node 323 has been totally disabled
+
+Node 324 has been totally disabled
+
+Node 325 has been totally disabled
+
+Node 326 has been totally disabled
+
+Node 327 has been totally disabled
+
+Node 328 has been totally disabled
+
+Node 329 has been totally disabled
+
+Node 330 has been totally disabled
+
+Node 331 has been totally disabled
+
+Node 332 has been totally disabled
+
+Node 333 has been totally disabled
+
+Node 334 has been totally disabled
+
+Node 335 has been totally disabled
+
+Node 336 has been totally disabled
+
+Node 337 has been totally disabled
+
+Node 338 has been totally disabled
+
+Node 339 has been totally disabled
+
+Node 340 has been totally disabled
+
+Node 341 has been totally disabled
+
+Node 342 has been totally disabled
+
+Node 343 has been totally disabled
+
+Node 344 has been totally disabled
+
+Node 345 has been totally disabled
+
+Node 346 has been totally disabled
+
+Node 347 has been totally disabled
+
+Node 348 has been totally disabled
+
+Node 349 has been totally disabled
+
+Node 350 has been totally disabled
+
+Node 351 has been totally disabled
+
+Node 352 has been totally disabled
+
+Node 353 has been totally disabled
+
+Node 354 has been totally disabled
+
+Node 355 has been totally disabled
+
+Node 356 has been totally disabled
+
+Node 357 has been totally disabled
+
+Node 358 has been totally disabled
+
+Node 359 has been totally disabled
+
+Node 360 has been totally disabled
+
+Node 361 has been totally disabled
+
+Node 362 has been totally disabled
+
+Node 363 has been totally disabled
+
+Node 364 has been totally disabled
+
+Node 365 has been totally disabled
+
+Node 366 has been totally disabled
+
+Node 367 has been totally disabled
+
+Node 368 has been totally disabled
+
+Node 369 has been totally disabled
+
+Node 370 has been totally disabled
+
+Node 371 has been totally disabled
+
+Node 372 has been totally disabled
+
+Node 373 has been totally disabled
+
+Node 374 has been totally disabled
+
+Node 375 has been totally disabled
+
+Node 376 has been totally disabled
+
+Node 377 has been totally disabled
+
+Node 378 has been totally disabled
+
+Node 379 has been totally disabled
+
+Node 380 has been totally disabled
+
+Node 381 has been totally disabled
+
+Node 382 has been totally disabled
+
+Node 383 has been totally disabled
+
+
+Node 385 has been totally disabled
+
+Node 386 has been totally disabled
+
+Node 387 has been totally disabled
+
+Node 388 has been totally disabled
+
+Node 389 has been totally disabled
+
+Node 390 has been totally disabled
+
+Node 391 has been totally disabled
+
+Node 392 has been totally disabled
+
+Node 393 has been totally disabled
+
+Node 394 has been totally disabled
+
+Node 395 has been totally disabled
+
+Node 396 has been totally disabled
+
+Node 397 has been totally disabled
+
+Node 398 has been totally disabled
+
+Node 399 has been totally disabled
+
+Node 400 has been totally disabled
+
+Node 401 has been totally disabled
+
+Node 402 has been totally disabled
+
+Node 403 has been totally disabled
+
+Node 404 has been totally disabled
+
+Node 405 has been totally disabled
+
+Node 406 has been totally disabled
+
+Node 407 has been totally disabled
+
+Node 408 has been totally disabled
+
+Node 409 has been totally disabled
+
+Node 410 has been totally disabled
+
+Node 411 has been totally disabled
+
+Node 412 has been totally disabled
+
+Node 413 has been totally disabled
+
+Node 414 has been totally disabled
+
+Node 415 has been totally disabled
+
+Node 416 has been totally disabled
+
+Node 417 has been totally disabled
+
+Node 418 has been totally disabled
+
+Node 419 has been totally disabled
+
+Node 420 has been totally disabled
+
+Node 421 has been totally disabled
+
+Node 422 has been totally disabled
+
+Node 423 has been totally disabled
+
+Node 424 has been totally disabled
+
+Node 425 has been totally disabled
+
+Node 426 has been totally disabled
+
+Node 427 has been totally disabled
+
+Node 428 has been totally disabled
+
+Node 429 has been totally disabled
+
+Node 430 has been totally disabled
+
+Node 431 has been totally disabled
+
+Node 432 has been totally disabled
+
+Node 433 has been totally disabled
+
+Node 434 has been totally disabled
+
+Node 435 has been totally disabled
+
+Node 436 has been totally disabled
+
+Node 437 has been totally disabled
+
+Node 438 has been totally disabled
+
+Node 439 has been totally disabled
+
+Node 440 has been totally disabled
+
+Node 441 has been totally disabled
+
+Node 442 has been totally disabled
+
+Node 443 has been totally disabled
+
+Node 444 has been totally disabled
+
+Node 445 has been totally disabled
+
+Node 446 has been totally disabled
+
+Node 447 has been totally disabled
+
+Node 448 has been totally disabled
+
+Node 449 has been totally disabled
+
+Node 450 has been totally disabled
+
+Node 451 has been totally disabled
+
+Node 452 has been totally disabled
+
+Node 453 has been totally disabled
+
+Node 454 has been totally disabled
+
+Node 455 has been totally disabled
+
+Node 456 has been totally disabled
+
+Node 457 has been totally disabled
+
+Node 458 has been totally disabled
+
+Node 459 has been totally disabled
+
+Node 460 has been totally disabled
+
+Node 461 has been totally disabled
+
+Node 462 has been totally disabled
+
+Node 463 has been totally disabled
+
+Node 464 has been totally disabled
+
+Node 465 has been totally disabled
+
+Node 466 has been totally disabled
+
+Node 467 has been totally disabled
+
+Node 468 has been totally disabled
+
+Node 469 has been totally disabled
+
+Node 470 has been totally disabled
+
+Node 471 has been totally disabled
+
+Node 472 has been totally disabled
+
+Node 473 has been totally disabled
+
+Node 474 has been totally disabled
+
+Node 475 has been totally disabled
+
+Node 476 has been totally disabled
+
+Node 477 has been totally disabled
+
+Node 478 has been totally disabled
+
+Node 479 has been totally disabled
+
+Node 480 has been totally disabled
+
+Node 481 has been totally disabled
+
+Node 482 has been totally disabled
+
+Node 483 has been totally disabled
+
+Node 484 has been totally disabled
+
+Node 485 has been totally disabled
+
+Node 486 has been totally disabled
+
+Node 487 has been totally disabled
+
+Node 488 has been totally disabled
+
+Node 489 has been totally disabled
+
+Node 490 has been totally disabled
+
+Node 491 has been totally disabled
+
+Node 492 has been totally disabled
+
+Node 493 has been totally disabled
+
+Node 494 has been totally disabled
+
+Node 495 has been totally disabled
+
+Node 496 has been totally disabled
+
+Node 497 has been totally disabled
+
+Node 498 has been totally disabled
+
+Node 499 has been totally disabled
+
+Node 500 has been totally disabled
+
+Node 501 has been totally disabled
+
+Node 502 has been totally disabled
+
+Node 503 has been totally disabled
+
+Node 504 has been totally disabled
+
+Node 505 has been totally disabled
+
+Node 506 has been totally disabled
+
+Node 507 has been totally disabled
+
+Node 508 has been totally disabled
+
+Node 509 has been totally disabled
+
+Node 510 has been totally disabled
+
+Node 511 has been totally disabled
+
+
+Node 513 has been totally disabled
+
+Node 514 has been totally disabled
+
+Node 515 has been totally disabled
+
+Node 516 has been totally disabled
+
+Node 517 has been totally disabled
+
+Node 518 has been totally disabled
+
+Node 519 has been totally disabled
+
+Node 520 has been totally disabled
+
+Node 521 has been totally disabled
+
+Node 522 has been totally disabled
+
+Node 523 has been totally disabled
+
+Node 524 has been totally disabled
+
+Node 525 has been totally disabled
+
+Node 526 has been totally disabled
+
+Node 527 has been totally disabled
+
+Node 528 has been totally disabled
+
+Node 529 has been totally disabled
+
+Node 530 has been totally disabled
+
+Node 531 has been totally disabled
+
+Node 532 has been totally disabled
+
+Node 533 has been totally disabled
+
+Node 534 has been totally disabled
+
+Node 535 has been totally disabled
+
+Node 536 has been totally disabled
+
+Node 537 has been totally disabled
+
+Node 538 has been totally disabled
+
+Node 539 has been totally disabled
+
+Node 540 has been totally disabled
+
+Node 541 has been totally disabled
+
+Node 542 has been totally disabled
+
+Node 543 has been totally disabled
+
+Node 544 has been totally disabled
+
+Node 545 has been totally disabled
+
+Node 546 has been totally disabled
+
+Node 547 has been totally disabled
+
+Node 548 has been totally disabled
+
+Node 549 has been totally disabled
+
+Node 550 has been totally disabled
+
+Node 551 has been totally disabled
+
+Node 552 has been totally disabled
+
+Node 553 has been totally disabled
+
+Node 554 has been totally disabled
+
+Node 555 has been totally disabled
+
+Node 556 has been totally disabled
+
+Node 557 has been totally disabled
+
+Node 558 has been totally disabled
+
+Node 559 has been totally disabled
+
+Node 560 has been totally disabled
+
+Node 561 has been totally disabled
+
+Node 562 has been totally disabled
+
+Node 563 has been totally disabled
+
+Node 564 has been totally disabled
+
+Node 565 has been totally disabled
+
+Node 566 has been totally disabled
+
+Node 567 has been totally disabled
+
+Node 568 has been totally disabled
+
+Node 569 has been totally disabled
+
+Node 570 has been totally disabled
+
+Node 571 has been totally disabled
+
+Node 572 has been totally disabled
+
+Node 573 has been totally disabled
+
+Node 574 has been totally disabled
+
+Node 575 has been totally disabled
+
+Node 576 has been totally disabled
+
+Node 577 has been totally disabled
+
+Node 578 has been totally disabled
+
+Node 579 has been totally disabled
+
+Node 580 has been totally disabled
+
+Node 581 has been totally disabled
+
+Node 582 has been totally disabled
+
+Node 583 has been totally disabled
+
+Node 584 has been totally disabled
+
+Node 585 has been totally disabled
+
+Node 586 has been totally disabled
+
+Node 587 has been totally disabled
+
+Node 588 has been totally disabled
+
+Node 589 has been totally disabled
+
+Node 590 has been totally disabled
+
+Node 591 has been totally disabled
+
+Node 592 has been totally disabled
+
+Node 593 has been totally disabled
+
+Node 594 has been totally disabled
+
+Node 595 has been totally disabled
+
+Node 596 has been totally disabled
+
+Node 597 has been totally disabled
+
+Node 598 has been totally disabled
+
+Node 599 has been totally disabled
+
+Node 600 has been totally disabled
+
+Node 601 has been totally disabled
+
+Node 602 has been totally disabled
+
+Node 603 has been totally disabled
+
+Node 604 has been totally disabled
+
+Node 605 has been totally disabled
+
+Node 606 has been totally disabled
+
+Node 607 has been totally disabled
+
+Node 608 has been totally disabled
+
+Node 609 has been totally disabled
+
+Node 610 has been totally disabled
+
+Node 611 has been totally disabled
+
+Node 612 has been totally disabled
+
+Node 613 has been totally disabled
+
+Node 614 has been totally disabled
+
+Node 615 has been totally disabled
+
+Node 616 has been totally disabled
+
+Node 617 has been totally disabled
+
+Node 618 has been totally disabled
+
+Node 619 has been totally disabled
+
+Node 620 has been totally disabled
+
+Node 621 has been totally disabled
+
+Node 622 has been totally disabled
+
+Node 623 has been totally disabled
+
+Node 624 has been totally disabled
+
+Node 625 has been totally disabled
+
+Node 626 has been totally disabled
+
+Node 627 has been totally disabled
+
+Node 628 has been totally disabled
+
+Node 629 has been totally disabled
+
+Node 630 has been totally disabled
+
+Node 631 has been totally disabled
+
+Node 632 has been totally disabled
+
+Node 633 has been totally disabled
+
+Node 634 has been totally disabled
+
+Node 635 has been totally disabled
+
+Node 636 has been totally disabled
+
+Node 637 has been totally disabled
+
+Node 638 has been totally disabled
+
+Node 639 has been totally disabled
+
+
+Node 641 has been totally disabled
+
+Node 642 has been totally disabled
+
+Node 643 has been totally disabled
+
+Node 644 has been totally disabled
+
+Node 645 has been totally disabled
+
+Node 646 has been totally disabled
+
+Node 647 has been totally disabled
+
+Node 648 has been totally disabled
+
+Node 649 has been totally disabled
+
+Node 650 has been totally disabled
+
+Node 651 has been totally disabled
+
+Node 652 has been totally disabled
+
+Node 653 has been totally disabled
+
+Node 654 has been totally disabled
+
+Node 655 has been totally disabled
+
+Node 656 has been totally disabled
+
+Node 657 has been totally disabled
+
+Node 658 has been totally disabled
+
+Node 659 has been totally disabled
+
+Node 660 has been totally disabled
+
+Node 661 has been totally disabled
+
+Node 662 has been totally disabled
+
+Node 663 has been totally disabled
+
+Node 664 has been totally disabled
+
+Node 665 has been totally disabled
+
+Node 666 has been totally disabled
+
+Node 667 has been totally disabled
+
+Node 668 has been totally disabled
+
+Node 669 has been totally disabled
+
+Node 670 has been totally disabled
+
+Node 671 has been totally disabled
+
+Node 672 has been totally disabled
+
+Node 673 has been totally disabled
+
+Node 674 has been totally disabled
+
+Node 675 has been totally disabled
+
+Node 676 has been totally disabled
+
+Node 677 has been totally disabled
+
+Node 678 has been totally disabled
+
+Node 679 has been totally disabled
+
+Node 680 has been totally disabled
+
+Node 681 has been totally disabled
+
+Node 682 has been totally disabled
+
+Node 683 has been totally disabled
+
+Node 684 has been totally disabled
+
+Node 685 has been totally disabled
+
+Node 686 has been totally disabled
+
+Node 687 has been totally disabled
+
+Node 688 has been totally disabled
+
+Node 689 has been totally disabled
+
+Node 690 has been totally disabled
+
+Node 691 has been totally disabled
+
+Node 692 has been totally disabled
+
+Node 693 has been totally disabled
+
+Node 694 has been totally disabled
+
+Node 695 has been totally disabled
+
+Node 696 has been totally disabled
+
+Node 697 has been totally disabled
+
+Node 698 has been totally disabled
+
+Node 699 has been totally disabled
+
+Node 700 has been totally disabled
+
+Node 701 has been totally disabled
+
+Node 702 has been totally disabled
+
+Node 703 has been totally disabled
+
+Node 704 has been totally disabled
+
+Node 705 has been totally disabled
+
+Node 706 has been totally disabled
+
+Node 707 has been totally disabled
+
+Node 708 has been totally disabled
+
+Node 709 has been totally disabled
+
+Node 710 has been totally disabled
+
+Node 711 has been totally disabled
+
+Node 712 has been totally disabled
+
+Node 713 has been totally disabled
+
+Node 714 has been totally disabled
+
+Node 715 has been totally disabled
+
+Node 716 has been totally disabled
+
+Node 717 has been totally disabled
+
+Node 718 has been totally disabled
+
+Node 719 has been totally disabled
+
+Node 720 has been totally disabled
+
+Node 721 has been totally disabled
+
+Node 722 has been totally disabled
+
+Node 723 has been totally disabled
+
+Node 724 has been totally disabled
+
+Node 725 has been totally disabled
+
+Node 726 has been totally disabled
+
+Node 727 has been totally disabled
+
+Node 728 has been totally disabled
+
+Node 729 has been totally disabled
+
+Node 730 has been totally disabled
+
+Node 731 has been totally disabled
+
+Node 732 has been totally disabled
+
+Node 733 has been totally disabled
+
+Node 734 has been totally disabled
+
+Node 735 has been totally disabled
+
+Node 736 has been totally disabled
+
+Node 737 has been totally disabled
+
+Node 738 has been totally disabled
+
+Node 739 has been totally disabled
+
+Node 740 has been totally disabled
+
+Node 741 has been totally disabled
+
+Node 742 has been totally disabled
+
+Node 743 has been totally disabled
+
+Node 744 has been totally disabled
+
+Node 745 has been totally disabled
+
+Node 746 has been totally disabled
+
+Node 747 has been totally disabled
+
+Node 748 has been totally disabled
+
+Node 749 has been totally disabled
+
+Node 750 has been totally disabled
+
+Node 751 has been totally disabled
+
+Node 752 has been totally disabled
+
+Node 753 has been totally disabled
+
+Node 754 has been totally disabled
+
+Node 755 has been totally disabled
+
+Node 756 has been totally disabled
+
+Node 757 has been totally disabled
+
+Node 758 has been totally disabled
+
+Node 759 has been totally disabled
+
+Node 760 has been totally disabled
+
+Node 761 has been totally disabled
+
+Node 762 has been totally disabled
+
+Node 763 has been totally disabled
+
+Node 764 has been totally disabled
+
+Node 765 has been totally disabled
+
+Node 766 has been totally disabled
+
+Node 767 has been totally disabled
+
+
+Node 769 has been totally disabled
+
+Node 770 has been totally disabled
+
+Node 771 has been totally disabled
+
+Node 772 has been totally disabled
+
+Node 773 has been totally disabled
+
+Node 774 has been totally disabled
+
+Node 775 has been totally disabled
+
+Node 776 has been totally disabled
+
+Node 777 has been totally disabled
+
+Node 778 has been totally disabled
+
+Node 779 has been totally disabled
+
+Node 780 has been totally disabled
+
+Node 781 has been totally disabled
+
+Node 782 has been totally disabled
+
+Node 783 has been totally disabled
+
+Node 784 has been totally disabled
+
+Node 785 has been totally disabled
+
+Node 786 has been totally disabled
+
+Node 787 has been totally disabled
+
+Node 788 has been totally disabled
+
+Node 789 has been totally disabled
+
+Node 790 has been totally disabled
+
+Node 791 has been totally disabled
+
+Node 792 has been totally disabled
+
+Node 793 has been totally disabled
+
+Node 794 has been totally disabled
+
+Node 795 has been totally disabled
+
+Node 796 has been totally disabled
+
+Node 797 has been totally disabled
+
+Node 798 has been totally disabled
+
+Node 799 has been totally disabled
+
+Node 800 has been totally disabled
+
+Node 801 has been totally disabled
+
+Node 802 has been totally disabled
+
+Node 803 has been totally disabled
+
+Node 804 has been totally disabled
+
+Node 805 has been totally disabled
+
+Node 806 has been totally disabled
+
+Node 807 has been totally disabled
+
+Node 808 has been totally disabled
+
+Node 809 has been totally disabled
+
+Node 810 has been totally disabled
+
+Node 811 has been totally disabled
+
+Node 812 has been totally disabled
+
+Node 813 has been totally disabled
+
+Node 814 has been totally disabled
+
+Node 815 has been totally disabled
+
+Node 816 has been totally disabled
+
+Node 817 has been totally disabled
+
+Node 818 has been totally disabled
+
+Node 819 has been totally disabled
+
+Node 820 has been totally disabled
+
+Node 821 has been totally disabled
+
+Node 822 has been totally disabled
+
+Node 823 has been totally disabled
+
+Node 824 has been totally disabled
+
+Node 825 has been totally disabled
+
+Node 826 has been totally disabled
+
+Node 827 has been totally disabled
+
+Node 828 has been totally disabled
+
+Node 829 has been totally disabled
+
+Node 830 has been totally disabled
+
+Node 831 has been totally disabled
+
+Node 832 has been totally disabled
+
+Node 833 has been totally disabled
+
+Node 834 has been totally disabled
+
+Node 835 has been totally disabled
+
+Node 836 has been totally disabled
+
+Node 837 has been totally disabled
+
+Node 838 has been totally disabled
+
+Node 839 has been totally disabled
+
+Node 840 has been totally disabled
+
+Node 841 has been totally disabled
+
+Node 842 has been totally disabled
+
+Node 843 has been totally disabled
+
+Node 844 has been totally disabled
+
+Node 845 has been totally disabled
+
+Node 846 has been totally disabled
+
+Node 847 has been totally disabled
+
+Node 848 has been totally disabled
+
+Node 849 has been totally disabled
+
+Node 850 has been totally disabled
+
+Node 851 has been totally disabled
+
+Node 852 has been totally disabled
+
+Node 853 has been totally disabled
+
+Node 854 has been totally disabled
+
+Node 855 has been totally disabled
+
+Node 856 has been totally disabled
+
+Node 857 has been totally disabled
+
+Node 858 has been totally disabled
+
+Node 859 has been totally disabled
+
+Node 860 has been totally disabled
+
+Node 861 has been totally disabled
+
+Node 862 has been totally disabled
+
+Node 863 has been totally disabled
+
+Node 864 has been totally disabled
+
+Node 865 has been totally disabled
+
+Node 866 has been totally disabled
+
+Node 867 has been totally disabled
+
+Node 868 has been totally disabled
+
+Node 869 has been totally disabled
+
+Node 870 has been totally disabled
+
+Node 871 has been totally disabled
+
+Node 872 has been totally disabled
+
+Node 873 has been totally disabled
+
+Node 874 has been totally disabled
+
+Node 875 has been totally disabled
+
+Node 876 has been totally disabled
+
+Node 877 has been totally disabled
+
+Node 878 has been totally disabled
+
+Node 879 has been totally disabled
+
+Node 880 has been totally disabled
+
+Node 881 has been totally disabled
+
+Node 882 has been totally disabled
+
+Node 883 has been totally disabled
+
+Node 884 has been totally disabled
+
+Node 885 has been totally disabled
+
+Node 886 has been totally disabled
+
+Node 887 has been totally disabled
+
+Node 888 has been totally disabled
+
+Node 889 has been totally disabled
+
+Node 890 has been totally disabled
+
+Node 891 has been totally disabled
+
+Node 892 has been totally disabled
+
+Node 893 has been totally disabled
+
+Node 894 has been totally disabled
+
+Node 895 has been totally disabled
+
+
+Node 897 has been totally disabled
+
+Node 898 has been totally disabled
+
+Node 899 has been totally disabled
+
+Node 900 has been totally disabled
+
+Node 901 has been totally disabled
+
+Node 902 has been totally disabled
+
+Node 903 has been totally disabled
+
+Node 904 has been totally disabled
+
+Node 905 has been totally disabled
+
+Node 906 has been totally disabled
+
+Node 907 has been totally disabled
+
+Node 908 has been totally disabled
+
+Node 909 has been totally disabled
+
+Node 910 has been totally disabled
+
+Node 911 has been totally disabled
+
+Node 912 has been totally disabled
+
+Node 913 has been totally disabled
+
+Node 914 has been totally disabled
+
+Node 915 has been totally disabled
+
+Node 916 has been totally disabled
+
+Node 917 has been totally disabled
+
+Node 918 has been totally disabled
+
+Node 919 has been totally disabled
+
+Node 920 has been totally disabled
+
+Node 921 has been totally disabled
+
+Node 922 has been totally disabled
+
+Node 923 has been totally disabled
+
+Node 924 has been totally disabled
+
+Node 925 has been totally disabled
+
+Node 926 has been totally disabled
+
+Node 927 has been totally disabled
+
+Node 928 has been totally disabled
+
+Node 929 has been totally disabled
+
+Node 930 has been totally disabled
+
+Node 931 has been totally disabled
+
+Node 932 has been totally disabled
+
+Node 933 has been totally disabled
+
+Node 934 has been totally disabled
+
+Node 935 has been totally disabled
+
+Node 936 has been totally disabled
+
+Node 937 has been totally disabled
+
+Node 938 has been totally disabled
+
+Node 939 has been totally disabled
+
+Node 940 has been totally disabled
+
+Node 941 has been totally disabled
+
+Node 942 has been totally disabled
+
+Node 943 has been totally disabled
+
+Node 944 has been totally disabled
+
+Node 945 has been totally disabled
+
+Node 946 has been totally disabled
+
+Node 947 has been totally disabled
+
+Node 948 has been totally disabled
+
+Node 949 has been totally disabled
+
+Node 950 has been totally disabled
+
+Node 951 has been totally disabled
+
+Node 952 has been totally disabled
+
+Node 953 has been totally disabled
+
+Node 954 has been totally disabled
+
+Node 955 has been totally disabled
+
+Node 956 has been totally disabled
+
+Node 957 has been totally disabled
+
+Node 958 has been totally disabled
+
+Node 959 has been totally disabled
+
+Node 960 has been totally disabled
+
+Node 961 has been totally disabled
+
+Node 962 has been totally disabled
+
+Node 963 has been totally disabled
+
+Node 964 has been totally disabled
+
+Node 965 has been totally disabled
+
+Node 966 has been totally disabled
+
+Node 967 has been totally disabled
+
+Node 968 has been totally disabled
+
+Node 969 has been totally disabled
+
+Node 970 has been totally disabled
+
+Node 971 has been totally disabled
+
+Node 972 has been totally disabled
+
+Node 973 has been totally disabled
+
+Node 974 has been totally disabled
+
+Node 975 has been totally disabled
+
+Node 976 has been totally disabled
+
+Node 977 has been totally disabled
+
+Node 978 has been totally disabled
+
+Node 979 has been totally disabled
+
+Node 980 has been totally disabled
+
+Node 981 has been totally disabled
+
+Node 982 has been totally disabled
+
+Node 983 has been totally disabled
+
+Node 984 has been totally disabled
+
+Node 985 has been totally disabled
+
+Node 986 has been totally disabled
+
+Node 987 has been totally disabled
+
+Node 988 has been totally disabled
+
+Node 989 has been totally disabled
+
+Node 990 has been totally disabled
+
+Node 991 has been totally disabled
+
+Node 992 has been totally disabled
+
+Node 993 has been totally disabled
+
+Node 994 has been totally disabled
+
+Node 995 has been totally disabled
+
+Node 996 has been totally disabled
+
+Node 997 has been totally disabled
+
+Node 998 has been totally disabled
+
+Node 999 has been totally disabled
+
+Node 1000 has been totally disabled
+
+Node 1001 has been totally disabled
+
+Node 1002 has been totally disabled
+
+Node 1003 has been totally disabled
+
+Node 1004 has been totally disabled
+
+Node 1005 has been totally disabled
+
+Node 1006 has been totally disabled
+
+Node 1007 has been totally disabled
+
+Node 1008 has been totally disabled
+
+Node 1009 has been totally disabled
+
+Node 1010 has been totally disabled
+
+Node 1011 has been totally disabled
+
+Node 1012 has been totally disabled
+
+Node 1013 has been totally disabled
+
+Node 1014 has been totally disabled
+
+Node 1015 has been totally disabled
+
+Node 1016 has been totally disabled
+
+Node 1017 has been totally disabled
+
+Node 1018 has been totally disabled
+
+Node 1019 has been totally disabled
+
+Node 1020 has been totally disabled
+
+Node 1021 has been totally disabled
+
+Node 1022 has been totally disabled
+
+Node 1023 has been totally disabled
+
+info: all-gather forward pass collective issued for layer: Embedding, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: Embedding is finished************
+info: no forward pass collective for layer: Q1
+info: no forward pass collective for layer: K1
+info: no forward pass collective for layer: V1
+info: no forward pass collective for layer: Softmax1
+info: no forward pass collective for layer: QKV1
+info: all-reduce forward pass collective issued for layer: Concat1, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: Concat1 is finished************
+info: no forward pass collective for layer: Relu1
+info: all-reduce forward pass collective issued for layer: X1W2b2, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: X1W2b2 is finished************
+info: no forward pass collective for layer: layernorm1
+info: no forward pass collective for layer: Q2
+info: no forward pass collective for layer: K2
+info: no forward pass collective for layer: V2
+info: no forward pass collective for layer: Softmax2
+info: no forward pass collective for layer: QKV2
+info: all-reduce forward pass collective issued for layer: Concat2, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: Concat2 is finished************
+info: no forward pass collective for layer: Relu2
+info: all-reduce forward pass collective issued for layer: X2W2b2, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: X2W2b2 is finished************
+info: no forward pass collective for layer: layernorm2
+info: no forward pass collective for layer: Q3
+info: no forward pass collective for layer: K3
+info: no forward pass collective for layer: V3
+info: no forward pass collective for layer: Softmax3
+info: no forward pass collective for layer: QKV3
+info: all-reduce forward pass collective issued for layer: Concat3, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: Concat3 is finished************
+info: no forward pass collective for layer: Relu3
+info: all-reduce forward pass collective issued for layer: X3W2b2, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: X3W2b2 is finished************
+info: no forward pass collective for layer: layernorm2
+info: no forward pass collective for layer: Q4
+info: no forward pass collective for layer: K4
+info: no forward pass collective for layer: V4
+info: no forward pass collective for layer: Softmax4
+info: no forward pass collective for layer: QKV4
+info: all-reduce forward pass collective issued for layer: Concat4, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: Concat4 is finished************
+info: no forward pass collective for layer: Relu4
+info: all-reduce forward pass collective issued for layer: X4W2b2, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: X4W2b2 is finished************
+info: no forward pass collective for layer: layernorm4
+info: no forward pass collective for layer: Q5
+info: no forward pass collective for layer: K5
+info: no forward pass collective for layer: V5
+info: no forward pass collective for layer: Softmax5
+info: no forward pass collective for layer: QKV5
+info: all-reduce forward pass collective issued for layer: Concat5, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: Concat5 is finished************
+info: no forward pass collective for layer: Relu5
+info: all-reduce forward pass collective issued for layer: X5W2b2, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: X5W2b2 is finished************
+info: no forward pass collective for layer: layernorm5
+info: no forward pass collective for layer: Q6
+info: no forward pass collective for layer: K6
+info: no forward pass collective for layer: V6
+info: no forward pass collective for layer: Softmax6
+info: no forward pass collective for layer: QKV6
+info: all-reduce forward pass collective issued for layer: Concat6, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: Concat6 is finished************
+info: no forward pass collective for layer: Relu6
+info: all-reduce forward pass collective issued for layer: X6W2b2, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: X6W2b2 is finished************
+info: no forward pass collective for layer: layernorm6
+info: all-gather forward pass collective issued for layer: fc, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+***** info: fwd pass comm collective for layer: fc is finished************
+info: no forward pass collective for layer: softmax
+info: no input grad collective for layer: softmax
+info: no weight grad collective for layer: softmax
+info: all-reduce input grad collective issued for layer: fc, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: fc with size: 1843200000, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: fc is finished************
+info: no input grad collective for layer: layernorm6
+info: no weight grad collective for layer: layernorm6
+info: no input grad collective for layer: X6W2b2
+info: all-reduce weight grad collective issued for layer: X6W2b2 with size: 13421772800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce input grad collective issued for layer: Relu6, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Relu6 with size: 13421772800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Relu6 is finished************
+info: all-gather input grad collective issued for layer: Concat6, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Concat6 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: weight gradient collective for layer: fc is finished************
+***** info: input gradient collective for layer: Concat6 is finished************
+info: no input grad collective for layer: QKV6
+info: no weight grad collective for layer: QKV6
+info: no input grad collective for layer: Softmax6
+info: no weight grad collective for layer: Softmax6
+info: no input grad collective for layer: V6
+info: all-reduce weight grad collective issued for layer: V6 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: no input grad collective for layer: K6
+info: all-reduce weight grad collective issued for layer: K6 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce input grad collective issued for layer: Q6, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Q6 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Q6 is finished************
+info: no input grad collective for layer: layernorm5
+info: no weight grad collective for layer: layernorm5
+info: no input grad collective for layer: X5W2b2
+info: all-reduce weight grad collective issued for layer: X5W2b2 with size: 13421772800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce input grad collective issued for layer: Relu5, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Relu5 with size: 13421772800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Relu5 is finished************
+info: all-gather input grad collective issued for layer: Concat5, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Concat5 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Concat5 is finished************
+info: no input grad collective for layer: QKV5
+info: no weight grad collective for layer: QKV5
+info: no input grad collective for layer: Softmax5
+info: no weight grad collective for layer: Softmax5
+info: no input grad collective for layer: V5
+info: all-reduce weight grad collective issued for layer: V5 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: no input grad collective for layer: K5
+info: all-reduce weight grad collective issued for layer: K5 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce input grad collective issued for layer: Q5, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Q5 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Q5 is finished************
+info: no input grad collective for layer: layernorm4
+info: no weight grad collective for layer: layernorm4
+info: no input grad collective for layer: X4W2b2
+info: all-reduce weight grad collective issued for layer: X4W2b2 with size: 13421772800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce input grad collective issued for layer: Relu4, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Relu4 with size: 13421772800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Relu4 is finished************
+info: all-gather input grad collective issued for layer: Concat4, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Concat4 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Concat4 is finished************
+info: no input grad collective for layer: QKV4
+info: no weight grad collective for layer: QKV4
+info: no input grad collective for layer: Softmax4
+info: no weight grad collective for layer: Softmax4
+info: no input grad collective for layer: V4
+info: all-reduce weight grad collective issued for layer: V4 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: no input grad collective for layer: K4
+info: all-reduce weight grad collective issued for layer: K4 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce input grad collective issued for layer: Q4, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Q4 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Q4 is finished************
+info: no input grad collective for layer: layernorm2
+info: no weight grad collective for layer: layernorm2
+info: no input grad collective for layer: X3W2b2
+info: all-reduce weight grad collective issued for layer: X3W2b2 with size: 13421772800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce input grad collective issued for layer: Relu3, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Relu3 with size: 13421772800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Relu3 is finished************
+info: all-gather input grad collective issued for layer: Concat3, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Concat3 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Concat3 is finished************
+info: no input grad collective for layer: QKV3
+info: no weight grad collective for layer: QKV3
+info: no input grad collective for layer: Softmax3
+info: no weight grad collective for layer: Softmax3
+info: no input grad collective for layer: V3
+info: all-reduce weight grad collective issued for layer: V3 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: no input grad collective for layer: K3
+info: all-reduce weight grad collective issued for layer: K3 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce input grad collective issued for layer: Q3, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Q3 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Q3 is finished************
+info: no input grad collective for layer: layernorm2
+info: no weight grad collective for layer: layernorm2
+info: no input grad collective for layer: X2W2b2
+info: all-reduce weight grad collective issued for layer: X2W2b2 with size: 13421772800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce input grad collective issued for layer: Relu2, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Relu2 with size: 13421772800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Relu2 is finished************
+info: all-gather input grad collective issued for layer: Concat2, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Concat2 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Concat2 is finished************
+info: no input grad collective for layer: QKV2
+info: no weight grad collective for layer: QKV2
+info: no input grad collective for layer: Softmax2
+info: no weight grad collective for layer: Softmax2
+info: no input grad collective for layer: V2
+info: all-reduce weight grad collective issued for layer: V2 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: no input grad collective for layer: K2
+info: all-reduce weight grad collective issued for layer: K2 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce input grad collective issued for layer: Q2, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Q2 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Q2 is finished************
+info: no input grad collective for layer: layernorm1
+info: no weight grad collective for layer: layernorm1
+info: no input grad collective for layer: X1W2b2
+info: all-reduce weight grad collective issued for layer: X1W2b2 with size: 13421772800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce input grad collective issued for layer: Relu1, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Relu1 with size: 13421772800, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Relu1 is finished************
+info: all-gather input grad collective issued for layer: Concat1, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Concat1 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Concat1 is finished************
+info: no input grad collective for layer: QKV1
+info: no weight grad collective for layer: QKV1
+info: no input grad collective for layer: Softmax1
+info: no weight grad collective for layer: Softmax1
+info: no input grad collective for layer: V1
+info: all-reduce weight grad collective issued for layer: V1 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: no input grad collective for layer: K1
+info: all-reduce weight grad collective issued for layer: K1 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+info: all-reduce input grad collective issued for layer: Q1, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+info: all-reduce weight grad collective issued for layer: Q1 with size: 3355443200, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+***** info: input gradient collective for layer: Q1 is finished************
+info: no input grad collective for layer: Embedding
+info: no weight grad collective for layer: Embedding
+pass: 0 finished at time: 3818115507
+***** info: weight gradient collective for layer: Concat4 is finished************
+***** info: weight gradient collective for layer: Q4 is finished************
+***** info: weight gradient collective for layer: K3 is finished************
+***** info: weight gradient collective for layer: Q3 is finished************
+***** info: weight gradient collective for layer: Q2 is finished************
+***** info: weight gradient collective for layer: K2 is finished************
+***** info: weight gradient collective for layer: Q1 is finished************
+***** info: weight gradient collective for layer: K1 is finished************
+***** info: weight gradient collective for layer: V1 is finished************
+***** info: weight gradient collective for layer: Concat1 is finished************
+***** info: weight gradient collective for layer: V2 is finished************
+***** info: weight gradient collective for layer: Concat2 is finished************
+***** info: weight gradient collective for layer: V3 is finished************
+***** info: weight gradient collective for layer: Concat3 is finished************
+***** info: weight gradient collective for layer: X6W2b2 is finished************
+***** info: weight gradient collective for layer: K4 is finished************
+***** info: weight gradient collective for layer: V4 is finished************
+***** info: weight gradient collective for layer: Q5 is finished************
+***** info: weight gradient collective for layer: K5 is finished************
+***** info: weight gradient collective for layer: V5 is finished************
+***** info: weight gradient collective for layer: Concat5 is finished************
+***** info: weight gradient collective for layer: Q6 is finished************
+***** info: weight gradient collective for layer: K6 is finished************
+***** info: weight gradient collective for layer: V6 is finished************
+***** info: weight gradient collective for layer: Concat6 is finished************
+***** info: weight gradient collective for layer: Relu1 is finished************
+***** info: weight gradient collective for layer: X1W2b2 is finished************
+***** info: weight gradient collective for layer: Relu2 is finished************
+***** info: weight gradient collective for layer: X2W2b2 is finished************
+***** info: weight gradient collective for layer: Relu3 is finished************
+***** info: weight gradient collective for layer: X3W2b2 is finished************
+***** info: weight gradient collective for layer: Relu4 is finished************
+***** info: weight gradient collective for layer: X4W2b2 is finished************
+***** info: weight gradient collective for layer: Relu5 is finished************
+***** info: weight gradient collective for layer: X5W2b2 is finished************
+***** info: weight gradient collective for layer: Relu6 is finished************
+*******************
+Layer id: Embedding
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* Embedding
+id: Embedding ,Total cycles spent on fwd pass compute: 77
+id: Embedding ,Total cycles spent on weight grad compute: 0
+id: Embedding ,Total cycles spent on input grad compute: 0
+id: Embedding ,Total cycles spent idle waiting for fwd finish: 31250186
+id: Embedding ,Total cycles spent idle waiting for weight grad finish: 0
+id: Embedding ,Total cycles spent idle waiting for input grad finish: 0
+id: Embedding ,Total cycles spent on fwd pass comm: 31250186
+id: Embedding ,Total cycles spent on weight grad comm: 0
+id: Embedding ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* Embedding
+id: Embedding ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Embedding ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 1.53809e+07
+*************************  Network stats  ************************* Embedding
+id: Embedding ,Average cycles spent on network for phase 1 of algorithm (per message): 488282
+*******************
+Layer id: Q1
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* Q1
+id: Q1 ,Total cycles spent on fwd pass compute: 817889
+id: Q1 ,Total cycles spent on weight grad compute: 579338
+id: Q1 ,Total cycles spent on input grad compute: 562298
+id: Q1 ,Total cycles spent idle waiting for fwd finish: 0
+id: Q1 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Q1 ,Total cycles spent idle waiting for input grad finish: 15047167
+id: Q1 ,Total cycles spent on fwd pass comm: 0
+id: Q1 ,Total cycles spent on weight grad comm: 5681903557
+id: Q1 ,Total cycles spent on input grad comm: 15626506
+*************************  Queuing stats  ************************* Q1
+id: Q1 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Q1 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 3.40962e+07
+id: Q1 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 7115.84
+id: Q1 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 7098.39
+id: Q1 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Q1 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 4.43619e+07
+id: Q1 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 187348
+*************************  Network stats  ************************* Q1
+id: Q1 ,Average cycles spent on network for phase 1 of algorithm (per message): 543913
+id: Q1 ,Average cycles spent on network for phase 2 of algorithm (per message): 89367.9
+id: Q1 ,Average cycles spent on network for phase 3 of algorithm (per message): 3303.66
+id: Q1 ,Average cycles spent on network for phase 4 of algorithm (per message): 3303.66
+id: Q1 ,Average cycles spent on network for phase 5 of algorithm (per message): 28332.4
+id: Q1 ,Average cycles spent on network for phase 6 of algorithm (per message): 482877
+*******************
+Layer id: K1
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* K1
+id: K1 ,Total cycles spent on fwd pass compute: 817889
+id: K1 ,Total cycles spent on weight grad compute: 579338
+id: K1 ,Total cycles spent on input grad compute: 562298
+id: K1 ,Total cycles spent idle waiting for fwd finish: 0
+id: K1 ,Total cycles spent idle waiting for weight grad finish: 0
+id: K1 ,Total cycles spent idle waiting for input grad finish: 0
+id: K1 ,Total cycles spent on fwd pass comm: 0
+id: K1 ,Total cycles spent on weight grad comm: 5683899696
+id: K1 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* K1
+id: K1 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: K1 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 1.8279e+08
+id: K1 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 22876.7
+id: K1 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 11394.2
+id: K1 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: K1 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 8.87228e+07
+id: K1 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 355277
+*************************  Network stats  ************************* K1
+id: K1 ,Average cycles spent on network for phase 1 of algorithm (per message): 965755
+id: K1 ,Average cycles spent on network for phase 2 of algorithm (per message): 56664.8
+id: K1 ,Average cycles spent on network for phase 3 of algorithm (per message): 6607.32
+id: K1 ,Average cycles spent on network for phase 4 of algorithm (per message): 6607.32
+id: K1 ,Average cycles spent on network for phase 5 of algorithm (per message): 56664.8
+id: K1 ,Average cycles spent on network for phase 6 of algorithm (per message): 965755
+*******************
+Layer id: V1
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* V1
+id: V1 ,Total cycles spent on fwd pass compute: 817889
+id: V1 ,Total cycles spent on weight grad compute: 579338
+id: V1 ,Total cycles spent on input grad compute: 562298
+id: V1 ,Total cycles spent idle waiting for fwd finish: 0
+id: V1 ,Total cycles spent idle waiting for weight grad finish: 0
+id: V1 ,Total cycles spent idle waiting for input grad finish: 0
+id: V1 ,Total cycles spent on fwd pass comm: 0
+id: V1 ,Total cycles spent on weight grad comm: 5685895835
+id: V1 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* V1
+id: V1 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: V1 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 3.05033e+08
+id: V1 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 42622.5
+id: V1 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 8591.69
+id: V1 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: V1 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 8.87218e+07
+id: V1 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 370533
+*************************  Network stats  ************************* V1
+id: V1 ,Average cycles spent on network for phase 1 of algorithm (per message): 965755
+id: V1 ,Average cycles spent on network for phase 2 of algorithm (per message): 56664.8
+id: V1 ,Average cycles spent on network for phase 3 of algorithm (per message): 6607.32
+id: V1 ,Average cycles spent on network for phase 4 of algorithm (per message): 6607.32
+id: V1 ,Average cycles spent on network for phase 5 of algorithm (per message): 56664.8
+id: V1 ,Average cycles spent on network for phase 6 of algorithm (per message): 965755
+*******************
+Layer id: Softmax1
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* Softmax1
+id: Softmax1 ,Total cycles spent on fwd pass compute: 199
+id: Softmax1 ,Total cycles spent on weight grad compute: 199
+id: Softmax1 ,Total cycles spent on input grad compute: 199
+id: Softmax1 ,Total cycles spent idle waiting for fwd finish: 0
+id: Softmax1 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Softmax1 ,Total cycles spent idle waiting for input grad finish: 0
+id: Softmax1 ,Total cycles spent on fwd pass comm: 0
+id: Softmax1 ,Total cycles spent on weight grad comm: 0
+id: Softmax1 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* Softmax1
+*************************  Network stats  ************************* Softmax1
+*******************
+Layer id: QKV1
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* QKV1
+id: QKV1 ,Total cycles spent on fwd pass compute: 199
+id: QKV1 ,Total cycles spent on weight grad compute: 199
+id: QKV1 ,Total cycles spent on input grad compute: 199
+id: QKV1 ,Total cycles spent idle waiting for fwd finish: 0
+id: QKV1 ,Total cycles spent idle waiting for weight grad finish: 0
+id: QKV1 ,Total cycles spent idle waiting for input grad finish: 0
+id: QKV1 ,Total cycles spent on fwd pass comm: 0
+id: QKV1 ,Total cycles spent on weight grad comm: 0
+id: QKV1 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* QKV1
+*************************  Network stats  ************************* QKV1
+*******************
+Layer id: Concat1
+Total collectives issued for this layer: 3
+*************************  Workload stats  ************************* Concat1
+id: Concat1 ,Total cycles spent on fwd pass compute: 562298
+id: Concat1 ,Total cycles spent on weight grad compute: 579338
+id: Concat1 ,Total cycles spent on input grad compute: 817889
+id: Concat1 ,Total cycles spent idle waiting for fwd finish: 15626506
+id: Concat1 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Concat1 ,Total cycles spent idle waiting for input grad finish: 499420863
+id: Concat1 ,Total cycles spent on fwd pass comm: 15626506
+id: Concat1 ,Total cycles spent on weight grad comm: 6187313637
+id: Concat1 ,Total cycles spent on input grad comm: 500000202
+*************************  Queuing stats  ************************* Concat1
+id: Concat1 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Concat1 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 1.04926e+08
+id: Concat1 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 4845.2
+id: Concat1 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 557.005
+id: Concat1 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Concat1 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 3.21921e+07
+id: Concat1 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 129213
+*************************  Network stats  ************************* Concat1
+id: Concat1 ,Average cycles spent on network for phase 1 of algorithm (per message): 2.96678e+06
+id: Concat1 ,Average cycles spent on network for phase 2 of algorithm (per message): 59578.6
+id: Concat1 ,Average cycles spent on network for phase 3 of algorithm (per message): 2202.44
+id: Concat1 ,Average cycles spent on network for phase 4 of algorithm (per message): 2202.44
+id: Concat1 ,Average cycles spent on network for phase 5 of algorithm (per message): 18888.3
+id: Concat1 ,Average cycles spent on network for phase 6 of algorithm (per message): 321918
+*******************
+Layer id: Relu1
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* Relu1
+id: Relu1 ,Total cycles spent on fwd pass compute: 3271557
+id: Relu1 ,Total cycles spent on weight grad compute: 2317352
+id: Relu1 ,Total cycles spent on input grad compute: 2198077
+id: Relu1 ,Total cycles spent idle waiting for fwd finish: 0
+id: Relu1 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Relu1 ,Total cycles spent idle waiting for input grad finish: 13309153
+id: Relu1 ,Total cycles spent on fwd pass comm: 0
+id: Relu1 ,Total cycles spent on weight grad comm: 6217401011
+id: Relu1 ,Total cycles spent on input grad comm: 15626506
+*************************  Queuing stats  ************************* Relu1
+id: Relu1 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Relu1 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 5.1404e+08
+id: Relu1 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 6755.9
+id: Relu1 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 179.664
+id: Relu1 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Relu1 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 4.83761e+07
+id: Relu1 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 3.64982e+06
+*************************  Network stats  ************************* Relu1
+id: Relu1 ,Average cycles spent on network for phase 1 of algorithm (per message): 1.99254e+06
+id: Relu1 ,Average cycles spent on network for phase 2 of algorithm (per message): 174364
+id: Relu1 ,Average cycles spent on network for phase 3 of algorithm (per message): 13213
+id: Relu1 ,Average cycles spent on network for phase 4 of algorithm (per message): 13213
+id: Relu1 ,Average cycles spent on network for phase 5 of algorithm (per message): 113329
+id: Relu1 ,Average cycles spent on network for phase 6 of algorithm (per message): 1.93151e+06
+*******************
+Layer id: X1W2b2
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* X1W2b2
+id: X1W2b2 ,Total cycles spent on fwd pass compute: 2198077
+id: X1W2b2 ,Total cycles spent on weight grad compute: 2317352
+id: X1W2b2 ,Total cycles spent on input grad compute: 3271557
+id: X1W2b2 ,Total cycles spent idle waiting for fwd finish: 15626506
+id: X1W2b2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: X1W2b2 ,Total cycles spent idle waiting for input grad finish: 0
+id: X1W2b2 ,Total cycles spent on fwd pass comm: 15626506
+id: X1W2b2 ,Total cycles spent on weight grad comm: 6225334420
+id: X1W2b2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* X1W2b2
+id: X1W2b2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: X1W2b2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 7.78739e+08
+id: X1W2b2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 67.8672
+id: X1W2b2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 319.977
+id: X1W2b2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: X1W2b2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 4.84141e+07
+id: X1W2b2 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 823855
+*************************  Network stats  ************************* X1W2b2
+id: X1W2b2 ,Average cycles spent on network for phase 1 of algorithm (per message): 1.99254e+06
+id: X1W2b2 ,Average cycles spent on network for phase 2 of algorithm (per message): 174364
+id: X1W2b2 ,Average cycles spent on network for phase 3 of algorithm (per message): 13213
+id: X1W2b2 ,Average cycles spent on network for phase 4 of algorithm (per message): 13213
+id: X1W2b2 ,Average cycles spent on network for phase 5 of algorithm (per message): 113329
+id: X1W2b2 ,Average cycles spent on network for phase 6 of algorithm (per message): 1.93151e+06
+*******************
+Layer id: layernorm1
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* layernorm1
+id: layernorm1 ,Total cycles spent on fwd pass compute: 51118
+id: layernorm1 ,Total cycles spent on weight grad compute: 36208
+id: layernorm1 ,Total cycles spent on input grad compute: 51118
+id: layernorm1 ,Total cycles spent idle waiting for fwd finish: 0
+id: layernorm1 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layernorm1 ,Total cycles spent idle waiting for input grad finish: 0
+id: layernorm1 ,Total cycles spent on fwd pass comm: 0
+id: layernorm1 ,Total cycles spent on weight grad comm: 0
+id: layernorm1 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layernorm1
+*************************  Network stats  ************************* layernorm1
+*******************
+Layer id: Q2
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* Q2
+id: Q2 ,Total cycles spent on fwd pass compute: 817889
+id: Q2 ,Total cycles spent on weight grad compute: 579338
+id: Q2 ,Total cycles spent on input grad compute: 562298
+id: Q2 ,Total cycles spent idle waiting for fwd finish: 0
+id: Q2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Q2 ,Total cycles spent idle waiting for input grad finish: 15047167
+id: Q2 ,Total cycles spent on fwd pass comm: 0
+id: Q2 ,Total cycles spent on weight grad comm: 6222986351
+id: Q2 ,Total cycles spent on input grad comm: 15626506
+*************************  Queuing stats  ************************* Q2
+id: Q2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Q2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 7.59807e+07
+id: Q2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 30032.1
+id: Q2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 8507.45
+id: Q2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Q2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 4.85966e+07
+id: Q2 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 184167
+*************************  Network stats  ************************* Q2
+id: Q2 ,Average cycles spent on network for phase 1 of algorithm (per message): 543913
+id: Q2 ,Average cycles spent on network for phase 2 of algorithm (per message): 89367.9
+id: Q2 ,Average cycles spent on network for phase 3 of algorithm (per message): 3303.66
+id: Q2 ,Average cycles spent on network for phase 4 of algorithm (per message): 3303.66
+id: Q2 ,Average cycles spent on network for phase 5 of algorithm (per message): 28332.4
+id: Q2 ,Average cycles spent on network for phase 6 of algorithm (per message): 482877
+*******************
+Layer id: K2
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* K2
+id: K2 ,Total cycles spent on fwd pass compute: 817889
+id: K2 ,Total cycles spent on weight grad compute: 579338
+id: K2 ,Total cycles spent on input grad compute: 562298
+id: K2 ,Total cycles spent idle waiting for fwd finish: 0
+id: K2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: K2 ,Total cycles spent idle waiting for input grad finish: 0
+id: K2 ,Total cycles spent on fwd pass comm: 0
+id: K2 ,Total cycles spent on weight grad comm: 6224982490
+id: K2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* K2
+id: K2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: K2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 2.99479e+08
+id: K2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 11778
+id: K2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 4152.47
+id: K2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: K2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 9.72019e+07
+id: K2 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 352796
+*************************  Network stats  ************************* K2
+id: K2 ,Average cycles spent on network for phase 1 of algorithm (per message): 965755
+id: K2 ,Average cycles spent on network for phase 2 of algorithm (per message): 56664.8
+id: K2 ,Average cycles spent on network for phase 3 of algorithm (per message): 6607.32
+id: K2 ,Average cycles spent on network for phase 4 of algorithm (per message): 6607.32
+id: K2 ,Average cycles spent on network for phase 5 of algorithm (per message): 56664.8
+id: K2 ,Average cycles spent on network for phase 6 of algorithm (per message): 965755
+*******************
+Layer id: V2
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* V2
+id: V2 ,Total cycles spent on fwd pass compute: 817889
+id: V2 ,Total cycles spent on weight grad compute: 579338
+id: V2 ,Total cycles spent on input grad compute: 562298
+id: V2 ,Total cycles spent idle waiting for fwd finish: 0
+id: V2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: V2 ,Total cycles spent idle waiting for input grad finish: 0
+id: V2 ,Total cycles spent on fwd pass comm: 0
+id: V2 ,Total cycles spent on weight grad comm: 6230396633
+id: V2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* V2
+id: V2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: V2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 4.25588e+08
+id: V2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 12447.1
+id: V2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+id: V2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: V2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 9.72188e+07
+id: V2 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 420125
+*************************  Network stats  ************************* V2
+id: V2 ,Average cycles spent on network for phase 1 of algorithm (per message): 965755
+id: V2 ,Average cycles spent on network for phase 2 of algorithm (per message): 56664.8
+id: V2 ,Average cycles spent on network for phase 3 of algorithm (per message): 6607.32
+id: V2 ,Average cycles spent on network for phase 4 of algorithm (per message): 6607.32
+id: V2 ,Average cycles spent on network for phase 5 of algorithm (per message): 56664.8
+id: V2 ,Average cycles spent on network for phase 6 of algorithm (per message): 965755
+*******************
+Layer id: Softmax2
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* Softmax2
+id: Softmax2 ,Total cycles spent on fwd pass compute: 199
+id: Softmax2 ,Total cycles spent on weight grad compute: 199
+id: Softmax2 ,Total cycles spent on input grad compute: 199
+id: Softmax2 ,Total cycles spent idle waiting for fwd finish: 0
+id: Softmax2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Softmax2 ,Total cycles spent idle waiting for input grad finish: 0
+id: Softmax2 ,Total cycles spent on fwd pass comm: 0
+id: Softmax2 ,Total cycles spent on weight grad comm: 0
+id: Softmax2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* Softmax2
+*************************  Network stats  ************************* Softmax2
+*******************
+Layer id: QKV2
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* QKV2
+id: QKV2 ,Total cycles spent on fwd pass compute: 199
+id: QKV2 ,Total cycles spent on weight grad compute: 199
+id: QKV2 ,Total cycles spent on input grad compute: 199
+id: QKV2 ,Total cycles spent idle waiting for fwd finish: 0
+id: QKV2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: QKV2 ,Total cycles spent idle waiting for input grad finish: 0
+id: QKV2 ,Total cycles spent on fwd pass comm: 0
+id: QKV2 ,Total cycles spent on weight grad comm: 0
+id: QKV2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* QKV2
+*************************  Network stats  ************************* QKV2
+*******************
+Layer id: Concat2
+Total collectives issued for this layer: 3
+*************************  Workload stats  ************************* Concat2
+id: Concat2 ,Total cycles spent on fwd pass compute: 562298
+id: Concat2 ,Total cycles spent on weight grad compute: 579338
+id: Concat2 ,Total cycles spent on input grad compute: 817889
+id: Concat2 ,Total cycles spent idle waiting for fwd finish: 15626506
+id: Concat2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Concat2 ,Total cycles spent idle waiting for input grad finish: 499420863
+id: Concat2 ,Total cycles spent on fwd pass comm: 15626506
+id: Concat2 ,Total cycles spent on weight grad comm: 6731814435
+id: Concat2 ,Total cycles spent on input grad comm: 500000202
+*************************  Queuing stats  ************************* Concat2
+id: Concat2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Concat2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 1.04688e+08
+id: Concat2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 1147.22
+id: Concat2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 855.297
+id: Concat2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Concat2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 3.50152e+07
+id: Concat2 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 155618
+*************************  Network stats  ************************* Concat2
+id: Concat2 ,Average cycles spent on network for phase 1 of algorithm (per message): 2.96678e+06
+id: Concat2 ,Average cycles spent on network for phase 2 of algorithm (per message): 59578.6
+id: Concat2 ,Average cycles spent on network for phase 3 of algorithm (per message): 2202.44
+id: Concat2 ,Average cycles spent on network for phase 4 of algorithm (per message): 2202.44
+id: Concat2 ,Average cycles spent on network for phase 5 of algorithm (per message): 18888.3
+id: Concat2 ,Average cycles spent on network for phase 6 of algorithm (per message): 321918
+*******************
+Layer id: Relu2
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* Relu2
+id: Relu2 ,Total cycles spent on fwd pass compute: 3271557
+id: Relu2 ,Total cycles spent on weight grad compute: 2317352
+id: Relu2 ,Total cycles spent on input grad compute: 2198077
+id: Relu2 ,Total cycles spent idle waiting for fwd finish: 0
+id: Relu2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Relu2 ,Total cycles spent idle waiting for input grad finish: 13309153
+id: Relu2 ,Total cycles spent on fwd pass comm: 0
+id: Relu2 ,Total cycles spent on weight grad comm: 6767028763
+id: Relu2 ,Total cycles spent on input grad comm: 15626506
+*************************  Queuing stats  ************************* Relu2
+id: Relu2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Relu2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 1.17622e+09
+id: Relu2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 2802.62
+id: Relu2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+id: Relu2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Relu2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 5.26033e+07
+id: Relu2 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 865812
+*************************  Network stats  ************************* Relu2
+id: Relu2 ,Average cycles spent on network for phase 1 of algorithm (per message): 1.99254e+06
+id: Relu2 ,Average cycles spent on network for phase 2 of algorithm (per message): 174364
+id: Relu2 ,Average cycles spent on network for phase 3 of algorithm (per message): 13213
+id: Relu2 ,Average cycles spent on network for phase 4 of algorithm (per message): 13213
+id: Relu2 ,Average cycles spent on network for phase 5 of algorithm (per message): 113329
+id: Relu2 ,Average cycles spent on network for phase 6 of algorithm (per message): 1.93151e+06
+*******************
+Layer id: X2W2b2
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* X2W2b2
+id: X2W2b2 ,Total cycles spent on fwd pass compute: 2198077
+id: X2W2b2 ,Total cycles spent on weight grad compute: 2317352
+id: X2W2b2 ,Total cycles spent on input grad compute: 3271557
+id: X2W2b2 ,Total cycles spent idle waiting for fwd finish: 15626506
+id: X2W2b2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: X2W2b2 ,Total cycles spent idle waiting for input grad finish: 0
+id: X2W2b2 ,Total cycles spent on fwd pass comm: 15626506
+id: X2W2b2 ,Total cycles spent on weight grad comm: 6774962172
+id: X2W2b2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* X2W2b2
+id: X2W2b2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: X2W2b2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 1.50736e+09
+id: X2W2b2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 2151.52
+id: X2W2b2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 262.812
+id: X2W2b2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: X2W2b2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 5.26412e+07
+id: X2W2b2 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 888700
+*************************  Network stats  ************************* X2W2b2
+id: X2W2b2 ,Average cycles spent on network for phase 1 of algorithm (per message): 1.99254e+06
+id: X2W2b2 ,Average cycles spent on network for phase 2 of algorithm (per message): 174364
+id: X2W2b2 ,Average cycles spent on network for phase 3 of algorithm (per message): 13213
+id: X2W2b2 ,Average cycles spent on network for phase 4 of algorithm (per message): 13213
+id: X2W2b2 ,Average cycles spent on network for phase 5 of algorithm (per message): 113329
+id: X2W2b2 ,Average cycles spent on network for phase 6 of algorithm (per message): 1.93151e+06
+*******************
+Layer id: layernorm2
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* layernorm2
+id: layernorm2 ,Total cycles spent on fwd pass compute: 51118
+id: layernorm2 ,Total cycles spent on weight grad compute: 36208
+id: layernorm2 ,Total cycles spent on input grad compute: 51118
+id: layernorm2 ,Total cycles spent idle waiting for fwd finish: 0
+id: layernorm2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layernorm2 ,Total cycles spent idle waiting for input grad finish: 0
+id: layernorm2 ,Total cycles spent on fwd pass comm: 0
+id: layernorm2 ,Total cycles spent on weight grad comm: 0
+id: layernorm2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layernorm2
+*************************  Network stats  ************************* layernorm2
+*******************
+Layer id: Q3
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* Q3
+id: Q3 ,Total cycles spent on fwd pass compute: 817889
+id: Q3 ,Total cycles spent on weight grad compute: 579338
+id: Q3 ,Total cycles spent on input grad compute: 562298
+id: Q3 ,Total cycles spent idle waiting for fwd finish: 0
+id: Q3 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Q3 ,Total cycles spent idle waiting for input grad finish: 15047167
+id: Q3 ,Total cycles spent on fwd pass comm: 0
+id: Q3 ,Total cycles spent on weight grad comm: 6764923646
+id: Q3 ,Total cycles spent on input grad comm: 15626506
+*************************  Queuing stats  ************************* Q3
+id: Q3 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Q3 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 7.60594e+07
+id: Q3 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 41619.5
+id: Q3 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 51395.6
+id: Q3 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Q3 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 5.28246e+07
+id: Q3 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 1.21141e+06
+*************************  Network stats  ************************* Q3
+id: Q3 ,Average cycles spent on network for phase 1 of algorithm (per message): 543913
+id: Q3 ,Average cycles spent on network for phase 2 of algorithm (per message): 89367.9
+id: Q3 ,Average cycles spent on network for phase 3 of algorithm (per message): 3303.66
+id: Q3 ,Average cycles spent on network for phase 4 of algorithm (per message): 3303.66
+id: Q3 ,Average cycles spent on network for phase 5 of algorithm (per message): 28332.4
+id: Q3 ,Average cycles spent on network for phase 6 of algorithm (per message): 482877
+*******************
+Layer id: K3
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* K3
+id: K3 ,Total cycles spent on fwd pass compute: 817889
+id: K3 ,Total cycles spent on weight grad compute: 579338
+id: K3 ,Total cycles spent on input grad compute: 562298
+id: K3 ,Total cycles spent idle waiting for fwd finish: 0
+id: K3 ,Total cycles spent idle waiting for weight grad finish: 0
+id: K3 ,Total cycles spent idle waiting for input grad finish: 0
+id: K3 ,Total cycles spent on fwd pass comm: 0
+id: K3 ,Total cycles spent on weight grad comm: 6765210783
+id: K3 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* K3
+id: K3 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: K3 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 3.05515e+08
+id: K3 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 31201.7
+id: K3 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 11394.2
+id: K3 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: K3 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 1.05631e+08
+id: K3 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 334293
+*************************  Network stats  ************************* K3
+id: K3 ,Average cycles spent on network for phase 1 of algorithm (per message): 965755
+id: K3 ,Average cycles spent on network for phase 2 of algorithm (per message): 56664.8
+id: K3 ,Average cycles spent on network for phase 3 of algorithm (per message): 6607.32
+id: K3 ,Average cycles spent on network for phase 4 of algorithm (per message): 6607.32
+id: K3 ,Average cycles spent on network for phase 5 of algorithm (per message): 56664.8
+id: K3 ,Average cycles spent on network for phase 6 of algorithm (per message): 965755
+*******************
+Layer id: V3
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* V3
+id: V3 ,Total cycles spent on fwd pass compute: 817889
+id: V3 ,Total cycles spent on weight grad compute: 579338
+id: V3 ,Total cycles spent on input grad compute: 562298
+id: V3 ,Total cycles spent idle waiting for fwd finish: 0
+id: V3 ,Total cycles spent idle waiting for weight grad finish: 0
+id: V3 ,Total cycles spent idle waiting for input grad finish: 0
+id: V3 ,Total cycles spent on fwd pass comm: 0
+id: V3 ,Total cycles spent on weight grad comm: 6774897431
+id: V3 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* V3
+id: V3 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: V3 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 4.27788e+08
+id: V3 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 50947.4
+id: V3 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 8591.69
+id: V3 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: V3 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 1.0563e+08
+id: V3 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 515503
+*************************  Network stats  ************************* V3
+id: V3 ,Average cycles spent on network for phase 1 of algorithm (per message): 965755
+id: V3 ,Average cycles spent on network for phase 2 of algorithm (per message): 56664.8
+id: V3 ,Average cycles spent on network for phase 3 of algorithm (per message): 6607.32
+id: V3 ,Average cycles spent on network for phase 4 of algorithm (per message): 6607.32
+id: V3 ,Average cycles spent on network for phase 5 of algorithm (per message): 56664.8
+id: V3 ,Average cycles spent on network for phase 6 of algorithm (per message): 965755
+*******************
+Layer id: Softmax3
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* Softmax3
+id: Softmax3 ,Total cycles spent on fwd pass compute: 199
+id: Softmax3 ,Total cycles spent on weight grad compute: 199
+id: Softmax3 ,Total cycles spent on input grad compute: 199
+id: Softmax3 ,Total cycles spent idle waiting for fwd finish: 0
+id: Softmax3 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Softmax3 ,Total cycles spent idle waiting for input grad finish: 0
+id: Softmax3 ,Total cycles spent on fwd pass comm: 0
+id: Softmax3 ,Total cycles spent on weight grad comm: 0
+id: Softmax3 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* Softmax3
+*************************  Network stats  ************************* Softmax3
+*******************
+Layer id: QKV3
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* QKV3
+id: QKV3 ,Total cycles spent on fwd pass compute: 199
+id: QKV3 ,Total cycles spent on weight grad compute: 199
+id: QKV3 ,Total cycles spent on input grad compute: 199
+id: QKV3 ,Total cycles spent idle waiting for fwd finish: 0
+id: QKV3 ,Total cycles spent idle waiting for weight grad finish: 0
+id: QKV3 ,Total cycles spent idle waiting for input grad finish: 0
+id: QKV3 ,Total cycles spent on fwd pass comm: 0
+id: QKV3 ,Total cycles spent on weight grad comm: 0
+id: QKV3 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* QKV3
+*************************  Network stats  ************************* QKV3
+*******************
+Layer id: Concat3
+Total collectives issued for this layer: 3
+*************************  Workload stats  ************************* Concat3
+id: Concat3 ,Total cycles spent on fwd pass compute: 562298
+id: Concat3 ,Total cycles spent on weight grad compute: 579338
+id: Concat3 ,Total cycles spent on input grad compute: 817889
+id: Concat3 ,Total cycles spent idle waiting for fwd finish: 15626506
+id: Concat3 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Concat3 ,Total cycles spent idle waiting for input grad finish: 499420863
+id: Concat3 ,Total cycles spent on fwd pass comm: 15626506
+id: Concat3 ,Total cycles spent on weight grad comm: 7276315233
+id: Concat3 ,Total cycles spent on input grad comm: 500000202
+*************************  Queuing stats  ************************* Concat3
+id: Concat3 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Concat3 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 1.04465e+08
+id: Concat3 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 2533.09
+id: Concat3 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 557.005
+id: Concat3 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Concat3 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 3.78332e+07
+id: Concat3 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 162275
+*************************  Network stats  ************************* Concat3
+id: Concat3 ,Average cycles spent on network for phase 1 of algorithm (per message): 2.96678e+06
+id: Concat3 ,Average cycles spent on network for phase 2 of algorithm (per message): 59578.6
+id: Concat3 ,Average cycles spent on network for phase 3 of algorithm (per message): 2202.44
+id: Concat3 ,Average cycles spent on network for phase 4 of algorithm (per message): 2202.44
+id: Concat3 ,Average cycles spent on network for phase 5 of algorithm (per message): 18888.3
+id: Concat3 ,Average cycles spent on network for phase 6 of algorithm (per message): 321918
+*******************
+Layer id: Relu3
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* Relu3
+id: Relu3 ,Total cycles spent on fwd pass compute: 3271557
+id: Relu3 ,Total cycles spent on weight grad compute: 2317352
+id: Relu3 ,Total cycles spent on input grad compute: 2198077
+id: Relu3 ,Total cycles spent idle waiting for fwd finish: 0
+id: Relu3 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Relu3 ,Total cycles spent idle waiting for input grad finish: 13309153
+id: Relu3 ,Total cycles spent on fwd pass comm: 0
+id: Relu3 ,Total cycles spent on weight grad comm: 7316656515
+id: Relu3 ,Total cycles spent on input grad comm: 15626506
+*************************  Queuing stats  ************************* Relu3
+id: Relu3 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Relu3 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 1.80768e+09
+id: Relu3 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 503.852
+id: Relu3 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 179.664
+id: Relu3 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Relu3 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 5.68378e+07
+id: Relu3 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 2.68451e+07
+*************************  Network stats  ************************* Relu3
+id: Relu3 ,Average cycles spent on network for phase 1 of algorithm (per message): 1.99254e+06
+id: Relu3 ,Average cycles spent on network for phase 2 of algorithm (per message): 174364
+id: Relu3 ,Average cycles spent on network for phase 3 of algorithm (per message): 13213
+id: Relu3 ,Average cycles spent on network for phase 4 of algorithm (per message): 13213
+id: Relu3 ,Average cycles spent on network for phase 5 of algorithm (per message): 113329
+id: Relu3 ,Average cycles spent on network for phase 6 of algorithm (per message): 1.93151e+06
+*******************
+Layer id: X3W2b2
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* X3W2b2
+id: X3W2b2 ,Total cycles spent on fwd pass compute: 2198077
+id: X3W2b2 ,Total cycles spent on weight grad compute: 2317352
+id: X3W2b2 ,Total cycles spent on input grad compute: 3271557
+id: X3W2b2 ,Total cycles spent idle waiting for fwd finish: 15626506
+id: X3W2b2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: X3W2b2 ,Total cycles spent idle waiting for input grad finish: 0
+id: X3W2b2 ,Total cycles spent on fwd pass comm: 15626506
+id: X3W2b2 ,Total cycles spent on weight grad comm: 7324589924
+id: X3W2b2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* X3W2b2
+id: X3W2b2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: X3W2b2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 2.23405e+09
+id: X3W2b2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 4230.34
+id: X3W2b2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+id: X3W2b2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: X3W2b2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 5.68685e+07
+id: X3W2b2 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 953550
+*************************  Network stats  ************************* X3W2b2
+id: X3W2b2 ,Average cycles spent on network for phase 1 of algorithm (per message): 1.99254e+06
+id: X3W2b2 ,Average cycles spent on network for phase 2 of algorithm (per message): 174364
+id: X3W2b2 ,Average cycles spent on network for phase 3 of algorithm (per message): 13213
+id: X3W2b2 ,Average cycles spent on network for phase 4 of algorithm (per message): 13213
+id: X3W2b2 ,Average cycles spent on network for phase 5 of algorithm (per message): 113329
+id: X3W2b2 ,Average cycles spent on network for phase 6 of algorithm (per message): 1.93151e+06
+*******************
+Layer id: layernorm2
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* layernorm2
+id: layernorm2 ,Total cycles spent on fwd pass compute: 51118
+id: layernorm2 ,Total cycles spent on weight grad compute: 36208
+id: layernorm2 ,Total cycles spent on input grad compute: 51118
+id: layernorm2 ,Total cycles spent idle waiting for fwd finish: 0
+id: layernorm2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layernorm2 ,Total cycles spent idle waiting for input grad finish: 0
+id: layernorm2 ,Total cycles spent on fwd pass comm: 0
+id: layernorm2 ,Total cycles spent on weight grad comm: 0
+id: layernorm2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layernorm2
+*************************  Network stats  ************************* layernorm2
+*******************
+Layer id: Q4
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* Q4
+id: Q4 ,Total cycles spent on fwd pass compute: 817889
+id: Q4 ,Total cycles spent on weight grad compute: 579338
+id: Q4 ,Total cycles spent on input grad compute: 562298
+id: Q4 ,Total cycles spent idle waiting for fwd finish: 0
+id: Q4 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Q4 ,Total cycles spent idle waiting for input grad finish: 15047167
+id: Q4 ,Total cycles spent on fwd pass comm: 0
+id: Q4 ,Total cycles spent on weight grad comm: 7306006440
+id: Q4 ,Total cycles spent on input grad comm: 15626506
+*************************  Queuing stats  ************************* Q4
+id: Q4 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Q4 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 7.52625e+07
+id: Q4 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 9269.38
+id: Q4 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 20002.1
+id: Q4 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Q4 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 5.70515e+07
+id: Q4 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 210152
+*************************  Network stats  ************************* Q4
+id: Q4 ,Average cycles spent on network for phase 1 of algorithm (per message): 543913
+id: Q4 ,Average cycles spent on network for phase 2 of algorithm (per message): 89367.9
+id: Q4 ,Average cycles spent on network for phase 3 of algorithm (per message): 3303.66
+id: Q4 ,Average cycles spent on network for phase 4 of algorithm (per message): 3303.66
+id: Q4 ,Average cycles spent on network for phase 5 of algorithm (per message): 28332.4
+id: Q4 ,Average cycles spent on network for phase 6 of algorithm (per message): 482877
+*******************
+Layer id: K4
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* K4
+id: K4 ,Total cycles spent on fwd pass compute: 817889
+id: K4 ,Total cycles spent on weight grad compute: 579338
+id: K4 ,Total cycles spent on input grad compute: 562298
+id: K4 ,Total cycles spent idle waiting for fwd finish: 0
+id: K4 ,Total cycles spent idle waiting for weight grad finish: 0
+id: K4 ,Total cycles spent idle waiting for input grad finish: 0
+id: K4 ,Total cycles spent on fwd pass comm: 0
+id: K4 ,Total cycles spent on weight grad comm: 7318256591
+id: K4 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* K4
+id: K4 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: K4 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 3.0387e+08
+id: K4 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 2933.95
+id: K4 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 13301.9
+id: K4 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: K4 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 1.14116e+08
+id: K4 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 517403
+*************************  Network stats  ************************* K4
+id: K4 ,Average cycles spent on network for phase 1 of algorithm (per message): 965755
+id: K4 ,Average cycles spent on network for phase 2 of algorithm (per message): 56664.8
+id: K4 ,Average cycles spent on network for phase 3 of algorithm (per message): 6607.32
+id: K4 ,Average cycles spent on network for phase 4 of algorithm (per message): 6607.32
+id: K4 ,Average cycles spent on network for phase 5 of algorithm (per message): 56664.8
+id: K4 ,Average cycles spent on network for phase 6 of algorithm (per message): 965755
+*******************
+Layer id: V4
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* V4
+id: V4 ,Total cycles spent on fwd pass compute: 817889
+id: V4 ,Total cycles spent on weight grad compute: 579338
+id: V4 ,Total cycles spent on input grad compute: 562298
+id: V4 ,Total cycles spent idle waiting for fwd finish: 0
+id: V4 ,Total cycles spent idle waiting for weight grad finish: 0
+id: V4 ,Total cycles spent idle waiting for input grad finish: 0
+id: V4 ,Total cycles spent on fwd pass comm: 0
+id: V4 ,Total cycles spent on weight grad comm: 7320252730
+id: V4 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* V4
+id: V4 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: V4 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 4.26112e+08
+id: V4 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 22679.7
+id: V4 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 10499.4
+id: V4 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: V4 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 1.14115e+08
+id: V4 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 532660
+*************************  Network stats  ************************* V4
+id: V4 ,Average cycles spent on network for phase 1 of algorithm (per message): 965755
+id: V4 ,Average cycles spent on network for phase 2 of algorithm (per message): 56664.8
+id: V4 ,Average cycles spent on network for phase 3 of algorithm (per message): 6607.32
+id: V4 ,Average cycles spent on network for phase 4 of algorithm (per message): 6607.32
+id: V4 ,Average cycles spent on network for phase 5 of algorithm (per message): 56664.8
+id: V4 ,Average cycles spent on network for phase 6 of algorithm (per message): 965755
+*******************
+Layer id: Softmax4
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* Softmax4
+id: Softmax4 ,Total cycles spent on fwd pass compute: 199
+id: Softmax4 ,Total cycles spent on weight grad compute: 199
+id: Softmax4 ,Total cycles spent on input grad compute: 199
+id: Softmax4 ,Total cycles spent idle waiting for fwd finish: 0
+id: Softmax4 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Softmax4 ,Total cycles spent idle waiting for input grad finish: 0
+id: Softmax4 ,Total cycles spent on fwd pass comm: 0
+id: Softmax4 ,Total cycles spent on weight grad comm: 0
+id: Softmax4 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* Softmax4
+*************************  Network stats  ************************* Softmax4
+*******************
+Layer id: QKV4
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* QKV4
+id: QKV4 ,Total cycles spent on fwd pass compute: 199
+id: QKV4 ,Total cycles spent on weight grad compute: 199
+id: QKV4 ,Total cycles spent on input grad compute: 199
+id: QKV4 ,Total cycles spent idle waiting for fwd finish: 0
+id: QKV4 ,Total cycles spent idle waiting for weight grad finish: 0
+id: QKV4 ,Total cycles spent idle waiting for input grad finish: 0
+id: QKV4 ,Total cycles spent on fwd pass comm: 0
+id: QKV4 ,Total cycles spent on weight grad comm: 0
+id: QKV4 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* QKV4
+*************************  Network stats  ************************* QKV4
+*******************
+Layer id: Concat4
+Total collectives issued for this layer: 3
+*************************  Workload stats  ************************* Concat4
+id: Concat4 ,Total cycles spent on fwd pass compute: 562298
+id: Concat4 ,Total cycles spent on weight grad compute: 579338
+id: Concat4 ,Total cycles spent on input grad compute: 817889
+id: Concat4 ,Total cycles spent idle waiting for fwd finish: 15626506
+id: Concat4 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Concat4 ,Total cycles spent idle waiting for input grad finish: 499420863
+id: Concat4 ,Total cycles spent on fwd pass comm: 15626506
+id: Concat4 ,Total cycles spent on weight grad comm: 7807998516
+id: Concat4 ,Total cycles spent on input grad comm: 500000202
+*************************  Queuing stats  ************************* Concat4
+id: Concat4 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Concat4 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 1.04863e+08
+id: Concat4 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 3920.59
+id: Concat4 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 557.005
+id: Concat4 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Concat4 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 4.06513e+07
+id: Concat4 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 112048
+*************************  Network stats  ************************* Concat4
+id: Concat4 ,Average cycles spent on network for phase 1 of algorithm (per message): 2.96678e+06
+id: Concat4 ,Average cycles spent on network for phase 2 of algorithm (per message): 59578.6
+id: Concat4 ,Average cycles spent on network for phase 3 of algorithm (per message): 2202.44
+id: Concat4 ,Average cycles spent on network for phase 4 of algorithm (per message): 2202.44
+id: Concat4 ,Average cycles spent on network for phase 5 of algorithm (per message): 18888.3
+id: Concat4 ,Average cycles spent on network for phase 6 of algorithm (per message): 321918
+*******************
+Layer id: Relu4
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* Relu4
+id: Relu4 ,Total cycles spent on fwd pass compute: 3271557
+id: Relu4 ,Total cycles spent on weight grad compute: 2317352
+id: Relu4 ,Total cycles spent on input grad compute: 2198077
+id: Relu4 ,Total cycles spent idle waiting for fwd finish: 0
+id: Relu4 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Relu4 ,Total cycles spent idle waiting for input grad finish: 13309153
+id: Relu4 ,Total cycles spent on fwd pass comm: 0
+id: Relu4 ,Total cycles spent on weight grad comm: 7866284267
+id: Relu4 ,Total cycles spent on input grad comm: 15626506
+*************************  Queuing stats  ************************* Relu4
+id: Relu4 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Relu4 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 2.45354e+09
+id: Relu4 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 3059.7
+id: Relu4 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 474.383
+id: Relu4 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Relu4 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 6.10649e+07
+id: Relu4 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 3.84577e+07
+*************************  Network stats  ************************* Relu4
+id: Relu4 ,Average cycles spent on network for phase 1 of algorithm (per message): 1.99254e+06
+id: Relu4 ,Average cycles spent on network for phase 2 of algorithm (per message): 174364
+id: Relu4 ,Average cycles spent on network for phase 3 of algorithm (per message): 13213
+id: Relu4 ,Average cycles spent on network for phase 4 of algorithm (per message): 13213
+id: Relu4 ,Average cycles spent on network for phase 5 of algorithm (per message): 113329
+id: Relu4 ,Average cycles spent on network for phase 6 of algorithm (per message): 1.93151e+06
+*******************
+Layer id: X4W2b2
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* X4W2b2
+id: X4W2b2 ,Total cycles spent on fwd pass compute: 2198077
+id: X4W2b2 ,Total cycles spent on weight grad compute: 2317352
+id: X4W2b2 ,Total cycles spent on input grad compute: 3271557
+id: X4W2b2 ,Total cycles spent idle waiting for fwd finish: 15626506
+id: X4W2b2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: X4W2b2 ,Total cycles spent idle waiting for input grad finish: 0
+id: X4W2b2 ,Total cycles spent on fwd pass comm: 15626506
+id: X4W2b2 ,Total cycles spent on weight grad comm: 7874217676
+id: X4W2b2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* X4W2b2
+id: X4W2b2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: X4W2b2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 2.96075e+09
+id: X4W2b2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 6311.59
+id: X4W2b2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+id: X4W2b2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 447.438
+id: X4W2b2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 6.10951e+07
+id: X4W2b2 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 1.0184e+06
+*************************  Network stats  ************************* X4W2b2
+id: X4W2b2 ,Average cycles spent on network for phase 1 of algorithm (per message): 1.99254e+06
+id: X4W2b2 ,Average cycles spent on network for phase 2 of algorithm (per message): 174364
+id: X4W2b2 ,Average cycles spent on network for phase 3 of algorithm (per message): 13213
+id: X4W2b2 ,Average cycles spent on network for phase 4 of algorithm (per message): 13213
+id: X4W2b2 ,Average cycles spent on network for phase 5 of algorithm (per message): 113329
+id: X4W2b2 ,Average cycles spent on network for phase 6 of algorithm (per message): 1.93151e+06
+*******************
+Layer id: layernorm4
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* layernorm4
+id: layernorm4 ,Total cycles spent on fwd pass compute: 51118
+id: layernorm4 ,Total cycles spent on weight grad compute: 36208
+id: layernorm4 ,Total cycles spent on input grad compute: 51118
+id: layernorm4 ,Total cycles spent idle waiting for fwd finish: 0
+id: layernorm4 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layernorm4 ,Total cycles spent idle waiting for input grad finish: 0
+id: layernorm4 ,Total cycles spent on fwd pass comm: 0
+id: layernorm4 ,Total cycles spent on weight grad comm: 0
+id: layernorm4 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layernorm4
+*************************  Network stats  ************************* layernorm4
+*******************
+Layer id: Q5
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* Q5
+id: Q5 ,Total cycles spent on fwd pass compute: 817889
+id: Q5 ,Total cycles spent on weight grad compute: 579338
+id: Q5 ,Total cycles spent on input grad compute: 562298
+id: Q5 ,Total cycles spent idle waiting for fwd finish: 0
+id: Q5 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Q5 ,Total cycles spent idle waiting for input grad finish: 15047167
+id: Q5 ,Total cycles spent on fwd pass comm: 0
+id: Q5 ,Total cycles spent on weight grad comm: 7861615751
+id: Q5 ,Total cycles spent on input grad comm: 15626506
+*************************  Queuing stats  ************************* Q5
+id: Q5 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Q5 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 7.5859e+07
+id: Q5 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 31773.8
+id: Q5 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 11423.3
+id: Q5 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Q5 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 6.13083e+07
+id: Q5 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 342107
+*************************  Network stats  ************************* Q5
+id: Q5 ,Average cycles spent on network for phase 1 of algorithm (per message): 543913
+id: Q5 ,Average cycles spent on network for phase 2 of algorithm (per message): 89367.9
+id: Q5 ,Average cycles spent on network for phase 3 of algorithm (per message): 3303.66
+id: Q5 ,Average cycles spent on network for phase 4 of algorithm (per message): 3303.66
+id: Q5 ,Average cycles spent on network for phase 5 of algorithm (per message): 28332.4
+id: Q5 ,Average cycles spent on network for phase 6 of algorithm (per message): 482877
+*******************
+Layer id: K5
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* K5
+id: K5 ,Total cycles spent on fwd pass compute: 817889
+id: K5 ,Total cycles spent on weight grad compute: 579338
+id: K5 ,Total cycles spent on input grad compute: 562298
+id: K5 ,Total cycles spent idle waiting for fwd finish: 0
+id: K5 ,Total cycles spent idle waiting for weight grad finish: 0
+id: K5 ,Total cycles spent idle waiting for input grad finish: 0
+id: K5 ,Total cycles spent on fwd pass comm: 0
+id: K5 ,Total cycles spent on weight grad comm: 7863611890
+id: K5 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* K5
+id: K5 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: K5 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 3.0025e+08
+id: K5 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 9004.12
+id: K5 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 6926.3
+id: K5 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: K5 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 1.22579e+08
+id: K5 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 578906
+*************************  Network stats  ************************* K5
+id: K5 ,Average cycles spent on network for phase 1 of algorithm (per message): 965755
+id: K5 ,Average cycles spent on network for phase 2 of algorithm (per message): 56664.8
+id: K5 ,Average cycles spent on network for phase 3 of algorithm (per message): 6607.32
+id: K5 ,Average cycles spent on network for phase 4 of algorithm (per message): 6607.32
+id: K5 ,Average cycles spent on network for phase 5 of algorithm (per message): 56664.8
+id: K5 ,Average cycles spent on network for phase 6 of algorithm (per message): 965755
+*******************
+Layer id: V5
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* V5
+id: V5 ,Total cycles spent on fwd pass compute: 817889
+id: V5 ,Total cycles spent on weight grad compute: 579338
+id: V5 ,Total cycles spent on input grad compute: 562298
+id: V5 ,Total cycles spent idle waiting for fwd finish: 0
+id: V5 ,Total cycles spent idle waiting for weight grad finish: 0
+id: V5 ,Total cycles spent idle waiting for input grad finish: 0
+id: V5 ,Total cycles spent on fwd pass comm: 0
+id: V5 ,Total cycles spent on weight grad comm: 7865608029
+id: V5 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* V5
+id: V5 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: V5 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 4.18676e+08
+id: V5 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 9673.28
+id: V5 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 6257.14
+id: V5 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: V5 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 1.22595e+08
+id: V5 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 4.4747e+06
+*************************  Network stats  ************************* V5
+id: V5 ,Average cycles spent on network for phase 1 of algorithm (per message): 965755
+id: V5 ,Average cycles spent on network for phase 2 of algorithm (per message): 56664.8
+id: V5 ,Average cycles spent on network for phase 3 of algorithm (per message): 6607.32
+id: V5 ,Average cycles spent on network for phase 4 of algorithm (per message): 6607.32
+id: V5 ,Average cycles spent on network for phase 5 of algorithm (per message): 56664.8
+id: V5 ,Average cycles spent on network for phase 6 of algorithm (per message): 965755
+*******************
+Layer id: Softmax5
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* Softmax5
+id: Softmax5 ,Total cycles spent on fwd pass compute: 199
+id: Softmax5 ,Total cycles spent on weight grad compute: 199
+id: Softmax5 ,Total cycles spent on input grad compute: 199
+id: Softmax5 ,Total cycles spent idle waiting for fwd finish: 0
+id: Softmax5 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Softmax5 ,Total cycles spent idle waiting for input grad finish: 0
+id: Softmax5 ,Total cycles spent on fwd pass comm: 0
+id: Softmax5 ,Total cycles spent on weight grad comm: 0
+id: Softmax5 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* Softmax5
+*************************  Network stats  ************************* Softmax5
+*******************
+Layer id: QKV5
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* QKV5
+id: QKV5 ,Total cycles spent on fwd pass compute: 199
+id: QKV5 ,Total cycles spent on weight grad compute: 199
+id: QKV5 ,Total cycles spent on input grad compute: 199
+id: QKV5 ,Total cycles spent idle waiting for fwd finish: 0
+id: QKV5 ,Total cycles spent idle waiting for weight grad finish: 0
+id: QKV5 ,Total cycles spent idle waiting for input grad finish: 0
+id: QKV5 ,Total cycles spent on fwd pass comm: 0
+id: QKV5 ,Total cycles spent on weight grad comm: 0
+id: QKV5 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* QKV5
+*************************  Network stats  ************************* QKV5
+*******************
+Layer id: Concat5
+Total collectives issued for this layer: 3
+*************************  Workload stats  ************************* Concat5
+id: Concat5 ,Total cycles spent on fwd pass compute: 562298
+id: Concat5 ,Total cycles spent on weight grad compute: 579338
+id: Concat5 ,Total cycles spent on input grad compute: 817889
+id: Concat5 ,Total cycles spent idle waiting for fwd finish: 15626506
+id: Concat5 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Concat5 ,Total cycles spent idle waiting for input grad finish: 499420863
+id: Concat5 ,Total cycles spent on fwd pass comm: 15626506
+id: Concat5 ,Total cycles spent on weight grad comm: 8367025831
+id: Concat5 ,Total cycles spent on input grad comm: 500000202
+*************************  Queuing stats  ************************* Concat5
+id: Concat5 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Concat5 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 1.0464e+08
+id: Concat5 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 220.984
+id: Concat5 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+id: Concat5 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Concat5 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 4.34749e+07
+id: Concat5 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 203621
+*************************  Network stats  ************************* Concat5
+id: Concat5 ,Average cycles spent on network for phase 1 of algorithm (per message): 2.96678e+06
+id: Concat5 ,Average cycles spent on network for phase 2 of algorithm (per message): 59578.6
+id: Concat5 ,Average cycles spent on network for phase 3 of algorithm (per message): 2202.44
+id: Concat5 ,Average cycles spent on network for phase 4 of algorithm (per message): 2202.44
+id: Concat5 ,Average cycles spent on network for phase 5 of algorithm (per message): 18888.3
+id: Concat5 ,Average cycles spent on network for phase 6 of algorithm (per message): 321918
+*******************
+Layer id: Relu5
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* Relu5
+id: Relu5 ,Total cycles spent on fwd pass compute: 3271557
+id: Relu5 ,Total cycles spent on weight grad compute: 2317352
+id: Relu5 ,Total cycles spent on input grad compute: 2198077
+id: Relu5 ,Total cycles spent idle waiting for fwd finish: 0
+id: Relu5 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Relu5 ,Total cycles spent idle waiting for input grad finish: 13309153
+id: Relu5 ,Total cycles spent on fwd pass comm: 0
+id: Relu5 ,Total cycles spent on weight grad comm: 8415912019
+id: Relu5 ,Total cycles spent on input grad comm: 15626506
+*************************  Queuing stats  ************************* Relu5
+id: Relu5 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Relu5 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 3.15037e+09
+id: Relu5 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 4884.38
+id: Relu5 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 179.664
+id: Relu5 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Relu5 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 6.52919e+07
+id: Relu5 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 1.05273e+06
+*************************  Network stats  ************************* Relu5
+id: Relu5 ,Average cycles spent on network for phase 1 of algorithm (per message): 1.99254e+06
+id: Relu5 ,Average cycles spent on network for phase 2 of algorithm (per message): 174364
+id: Relu5 ,Average cycles spent on network for phase 3 of algorithm (per message): 13213
+id: Relu5 ,Average cycles spent on network for phase 4 of algorithm (per message): 13213
+id: Relu5 ,Average cycles spent on network for phase 5 of algorithm (per message): 113329
+id: Relu5 ,Average cycles spent on network for phase 6 of algorithm (per message): 1.93151e+06
+*******************
+Layer id: X5W2b2
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* X5W2b2
+id: X5W2b2 ,Total cycles spent on fwd pass compute: 2198077
+id: X5W2b2 ,Total cycles spent on weight grad compute: 2317352
+id: X5W2b2 ,Total cycles spent on input grad compute: 3271557
+id: X5W2b2 ,Total cycles spent idle waiting for fwd finish: 15626506
+id: X5W2b2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: X5W2b2 ,Total cycles spent idle waiting for input grad finish: 0
+id: X5W2b2 ,Total cycles spent on fwd pass comm: 15626506
+id: X5W2b2 ,Total cycles spent on weight grad comm: 8423845428
+id: X5W2b2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* X5W2b2
+id: X5W2b2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: X5W2b2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 3.68937e+09
+id: X5W2b2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 476.328
+id: X5W2b2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 328.875
+id: X5W2b2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: X5W2b2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 6.53299e+07
+id: X5W2b2 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 1.08325e+06
+*************************  Network stats  ************************* X5W2b2
+id: X5W2b2 ,Average cycles spent on network for phase 1 of algorithm (per message): 1.99254e+06
+id: X5W2b2 ,Average cycles spent on network for phase 2 of algorithm (per message): 174364
+id: X5W2b2 ,Average cycles spent on network for phase 3 of algorithm (per message): 13213
+id: X5W2b2 ,Average cycles spent on network for phase 4 of algorithm (per message): 13213
+id: X5W2b2 ,Average cycles spent on network for phase 5 of algorithm (per message): 113329
+id: X5W2b2 ,Average cycles spent on network for phase 6 of algorithm (per message): 1.93151e+06
+*******************
+Layer id: layernorm5
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* layernorm5
+id: layernorm5 ,Total cycles spent on fwd pass compute: 51118
+id: layernorm5 ,Total cycles spent on weight grad compute: 36208
+id: layernorm5 ,Total cycles spent on input grad compute: 51118
+id: layernorm5 ,Total cycles spent idle waiting for fwd finish: 0
+id: layernorm5 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layernorm5 ,Total cycles spent idle waiting for input grad finish: 0
+id: layernorm5 ,Total cycles spent on fwd pass comm: 0
+id: layernorm5 ,Total cycles spent on weight grad comm: 0
+id: layernorm5 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layernorm5
+*************************  Network stats  ************************* layernorm5
+*******************
+Layer id: Q6
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* Q6
+id: Q6 ,Total cycles spent on fwd pass compute: 817889
+id: Q6 ,Total cycles spent on weight grad compute: 579338
+id: Q6 ,Total cycles spent on input grad compute: 562298
+id: Q6 ,Total cycles spent idle waiting for fwd finish: 0
+id: Q6 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Q6 ,Total cycles spent idle waiting for input grad finish: 15047167
+id: Q6 ,Total cycles spent on fwd pass comm: 0
+id: Q6 ,Total cycles spent on weight grad comm: 8407825551
+id: Q6 ,Total cycles spent on input grad comm: 15626506
+*************************  Queuing stats  ************************* Q6
+id: Q6 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Q6 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 7.55018e+07
+id: Q6 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 13495.5
+id: Q6 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 27510.1
+id: Q6 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Q6 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 6.55392e+07
+id: Q6 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 368287
+*************************  Network stats  ************************* Q6
+id: Q6 ,Average cycles spent on network for phase 1 of algorithm (per message): 543913
+id: Q6 ,Average cycles spent on network for phase 2 of algorithm (per message): 89367.9
+id: Q6 ,Average cycles spent on network for phase 3 of algorithm (per message): 3303.66
+id: Q6 ,Average cycles spent on network for phase 4 of algorithm (per message): 3303.66
+id: Q6 ,Average cycles spent on network for phase 5 of algorithm (per message): 28332.4
+id: Q6 ,Average cycles spent on network for phase 6 of algorithm (per message): 482877
+*******************
+Layer id: K6
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* K6
+id: K6 ,Total cycles spent on fwd pass compute: 817889
+id: K6 ,Total cycles spent on weight grad compute: 579338
+id: K6 ,Total cycles spent on input grad compute: 562298
+id: K6 ,Total cycles spent idle waiting for fwd finish: 0
+id: K6 ,Total cycles spent idle waiting for weight grad finish: 0
+id: K6 ,Total cycles spent idle waiting for input grad finish: 0
+id: K6 ,Total cycles spent on fwd pass comm: 0
+id: K6 ,Total cycles spent on weight grad comm: 8409821690
+id: K6 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* K6
+id: K6 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: K6 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 3.04394e+08
+id: K6 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 11258.9
+id: K6 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 13301.9
+id: K6 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: K6 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 1.31024e+08
+id: K6 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 656641
+*************************  Network stats  ************************* K6
+id: K6 ,Average cycles spent on network for phase 1 of algorithm (per message): 965755
+id: K6 ,Average cycles spent on network for phase 2 of algorithm (per message): 56664.8
+id: K6 ,Average cycles spent on network for phase 3 of algorithm (per message): 6607.32
+id: K6 ,Average cycles spent on network for phase 4 of algorithm (per message): 6607.32
+id: K6 ,Average cycles spent on network for phase 5 of algorithm (per message): 56664.8
+id: K6 ,Average cycles spent on network for phase 6 of algorithm (per message): 965755
+*******************
+Layer id: V6
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* V6
+id: V6 ,Total cycles spent on fwd pass compute: 817889
+id: V6 ,Total cycles spent on weight grad compute: 579338
+id: V6 ,Total cycles spent on input grad compute: 562298
+id: V6 ,Total cycles spent idle waiting for fwd finish: 0
+id: V6 ,Total cycles spent idle waiting for weight grad finish: 0
+id: V6 ,Total cycles spent idle waiting for input grad finish: 0
+id: V6 ,Total cycles spent on fwd pass comm: 0
+id: V6 ,Total cycles spent on weight grad comm: 8411817829
+id: V6 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* V6
+id: V6 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: V6 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 4.26637e+08
+id: V6 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 31004.7
+id: V6 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 10499.4
+id: V6 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: V6 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 1.31023e+08
+id: V6 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 671897
+*************************  Network stats  ************************* V6
+id: V6 ,Average cycles spent on network for phase 1 of algorithm (per message): 965755
+id: V6 ,Average cycles spent on network for phase 2 of algorithm (per message): 56664.8
+id: V6 ,Average cycles spent on network for phase 3 of algorithm (per message): 6607.32
+id: V6 ,Average cycles spent on network for phase 4 of algorithm (per message): 6607.32
+id: V6 ,Average cycles spent on network for phase 5 of algorithm (per message): 56664.8
+id: V6 ,Average cycles spent on network for phase 6 of algorithm (per message): 965755
+*******************
+Layer id: Softmax6
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* Softmax6
+id: Softmax6 ,Total cycles spent on fwd pass compute: 199
+id: Softmax6 ,Total cycles spent on weight grad compute: 199
+id: Softmax6 ,Total cycles spent on input grad compute: 199
+id: Softmax6 ,Total cycles spent idle waiting for fwd finish: 0
+id: Softmax6 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Softmax6 ,Total cycles spent idle waiting for input grad finish: 0
+id: Softmax6 ,Total cycles spent on fwd pass comm: 0
+id: Softmax6 ,Total cycles spent on weight grad comm: 0
+id: Softmax6 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* Softmax6
+*************************  Network stats  ************************* Softmax6
+*******************
+Layer id: QKV6
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* QKV6
+id: QKV6 ,Total cycles spent on fwd pass compute: 199
+id: QKV6 ,Total cycles spent on weight grad compute: 199
+id: QKV6 ,Total cycles spent on input grad compute: 199
+id: QKV6 ,Total cycles spent idle waiting for fwd finish: 0
+id: QKV6 ,Total cycles spent idle waiting for weight grad finish: 0
+id: QKV6 ,Total cycles spent idle waiting for input grad finish: 0
+id: QKV6 ,Total cycles spent on fwd pass comm: 0
+id: QKV6 ,Total cycles spent on weight grad comm: 0
+id: QKV6 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* QKV6
+*************************  Network stats  ************************* QKV6
+*******************
+Layer id: Concat6
+Total collectives issued for this layer: 3
+*************************  Workload stats  ************************* Concat6
+id: Concat6 ,Total cycles spent on fwd pass compute: 562298
+id: Concat6 ,Total cycles spent on weight grad compute: 579338
+id: Concat6 ,Total cycles spent on input grad compute: 817889
+id: Concat6 ,Total cycles spent idle waiting for fwd finish: 15626506
+id: Concat6 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Concat6 ,Total cycles spent idle waiting for input grad finish: 499420863
+id: Concat6 ,Total cycles spent on fwd pass comm: 15626506
+id: Concat6 ,Total cycles spent on weight grad comm: 8913235631
+id: Concat6 ,Total cycles spent on input grad comm: 500000202
+*************************  Queuing stats  ************************* Concat6
+id: Concat6 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Concat6 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 1.13698e+08
+id: Concat6 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 1182.65
+id: Concat6 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+id: Concat6 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Concat6 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 4.62934e+07
+id: Concat6 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 226760
+*************************  Network stats  ************************* Concat6
+id: Concat6 ,Average cycles spent on network for phase 1 of algorithm (per message): 2.96678e+06
+id: Concat6 ,Average cycles spent on network for phase 2 of algorithm (per message): 59578.6
+id: Concat6 ,Average cycles spent on network for phase 3 of algorithm (per message): 2202.44
+id: Concat6 ,Average cycles spent on network for phase 4 of algorithm (per message): 2202.44
+id: Concat6 ,Average cycles spent on network for phase 5 of algorithm (per message): 18888.3
+id: Concat6 ,Average cycles spent on network for phase 6 of algorithm (per message): 321918
+*******************
+Layer id: Relu6
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* Relu6
+id: Relu6 ,Total cycles spent on fwd pass compute: 3271557
+id: Relu6 ,Total cycles spent on weight grad compute: 2317352
+id: Relu6 ,Total cycles spent on input grad compute: 2198077
+id: Relu6 ,Total cycles spent idle waiting for fwd finish: 0
+id: Relu6 ,Total cycles spent idle waiting for weight grad finish: 0
+id: Relu6 ,Total cycles spent idle waiting for input grad finish: 13309153
+id: Relu6 ,Total cycles spent on fwd pass comm: 0
+id: Relu6 ,Total cycles spent on weight grad comm: 8965539771
+id: Relu6 ,Total cycles spent on input grad comm: 15626506
+*************************  Queuing stats  ************************* Relu6
+id: Relu6 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: Relu6 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 1.23467e+09
+id: Relu6 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 613.164
+id: Relu6 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 0
+id: Relu6 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: Relu6 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 6.9528e+07
+id: Relu6 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 1.22341e+08
+*************************  Network stats  ************************* Relu6
+id: Relu6 ,Average cycles spent on network for phase 1 of algorithm (per message): 1.99254e+06
+id: Relu6 ,Average cycles spent on network for phase 2 of algorithm (per message): 174364
+id: Relu6 ,Average cycles spent on network for phase 3 of algorithm (per message): 13213
+id: Relu6 ,Average cycles spent on network for phase 4 of algorithm (per message): 13213
+id: Relu6 ,Average cycles spent on network for phase 5 of algorithm (per message): 113329
+id: Relu6 ,Average cycles spent on network for phase 6 of algorithm (per message): 1.93151e+06
+*******************
+Layer id: X6W2b2
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* X6W2b2
+id: X6W2b2 ,Total cycles spent on fwd pass compute: 2198077
+id: X6W2b2 ,Total cycles spent on weight grad compute: 2317352
+id: X6W2b2 ,Total cycles spent on input grad compute: 3271557
+id: X6W2b2 ,Total cycles spent idle waiting for fwd finish: 15626506
+id: X6W2b2 ,Total cycles spent idle waiting for weight grad finish: 0
+id: X6W2b2 ,Total cycles spent idle waiting for input grad finish: 0
+id: X6W2b2 ,Total cycles spent on fwd pass comm: 15626506
+id: X6W2b2 ,Total cycles spent on weight grad comm: 8924431172
+id: X6W2b2 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* X6W2b2
+id: X6W2b2 ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: X6W2b2 ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 4.26798e+09
+id: X6W2b2 ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 2737.2
+id: X6W2b2 ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 24208.7
+id: X6W2b2 ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: X6W2b2 ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 6.95565e+07
+id: X6W2b2 ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 779747
+*************************  Network stats  ************************* X6W2b2
+id: X6W2b2 ,Average cycles spent on network for phase 1 of algorithm (per message): 1.99254e+06
+id: X6W2b2 ,Average cycles spent on network for phase 2 of algorithm (per message): 174364
+id: X6W2b2 ,Average cycles spent on network for phase 3 of algorithm (per message): 13213
+id: X6W2b2 ,Average cycles spent on network for phase 4 of algorithm (per message): 13213
+id: X6W2b2 ,Average cycles spent on network for phase 5 of algorithm (per message): 113329
+id: X6W2b2 ,Average cycles spent on network for phase 6 of algorithm (per message): 1.93151e+06
+*******************
+Layer id: layernorm6
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* layernorm6
+id: layernorm6 ,Total cycles spent on fwd pass compute: 51118
+id: layernorm6 ,Total cycles spent on weight grad compute: 36208
+id: layernorm6 ,Total cycles spent on input grad compute: 51118
+id: layernorm6 ,Total cycles spent idle waiting for fwd finish: 0
+id: layernorm6 ,Total cycles spent idle waiting for weight grad finish: 0
+id: layernorm6 ,Total cycles spent idle waiting for input grad finish: 0
+id: layernorm6 ,Total cycles spent on fwd pass comm: 0
+id: layernorm6 ,Total cycles spent on weight grad comm: 0
+id: layernorm6 ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* layernorm6
+*************************  Network stats  ************************* layernorm6
+*******************
+Layer id: fc
+Total collectives issued for this layer: 3
+*************************  Workload stats  ************************* fc
+id: fc ,Total cycles spent on fwd pass compute: 460062
+id: fc ,Total cycles spent on weight grad compute: 325877
+id: fc ,Total cycles spent on input grad compute: 316559
+id: fc ,Total cycles spent idle waiting for fwd finish: 274658378
+id: fc ,Total cycles spent idle waiting for weight grad finish: 0
+id: fc ,Total cycles spent idle waiting for input grad finish: 15300628
+id: fc ,Total cycles spent on fwd pass comm: 274658378
+id: fc ,Total cycles spent on weight grad comm: 69806907
+id: fc ,Total cycles spent on input grad comm: 15626506
+*************************  Queuing stats  ************************* fc
+id: fc ,Average cycles spent on queuing for phase 0 of algorithm (per chunk): 0
+id: fc ,Average cycles spent on queuing for phase 1 of algorithm (per chunk): 5.86359e+07
+id: fc ,Average cycles spent on queuing for phase 2 of algorithm (per chunk): 18857.2
+id: fc ,Average cycles spent on queuing for phase 3 of algorithm (per chunk): 24338.2
+id: fc ,Average cycles spent on queuing for phase 4 of algorithm (per chunk): 0
+id: fc ,Average cycles spent on queuing for phase 5 of algorithm (per chunk): 352760
+id: fc ,Average cycles spent on queuing for phase 6 of algorithm (per chunk): 115880
+*************************  Network stats  ************************* fc
+id: fc ,Average cycles spent on network for phase 1 of algorithm (per message): 1.64804e+06
+id: fc ,Average cycles spent on network for phase 2 of algorithm (per message): 51066
+id: fc ,Average cycles spent on network for phase 3 of algorithm (per message): 1209.93
+id: fc ,Average cycles spent on network for phase 4 of algorithm (per message): 1209.93
+id: fc ,Average cycles spent on network for phase 5 of algorithm (per message): 10375.7
+id: fc ,Average cycles spent on network for phase 6 of algorithm (per message): 176835
+*******************
+Layer id: softmax
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* softmax
+id: softmax ,Total cycles spent on fwd pass compute: 153653
+id: softmax ,Total cycles spent on weight grad compute: 81469
+id: softmax ,Total cycles spent on input grad compute: 77018
+id: softmax ,Total cycles spent idle waiting for fwd finish: 0
+id: softmax ,Total cycles spent idle waiting for weight grad finish: 0
+id: softmax ,Total cycles spent idle waiting for input grad finish: 0
+id: softmax ,Total cycles spent on fwd pass comm: 0
+id: softmax ,Total cycles spent on weight grad comm: 0
+id: softmax ,Total cycles spent on input grad comm: 0
+*************************  Queuing stats  ************************* softmax
+*************************  Network stats  ************************* softmax
+*************************  Chunk Stats Per Logical Dimension (for all layers) ************************* softmax
+ ,Average chunk latency for logical dimension  1 of topology: 995844
+ ,Average chunk latency for logical dimension  2 of topology: 1.88881e+06
+ ,Average chunk latency for logical dimension  3 of topology: 320057
+ ,Average chunk latency for logical dimension  4 of topology: 323181
+*************************
+all passes finished at time: 9537096170, id of first layer: Embedding
+path to create csvs is: /Users/aakashsharma/Library/CloudStorage/OneDrive-ThePennsylvaniaStateUniversity/work/astra-sim/examples/../results/DDL_themis/Transformer_HybridParallel/
+success in openning file
+*****
+Time to exit: Mon Dec  5 01:40:12 2022
+all-reduce Collective implementation: direct_ring_halvingDoubling
+reduce-scatter Collective implementation: direct_ring_halvingDoubling
+all-gather Collective implementation: direct_ring_halvingDoubling
+all-to-all Collective implementation: direct_direct_direct
+Collective optimization: localBWAware
+Total sim duration: 0:38 hours
+Total streams injected: 4480
+Total streams finished: 4480
+Percentage of finished streams: 100 %
+*****
+Exiting
+
+[Analytical, main] Total Cost: $1.00015e+06
