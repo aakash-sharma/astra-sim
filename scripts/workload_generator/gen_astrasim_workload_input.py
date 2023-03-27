@@ -398,7 +398,7 @@ def getScaleSimOutputInternal(fwd_pass, inp_grad, weight_grad, folder_name):
     writeGeneratedTopologyToFile(folder_name, inp_grad_filename, inp_grad)
     writeGeneratedTopologyToFile(folder_name, weight_grad_filename, weight_grad)
 
-    runScaleSim(fwd_pass_filename, folder_name)
+    #runScaleSim(fwd_pass_filename, folder_name)
     runScaleSim(inp_grad_filename, folder_name)
     runScaleSim(weight_grad_filename, folder_name)
 
@@ -475,19 +475,29 @@ def getTopology2(layers):
     inp_grad = []
     weight_grad = []
 
+    print("output_height", "output_width", "output_grad_height", "output_grad_width", "filter_hw_wg")
     for layer in layers:
 
         fwd_pass_item = TopologyItem(layer.name, layer.ifmap_height, layer.ifmap_width,
-                                     layer.filter_height, layer.filter_width, layer.channels, layer.num_filters, layer.strides)
+                                     layer.filter_height, layer.filter_width, layer.channels, layer.num_filters,
+                                     layer.strides)
 
         output_height = (layer.ifmap_height - layer.filter_height + (2 * Padding) // layer.strides) + 1
         output_width = (layer.ifmap_width - layer.filter_width + (2 * Padding) // layer.strides) + 1
 
-        inp_grad_item = TopologyItem(layer.name, output_height, output_width,
-                                     layer.filter_height, layer.filter_width, layer.channels, layer.num_filters, layer.strides)
+        output_grad_height = output_height + (output_height - 1) * (layer.strides-1) + (2 * (layer.filter_height - 1))
+        output_grad_width = output_width + (output_width - 1) * (layer.strides-1) + (2 * (layer.filter_width - 1))
 
-        weight_grad_item = TopologyItem(layer.name, layer.ifmap_height, layer.ifmap_width, output_height,
-                                        output_width, 1, layer.num_filters, layer.strides)
+        inp_grad_item = TopologyItem(layer.name, output_grad_height, output_grad_width,
+                                     layer.filter_height, layer.filter_width, layer.num_filters, layer.channels,
+                                     1)
+
+        filter_hw_wg = output_height + (output_height-1) * (layer.strides-1)
+
+        weight_grad_item = TopologyItem(layer.name, layer.ifmap_height, layer.ifmap_width, filter_hw_wg,
+                                        filter_hw_wg, 1, layer.num_filters * layer.channels, 1)
+
+        print(output_height, output_width, output_grad_height, output_grad_width, filter_hw_wg)
 
         fwd_pass.append(fwd_pass_item)
         inp_grad.append(inp_grad_item)
