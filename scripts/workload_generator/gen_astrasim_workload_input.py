@@ -10,8 +10,9 @@ NumberOfNPUs            = 8 # This represents the total number of NPUs in the wh
 NumberOfPackages        = 1
 NumberOfNPUsPerPackage  = 0
 Strides                 = 1
-FilterHeight            = 1
-NumberOfChannels        = 1
+FilterHeight            = 7
+NumberOfChannels        = 3
+Padding                 = 3
 # End common variables for all layers
 
 # Region for constants
@@ -45,6 +46,7 @@ ParallelizationStrategy = ModelParallel
 
 FLAGS = flags.FLAGS
 #name of flag | default | explanation
+flags.DEFINE_string("topology", "", "Path of the file that has the topology values")
 flags.DEFINE_string("mnk", "mnk_inputs/test.csv", "Path of the file that has the m,n,k values")
 flags.DEFINE_string("run_name", "test", "Name of the folder that will have the generated output")
 flags.DEFINE_string("output_file", OUTPUT_FILE_NAME, "Name of the generated ASTRA-Sim input file")
@@ -264,11 +266,23 @@ class Layer:
         self.parallelism = parallelism
 
     def __init__(self, row):
-        self.name = row[0]
-        self.m = int(row[1])
-        self.n = int(row[2])
-        self.k = int(row[3])
-        self.parallelism = row[4]
+
+        if len(row) == 5:
+            self.name = row[0]
+            self.m = int(row[1])
+            self.n = int(row[2])
+            self.k = int(row[3])
+            self.parallelism = row[4]
+        else:
+            print(row)
+            self.name = row[0]
+            self.ifmap_height = int(row[1])
+            self.ifmap_width = int(row[2])
+            self.filter_height = int(row[3])
+            self.filter_width = int(row[4])
+            self.channels = int(row[5])
+            self.num_filters = int(row[6])
+            self.strides = int(row[7])
 
     def print(self):
         # FIX ISSUE #41
@@ -396,6 +410,7 @@ def getScaleSimOutputInternal(fwd_pass, inp_grad, weight_grad, folder_name):
 
 def getLayerTopologyForDataParallelApproach(layer):
     fwd_pass_item = TopologyItem(layer.name, int(layer.m / NumberOfNPUs), layer.k, FilterHeight, layer.k, NumberOfChannels, layer.n, Strides)
+    fwd_pass_item.print()
 
     inp_grad_item = TopologyItem(layer.name, int(layer.m / NumberOfNPUs), layer.n, FilterHeight, layer.n, NumberOfChannels, layer.k, Strides)
 
@@ -455,33 +470,80 @@ def getTopology(layers):
 
     return fwd_pass, inp_grad, weight_grad
 
+def getTopology2(layers):
+    fwd_pass = []
+    inp_grad = []
+    weight_grad = []
+
+    for layer in layers:
+
+        fwd_pass_item = TopologyItem(layer.name, layer.ifmap_height, layer.ifmap_width,
+                                     layer.filter_height, layer.filter_width, layer.channels, layer.num_filters, layer.strides)
+
+        output_height = (layer.ifmap_height - layer.filter_height + (2 * Padding) // layer.strides) + 1
+        output_width = (layer.ifmap_width - layer.filter_width + (2 * Padding) // layer.strides) + 1
+
+        inp_grad_item = TopologyItem(layer.name, output_height, output_width,
+                                     layer.filter_height, layer.filter_width, layer.channels, layer.num_filters, layer.strides)
+
+        weight_grad_item = TopologyItem(layer.name, layer.ifmap_height, layer.ifmap_width, output_height,
+                                        output_width, 1, layer.num_filters, layer.strides)
+
+        fwd_pass.append(fwd_pass_item)
+        inp_grad.append(inp_grad_item)
+        weight_grad.append(weight_grad_item)
+
+    return fwd_pass, inp_grad, weight_grad
+
 def main(argv):
     parseCommandLineArguments()
     mnk_file = FLAGS.mnk
-    file_handle = open(mnk_file, "r")
-    lines = file_handle.readlines()
-    file_handle.close()
-    first = True
-    layers = []
+    topology_file = FLAGS.topology
+    if topology_file == "":
+        file_handle = open(mnk_file, "r")
 
-    for line in lines:
-        if first:
-            first = False
-            continue
-        line = line.strip('\n').strip(' ')
-        cols = line.split(",")
-        if ParallelizationStrategy == "HYBRID_CUSTOMIZED":
-            assert len(cols) == 5, "There should be 5 columns in the mnk file"
-        else:
-            assert len(cols) == 4 or len(cols), "There should be 4 columns in the mnk file"
-            if len(cols) == 4:
-                cols.append(ParallelizationStrategy)
+        lines = file_handle.readlines()
+        file_handle.close()
+        first = True
+        layers = []
+
+        for line in lines:
+            if first:
+                first = False
+                continue
+            line = line.strip('\n').strip(' ')
+            cols = line.split(",")
+            if ParallelizationStrategy == "HYBRID_CUSTOMIZED":
+                assert len(cols) == 5, "There should be 5 columns in the mnk file"
             else:
-                cols[-1] = ParallelizationStrategy
-        print(cols)
-        layers.append(Layer(cols))
+                assert len(cols) == 4 or len(cols), "There should be 4 columns in the mnk file"
+                if len(cols) == 4:
+                    cols.append(ParallelizationStrategy)
+                else:
+                    cols[-1] = ParallelizationStrategy
+            print(cols)
+            layers.append(Layer(cols))
 
-    fwd_pass, inp_grad, weight_grad = getTopology(layers)
+        fwd_pass, inp_grad, weight_grad = getTopology(layers)
+    else:
+        file_handle = open(topology_file, "r")
+
+        lines = file_handle.readlines()
+        file_handle.close()
+        first = True
+        layers = []
+
+        for line in lines:
+            if first:
+                first = False
+                continue
+            line = line.strip('\n').strip(' ')
+            cols = line.split(",")
+
+            assert len(cols) >= 8, "There should be at least 8 columns in the topology file"
+            layers.append(Layer(cols))
+
+        fwd_pass, inp_grad, weight_grad = getTopology2(layers)
 
     scaleSimOutput = getScaleSimOutputInternal(fwd_pass, inp_grad, weight_grad, ParallelizationStrategy)
 
