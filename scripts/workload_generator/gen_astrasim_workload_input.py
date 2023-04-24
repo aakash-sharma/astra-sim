@@ -130,6 +130,9 @@ class DataParallelStrategy:
     def getCommunicationSizeForWeightGrad(self, i, layer):
         return int(layer.n * layer.k * DatatypeSize)
 
+    def getCommunicationSizeForWeightGrad2(self, i, layer):
+        return int(layer.filter_height * layer.filter_width * layer.num_filters * layer.channels * DatatypeSize)
+
 # HybridDataModel: data-parallel between packages, model-parallel within package
 class HybridDataModelParallelStrategy:
 
@@ -194,6 +197,7 @@ class AstraSimOutput:
         self.output = []
         length = len(self.layers)
         for i in range(0, length):
+        #for i in range(0, 1):
             line = []
             line.append(self.layers[i].name) # Layer name
             line.append("-1") # Reserved variable
@@ -205,7 +209,8 @@ class AstraSimOutput:
             line.append(self.strategy[self.layers[i].parallelism].getCommunicationSizeForInpGrad(i, self.layers[i])) # Input gradient communication size
             line.append(self.scaleSimOutput[WeightGradientCycles][i]) # Weight gradient compute time
             line.append(self.strategy[self.layers[i].parallelism].getCommunicationTypeForWeightGrad(i, self.layers[i])) # Weight gradient communication type
-            line.append(self.strategy[self.layers[i].parallelism].getCommunicationSizeForWeightGrad(i, self.layers[i])) # Weight gradient communication size
+            #line.append(self.strategy[self.layers[i].parallelism].getCommunicationSizeForWeightGrad(i, self.layers[i])) # Weight gradient communication size
+            line.append(self.strategy[self.layers[i].parallelism].getCommunicationSizeForWeightGrad2(i, self.layers[i])) # Weight gradient communication size
             line.append(100) # Delay for 1KB communication size
             line.append(self.layers[i].parallelism)
 
@@ -283,6 +288,7 @@ class Layer:
             self.channels = int(row[5])
             self.num_filters = int(row[6])
             self.strides = int(row[7])
+            self.parallelism = "DATA"
 
     def print(self):
         # FIX ISSUE #41
@@ -398,8 +404,11 @@ def getScaleSimOutputInternal(fwd_pass, inp_grad, weight_grad, folder_name):
     writeGeneratedTopologyToFile(folder_name, inp_grad_filename, inp_grad)
     writeGeneratedTopologyToFile(folder_name, weight_grad_filename, weight_grad)
 
+    print("Running fwd pass")
     #runScaleSim(fwd_pass_filename, folder_name)
-    runScaleSim(inp_grad_filename, folder_name)
+    print("Running input gradients")
+    #runScaleSim(inp_grad_filename, folder_name)
+    print("Running weight gradients")
     runScaleSim(weight_grad_filename, folder_name)
 
     fwd_pass_cycles = getCylesFromScaleSimOutput(folder_name, fwd_pass_filename)
@@ -410,7 +419,6 @@ def getScaleSimOutputInternal(fwd_pass, inp_grad, weight_grad, folder_name):
 
 def getLayerTopologyForDataParallelApproach(layer):
     fwd_pass_item = TopologyItem(layer.name, int(layer.m / NumberOfNPUs), layer.k, FilterHeight, layer.k, NumberOfChannels, layer.n, Strides)
-    fwd_pass_item.print()
 
     inp_grad_item = TopologyItem(layer.name, int(layer.m / NumberOfNPUs), layer.n, FilterHeight, layer.n, NumberOfChannels, layer.k, Strides)
 
@@ -476,28 +484,63 @@ def getTopology2(layers):
     weight_grad = []
 
     print("output_height", "output_width", "output_grad_height", "output_grad_width", "filter_hw_wg")
-    for layer in layers:
+    print(len(layers))
 
-        fwd_pass_item = TopologyItem(layer.name, layer.ifmap_height, layer.ifmap_width,
+    #for layer in layers:
+    for i, layer in enumerate(layers):
+
+    #    if i <= 10:
+    #        continue
+
+
+
+        fwd_pass_item = TopologyItem(layer.name, layer.ifmap_height, layer.ifmap_width,  # * batch size
                                      layer.filter_height, layer.filter_width, layer.channels, layer.num_filters,
                                      layer.strides)
 
-        output_height = (layer.ifmap_height - layer.filter_height + (2 * Padding) // layer.strides) + 1
-        output_width = (layer.ifmap_width - layer.filter_width + (2 * Padding) // layer.strides) + 1
 
-        output_grad_height = output_height + (output_height - 1) * (layer.strides-1) + (2 * (layer.filter_height - 1))
-        output_grad_width = output_width + (output_width - 1) * (layer.strides-1) + (2 * (layer.filter_width - 1))
+        inp_grad_item = TopologyItem(layer.name, layer.ifmap_height // layer.strides, layer.ifmap_width // layer.strides, # * batch size
+                                      layer.filter_height, layer.filter_width, layer.num_filters, layer.channels,
+                                      layer.strides)
 
-        inp_grad_item = TopologyItem(layer.name, output_grad_height, output_grad_width,
-                                     layer.filter_height, layer.filter_width, layer.num_filters, layer.channels,
-                                     1)
+        weight_grad_item = TopologyItem(layer.name, layer.ifmap_height, layer.ifmap_width, layer.ifmap_height // layer.strides, 
+										layer.ifmap_width // layer.strides,
+                                        1, # replace with batch size 
+                                        layer.channels * layer.num_filters, # remove num_filters
+                                        layer.strides)
 
-        filter_hw_wg = output_height + (output_height-1) * (layer.strides-1)
+        # Padding = 0
+        # output_height = ((layer.ifmap_height - layer.filter_height + (2 * Padding)) // layer.strides) + 1
+        # output_width = ((layer.ifmap_width - layer.filter_width + (2 * Padding)) // layer.strides) + 1
+        # ifm_size = (layer.channels, layer.ifmap_height, layer.ifmap_width)
+        # ker_size = (layer.channels, layer.filter_height, layer.filter_width, layer.num_filters)
+        # ofm_size = (layer.num_filters, output_height, output_width)
+        # print("Forward pass: ifm_size: {}, ofm_size: {}, ker_size: {}, stride: {}, pad: {}".format(ifm_size,
+        #                                                             ofm_size, ker_size, layer.strides, Padding) )
+        #
+        # output_grad_height = output_height + (output_height - 1) * (layer.strides-1) + (2 * (layer.filter_height - 1))
+        # output_grad_width = output_width + (output_width - 1) * (layer.strides-1) + (2 * (layer.filter_width - 1))
+        #
+        # out_grad_size = (layer.num_filters, output_grad_height, output_grad_width)
+        # ig_wt_size = (layer.num_filters, layer.filter_height, layer.filter_width, layer.channels)
+        # print("Input Gradient: out_grad_size: {}, ig_wt_size: {}".format(out_grad_size, ig_wt_size))
+        #
+        # inp_grad_item = TopologyItem(layer.name, output_grad_height, output_grad_width,
+        #                              layer.filter_height, layer.filter_width, layer.num_filters, layer.channels,
+        #                              1)
+        #
+        # filter_hw_wg = output_height + (output_height-1) * (layer.strides-1)
+        #
+        # ifm_size = (1, layer.ifmap_height, layer.ifmap_width)
+        # #wg_wt_size = (1, filter_hw_wg, filter_hw_wg, layer.num_filters*layer.channels)
+        # wg_wt_size = (1, filter_hw_wg, filter_hw_wg, layer.num_filters)
+        # print("Weight Gradient: ifm_size: {}, wg_wt_size: {}".format(ifm_size, wg_wt_size))
+        #
+        # weight_grad_item = TopologyItem(layer.name, layer.ifmap_height, layer.ifmap_width, filter_hw_wg,
+        #                                 filter_hw_wg, 1, layer.num_filters, 1)
 
-        weight_grad_item = TopologyItem(layer.name, layer.ifmap_height, layer.ifmap_width, filter_hw_wg,
-                                        filter_hw_wg, 1, layer.num_filters * layer.channels, 1)
 
-        print(output_height, output_width, output_grad_height, output_grad_width, filter_hw_wg)
+        # print(output_height, output_width, output_grad_height, output_grad_width, filter_hw_wg)
 
         fwd_pass.append(fwd_pass_item)
         inp_grad.append(inp_grad_item)
@@ -558,8 +601,8 @@ def main(argv):
     scaleSimOutput = getScaleSimOutputInternal(fwd_pass, inp_grad, weight_grad, ParallelizationStrategy)
 
     astraSimOutput = AstraSimOutput(layers, scaleSimOutput)
-    astraSimOutput.generate()
-    astraSimOutput.writeToFile()
+    #astraSimOutput.generate()
+    #astraSimOutput.writeToFile()
 
 if __name__ == '__main__':
     app.run(main)
