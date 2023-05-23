@@ -2,11 +2,14 @@ import torch
 from torch import nn
 import time
 import csv
+import sys
 
 # all parameters
-TIME_SCALE = 1000000
-device='cuda'
-B = 32
+WARMPUP_ITS = sys.argv[1] if len(sys.argv) > 1 else 0
+FOLDER = sys.argv[2] if len(sys.argv) > 2 else "./"
+B = int(sys.argv[3]) if len(sys.argv) > 3 else 32 
+device = sys.argv[4] if len(sys.argv) > 4 else 'cuda'
+TIME_SCALE = int(sys.argv[5]) if len(sys.argv) > 5 else 1000000
 model_name = 'vgg11'
 #model_name = 'resnet50' # failing as of now
 #model_name = 'alexnet'
@@ -29,20 +32,53 @@ print(net)
 X = torch.rand((B, 3, 224, 224), device=device)
 Y = torch.rand((B, 3, 224, 224), device=device, requires_grad=True)
 
+for i in range(int(WARMPUP_ITS)):
+    print("hi")
+    X = torch.rand((B, 3, 224, 224), device=device)
+    for n, m in net.named_modules():
+
+        if isinstance(m, (nn.Conv2d, nn.Linear)):
+
+            if isinstance(m, nn.Linear) and len(X.size()) > 2:
+                X = torch.reshape(X, (X.size(0), -1))
+                #Y = torch.reshape(Y, (Y.size(0), -1))
+
+            # foward pass time
+            #start = time.time()
+            layer_out = m(X) # FP
+
+            layer_loss = torch.sum(layer_out)
+
+            layer_loss.backward()
+
+        elif isinstance(m, (nn.ReLU, nn.AvgPool2d, nn.BatchNorm2d, nn.AdaptiveAvgPool2d, nn.MaxPool2d, nn.Dropout)):
+            with torch.no_grad():
+                layer_out = m(X)
+                #layer_out_y = m(Y)
+
+        else:
+            continue
+
+        #print("in: {}, out: {}".format(X.size(), layer_out.size()))
+        X = layer_out.detach()
+        #Y = layer_out_y.detach()
+        #Y.requires_grad = True
+
 
 headers = ['#', 'name', 'FP', 'WG', 'IG', 'wts', 'WU']
 if not print_short:
     headers = headers + ['ifm', 'ofm', 'stride', 'pad']
 
+X = torch.rand((B, 3, 224, 224), device=device)
+Y = torch.rand((B, 3, 224, 224), device=device, requires_grad=True)
 
 rows = []
 l_idx = 0
 # iterate over all layers and calculate FP, IG and WG times
-#torch.cuda.synchronize()
+torch.cuda.synchronize()
 start = torch.cuda.Event(enable_timing=True)
 end = torch.cuda.Event(enable_timing=True)
 for n, m in net.named_modules():
-    #print(n)
 
     if isinstance(m, (nn.Conv2d, nn.Linear)):
         # csv row entry
@@ -77,7 +113,10 @@ for n, m in net.named_modules():
         #torch.cuda.synchronize()
 
         # weight + input gradient time
+        start.record()
         layer_out_y = m(Y) # FP with IG
+        end.record()
+        torch.cuda.synchronize()
         layer_loss_y = torch.sum(layer_out_y)
 
         #start = time.time()
@@ -149,7 +188,7 @@ for n, m in net.named_modules():
     #X = X.to(device)
     #Y = X.to(device)
 
-file_name = model_name + '_B{}.csv'.format(B)
+file_name = FOLDER + model_name + '_B{}.csv'.format(B)
 print('headers ', headers)
 with open(file_name, 'w') as f:
     writer = csv.DictWriter(f, fieldnames=headers)
@@ -158,7 +197,7 @@ with open(file_name, 'w') as f:
 f.close()
 
 
-file_name = model_name + '_B{}_astra-sim.csv'.format(B)
+file_name = FOLDER + model_name + '_B{}_astra-sim.csv'.format(B)
 print('headers ', headers)
 
 output = []
