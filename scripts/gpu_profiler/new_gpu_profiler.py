@@ -4,7 +4,8 @@ import time
 import csv
 import sys
 from torch.profiler import profile, record_function, ProfilerActivity
-
+from pynvml.smi import nvidia_smi
+from threading import Thread
 
 # all parameters
 WARMPUP_ITS = sys.argv[1] if len(sys.argv) > 1 else 0
@@ -13,10 +14,21 @@ B = int(sys.argv[3]) if len(sys.argv) > 3 else 32
 device = sys.argv[4] if len(sys.argv) > 4 else 'cuda'
 TIME_SCALE = int(sys.argv[5]) if len(sys.argv) > 5 else 1000000
 model_name = 'vgg11'
-#model_name = 'resnet50' # failing as of now
-#model_name = 'resnet50'
 lr = 0.01
 print_short = 1 # print short form or long form
+run_thread = True
+gpu_usage = 0
+
+def record_gpu_usage(layer: str) -> None:
+    global gpu_usage
+    i = 0
+    while run_thread:
+        gpu_usage + = nvidia_smi.getInstance().DeviceQuery('utilization.gpu')
+        i += 1
+        print(f"GPU util for {layer} - {nvidia_smi.getInstance().DeviceQuery('utilization.gpu')}")
+    
+    gpu_usage /= i
+
 
 if model_name == 'vgg11':
     from torchvision.models import vgg11
@@ -34,25 +46,19 @@ print(net)
 X = torch.rand((B, 3, 224, 224), device=device)
 Y = torch.rand((B, 3, 224, 224), device=device, requires_grad=True)
 
-
 headers = ['#', 'name', 'FP', 'WG', 'IG', 'wts', 'WU']
 if not print_short:
     headers = headers + ['ifm', 'ofm', 'stride', 'pad']
 
 X = torch.rand((B, 3, 224, 224), device=device)
 Y = torch.rand((B, 3, 224, 224), device=device, requires_grad=True)
-torch.cuda.synchronize()
-start = torch.cuda.Event(enable_timing=True)
-end = torch.cuda.Event(enable_timing=True)
-start.record()
-output=net(X)
-end.record()
-torch.cuda.synchronize()
-print("fwd pass time: " , start.elapsed_time(end))
 rows = []
 l_idx = 0
 torch.cuda.synchronize()
+start = torch.cuda.Event(enable_timing=True)
+end = torch.cuda.Event(enable_timing=True)
 # iterate over all layers and calculate FP, IG and WG times
+
 for n, m in net.named_modules():
 
     if isinstance(m, (nn.Conv2d, nn.Linear)):
@@ -63,17 +69,34 @@ for n, m in net.named_modules():
             X = torch.reshape(X, (X.size(0), -1))
             Y = torch.reshape(Y, (Y.size(0), -1))
 
-        #for i in range(int(WARMPUP_ITS)):
-        with profile(activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA], record_shapes=True) as prof:
+        thread = Thread(target = record_gpu_usage, args=(str(l_idx),))
+        
+        with profile(activities=[ProfilerActivity.CUDA], use_cuda=True) as prof:
             with record_function("fwd pass"):
             # foward pass time
-            #start.record()
+                thread.start()
                 layer_out = m(X) # FP
-            #end.record()
-            #torch.cuda.synchronize()
+                run_thread = False
+        thread.join()
+        run_thread = True
+        gpu_usage = 0
+        prof.export_chrome_trace("trace.json")
             #fp_time = start.elapsed_time(end) 
        
         print(prof.key_averages().table(sort_by="cuda_time_total", row_limit=10))
+        """
+        thread = Thread(target = record_gpu_usage, args=(str(l_idx),))
+        #thread.start()
+        start.record()
+        layer_out = m(X) # FP
+        end.record()
+        #run_thread = False
+        #thread.join()
+        run_thread = True
+        torch.cuda.synchronize()
+        fp_time = start.elapsed_time(end)
+        """
+        print(fp_time)
 
         layer_loss = torch.sum(layer_out)
 
