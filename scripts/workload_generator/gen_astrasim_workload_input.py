@@ -534,6 +534,11 @@ def getTopology2(layers):
                                         layer.channels * layer.num_filters, # remove num_filters
                                         #layer.channels, # remove num_filters
                                         layer.strides)
+                                        #layer.channels * layer.num_filters, # remove num_filters
+                                        layer.channels * layer.num_filters * layer.filter_width * layer.filter_height, # remove num_filters
+                                        #layer.channels, # remove num_filters
+                                        #layer.strides)
+                                        layer.ifmap_height)
 
         # Padding = 0
         # output_height = ((layer.ifmap_height - layer.filter_height + (2 * Padding)) // layer.strides) + 1
