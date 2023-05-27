@@ -1316,35 +1316,54 @@ bool Workload::initialize_workload(std::string name) {
   run_type = type;
   SIZE = lines;
   layers = new Layer*[SIZE];
+  std::string::size_type sz = 0;
+  std::string word;
   for (int i = 0; i < lines; i++) {
     std::string id;
     inFile >> id;
+    std::cout <<"id: " << id << std::endl;
+
     int depen;
-    inFile >> depen;
+    inFile >> word;
+    depen = std::stoi(word, &sz);
 
     Tick fp_compute_time;
-    inFile >> fp_compute_time;
+    inFile >> word;
+    fp_compute_time = stoull(word, &sz);
+
     std::string fp_comm_type_s;
     inFile >> fp_comm_type_s;
+
     uint64_t fp_comm_size;
-    inFile >> fp_comm_size;
+    inFile >> word;
+    fp_comm_size = stoull(word, &sz);
 
     Tick ig_compute_time;
-    inFile >> ig_compute_time;
+    inFile >> word;
+    ig_compute_time = stoull(word, &sz);
+
     std::string ig_comm_type_s;
     inFile >> ig_comm_type_s;
+
     uint64_t ig_comm_size;
-    inFile >> ig_comm_size;
+    inFile >> word;
+    ig_comm_size = stoull(word, &sz);
 
     Tick wg_compute_time;
-    inFile >> wg_compute_time;
+    inFile >> word;
+    wg_compute_time = stoull(word, &sz);
+
     std::string wg_comm_type_s;
     inFile >> wg_comm_type_s;
+
     uint64_t wg_comm_size;
-    inFile >> wg_comm_size;
+    inFile >> word;
+    wg_comm_size = stoull(word, &sz);
+
     // wg_comm_size=2048;
     Tick wg_update_time;
-    inFile >> wg_update_time;
+    inFile >> word;
+    wg_update_time = stoull(word, &sz);
 
     ParallelismPolicy specific_policy = ParallelismPolicy::None;
     std::map<std::string, std::vector<bool>> selected_involved_dimensions;
