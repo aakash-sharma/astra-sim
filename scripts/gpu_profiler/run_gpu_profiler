@@ -20,4 +20,4 @@ USER=abs5688
 export PATH=/scratch/$USER/anaconda3/bin:/scratch/$USER/anaconda3/condabin:/usr/local/sbin:/usr/local/bin:/opt/SUNWspro/bin:/usr/ccs/bin:/usr/bin:/usr/sfw/bin:/usr/ucb:/usr/sbin:/usr/lib:/sbin:/usr/dt/bin:/usr/java/bin:/bin:/usr/X11RC/bin:/usr/X11/bin:/opt/pbs/bin
 
 source activate pytorch
-python /scratch/abs5688/astra-sim/scripts/gpu_profiler/gpu_profiler.py 5 /scratch/abs5688/astra-sim/scripts/gpu_profiler/results 512
+python /scratch/abs5688/astra-sim/scripts/gpu_profiler/gpu_profiler.py 0 /scratch/abs5688/astra-sim/scripts/gpu_profiler/results 512

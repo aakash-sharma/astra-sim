@@ -14,6 +14,8 @@ B = int(sys.argv[3]) if len(sys.argv) > 3 else 32
 device = sys.argv[4] if len(sys.argv) > 4 else 'cuda'
 TIME_SCALE = int(sys.argv[5]) if len(sys.argv) > 5 else 1000000
 model_name = 'vgg11'
+model_name = 'resnet50'
+#model_name = 'alexnet'
 lr = 0.01
 print_short = 1 # print short form or long form
 run_thread = True
@@ -23,9 +25,10 @@ def record_gpu_usage(layer: str) -> None:
     global gpu_usage
     i = 0
     while run_thread:
-        gpu_usage + = nvidia_smi.getInstance().DeviceQuery('utilization.gpu')
+        #print(nvidia_smi.getInstance().DeviceQuery('utilization.gpu')['gpu'][0]['utilization']['gpu_util'])
+        gpu_usage += float(nvidia_smi.getInstance().DeviceQuery('utilization.gpu')['gpu'][0]['utilization']['gpu_util'])
         i += 1
-        print(f"GPU util for {layer} - {nvidia_smi.getInstance().DeviceQuery('utilization.gpu')}")
+        #print(f"GPU util for {layer} - {nvidia_smi.getInstance().DeviceQuery('utilization.gpu')}")
     
     gpu_usage /= i
 
@@ -57,6 +60,12 @@ l_idx = 0
 torch.cuda.synchronize()
 start = torch.cuda.Event(enable_timing=True)
 end = torch.cuda.Event(enable_timing=True)
+
+def trace_handler(p):
+    output = p.key_averages().table(sort_by="self_cuda_time_total", row_limit=10)
+    print(output)
+
+
 # iterate over all layers and calculate FP, IG and WG times
 
 for n, m in net.named_modules():
@@ -71,19 +80,33 @@ for n, m in net.named_modules():
 
         thread = Thread(target = record_gpu_usage, args=(str(l_idx),))
         
-        with profile(activities=[ProfilerActivity.CUDA], use_cuda=True) as prof:
-            with record_function("fwd pass"):
+        #with profile(activities=[ProfilerActivity.CUDA], use_cuda=True) as prof:
+         #   with record_function("fwd pass"):
+        with profile(activities=[ProfilerActivity.CUDA], use_cuda=True,
+            schedule=torch.profiler.schedule(
+                skip_first=10,
+                wait=5,
+                warmup=1,
+                active=3,
+                repeat=2),
+            on_trace_ready=trace_handler
+                ) as prof:
             # foward pass time
                 thread.start()
-                layer_out = m(X) # FP
+                for idx in range(38):
+                    layer_out = m(X) # FP
+                    prof.step()
                 run_thread = False
         thread.join()
         run_thread = True
+        print("gpu usage: ", gpu_usage)
         gpu_usage = 0
-        prof.export_chrome_trace("trace.json")
+        #prof.export_chrome_trace("/scratch/abs5688/astra-sim/scripts/gpu_profiler/trace.json")
+        #prof.export_stacks("/scratch/abs5688/astra-sim/scripts/gpu_profileri/stacks.txt", 'self_cuda_total')
             #fp_time = start.elapsed_time(end) 
        
-        print(prof.key_averages().table(sort_by="cuda_time_total", row_limit=10))
+        #print(prof.key_averages().table(sort_by="cuda_time_total", row_limit=5))
+        #print(prof.key_averages())
         """
         thread = Thread(target = record_gpu_usage, args=(str(l_idx),))
         #thread.start()
