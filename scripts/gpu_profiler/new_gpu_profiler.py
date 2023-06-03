@@ -82,7 +82,8 @@ for n, m in net.named_modules():
         
         #with profile(activities=[ProfilerActivity.CUDA], use_cuda=True) as prof:
          #   with record_function("fwd pass"):
-        with profile(activities=[ProfilerActivity.CUDA], use_cuda=True,
+        #with profile(activities=[ProfilerActivity.CUDA], use_cuda=True,
+        with profile(activities=[ProfilerActivity.CUDA],
             schedule=torch.profiler.schedule(
                 skip_first=10,
                 wait=5,
