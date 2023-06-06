@@ -465,6 +465,11 @@ LayerData Layer::report(
       total_exposed = (((double)Sys::boostedTick()) / FREQ) - total_compute;
       EndToEnd->write_cell(1 + stat_row, 12, std::to_string(total_compute));
       EndToEnd->write_cell(1 + stat_row, 13, std::to_string(total_exposed));
+
+      std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
+      std::cout << "total_compute = " << total_compute << std::endl;
+      std::cout << "total_exposed = " << total_exposed << std::endl;
+      std::cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
     }
 
     /*std::cout<<"*************************  Shared bus stats
