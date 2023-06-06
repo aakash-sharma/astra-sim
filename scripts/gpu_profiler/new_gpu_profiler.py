@@ -12,14 +12,42 @@ WARMPUP_ITS = sys.argv[1] if len(sys.argv) > 1 else 0
 FOLDER = sys.argv[2] if len(sys.argv) > 2 else "./"
 B = int(sys.argv[3]) if len(sys.argv) > 3 else 32 
 device = sys.argv[4] if len(sys.argv) > 4 else 'cuda'
-TIME_SCALE = int(sys.argv[5]) if len(sys.argv) > 5 else 1000000
+TIME_SCALE = 1 #int(sys.argv[5]) if len(sys.argv) > 5 else 1000000
 model_name = 'vgg11'
-model_name = 'resnet50'
+#model_name = 'resnet50'
 #model_name = 'alexnet'
 lr = 0.01
 print_short = 1 # print short form or long form
 run_thread = True
 gpu_usage = 0
+cuda_time = 0
+
+if model_name == 'vgg11':
+    from torchvision.models import vgg11
+    #net = vgg11(weights=None).to(device)
+    net = vgg11().to(device)
+elif model_name == 'resnet50':
+    from torchvision.models import resnet50
+    net = resnet50().to(device)
+elif model_name == 'alexnet':
+    from torchvision.models import alexnet
+    #net = alexnet(weights=None).to(device)
+    net = alexnet().to(device)
+#print(net)
+
+X = torch.rand((B, 3, 224, 224), device=device)
+Y = torch.rand((B, 3, 224, 224), device=device, requires_grad=True)
+
+headers = ['#', 'name', 'FP', 'WG', 'IG', 'wts', 'WU']
+if not print_short:
+    headers = headers + ['ifm', 'ofm', 'stride', 'pad']
+
+X = torch.rand((B, 3, 224, 224), device=device)
+Y = torch.rand((B, 3, 224, 224), device=device, requires_grad=True)
+rows = []
+l_idx = 0
+start = torch.cuda.Event(enable_timing=True)
+end = torch.cuda.Event(enable_timing=True)
 
 def record_gpu_usage(layer: str) -> None:
     global gpu_usage
@@ -33,37 +61,34 @@ def record_gpu_usage(layer: str) -> None:
     gpu_usage /= i
 
 
-if model_name == 'vgg11':
-    from torchvision.models import vgg11
-    #net = vgg11(weights=None).to(device)
-    net = vgg11().to(device)
-elif model_name == 'resnet50':
-    from torchvision.models import resnet50
-    net = resnet50().to(device)
-elif model_name == 'alexnet':
-    from torchvision.models import alexnet
-    #net = alexnet(weights=None).to(device)
-    net = alexnet().to(device)
-print(net)
-
-X = torch.rand((B, 3, 224, 224), device=device)
-Y = torch.rand((B, 3, 224, 224), device=device, requires_grad=True)
-
-headers = ['#', 'name', 'FP', 'WG', 'IG', 'wts', 'WU']
-if not print_short:
-    headers = headers + ['ifm', 'ofm', 'stride', 'pad']
-
-X = torch.rand((B, 3, 224, 224), device=device)
-Y = torch.rand((B, 3, 224, 224), device=device, requires_grad=True)
-rows = []
-l_idx = 0
-torch.cuda.synchronize()
-start = torch.cuda.Event(enable_timing=True)
-end = torch.cuda.Event(enable_timing=True)
-
 def trace_handler(p):
-    output = p.key_averages().table(sort_by="self_cuda_time_total", row_limit=10)
-    print(output)
+    global cuda_time
+    output = p.key_averages(group_by_stack_n=5).table(sort_by="self_cuda_time_total", row_limit=10)
+    output_lines = output.splitlines()
+
+    cuda_line = output_lines[-1]
+    print(cuda_line)
+
+    if "Self CUDA time total" not in cuda_line:
+        return
+
+    cuda_time = cuda_line.split()[4]
+
+    
+    """
+    if "Self CUDA" not in output_lines[1]:
+        return
+
+    cuda_time = output_lines[3].split()[6]
+    """
+
+    if "ms" in cuda_time:
+        cuda_time = float(cuda_time.split("ms")[0]) * 1000000
+
+    elif "us" in cuda_time:
+        cuda_time = float(cuda_time.split("us")[0]) * 1000
+
+    #print(output)
 
 
 # iterate over all layers and calculate FP, IG and WG times
@@ -79,86 +104,121 @@ for n, m in net.named_modules():
             Y = torch.reshape(Y, (Y.size(0), -1))
 
         thread = Thread(target = record_gpu_usage, args=(str(l_idx),))
-        
-        #with profile(activities=[ProfilerActivity.CUDA], use_cuda=True) as prof:
-         #   with record_function("fwd pass"):
-        with profile(activities=[ProfilerActivity.CUDA], use_cuda=True,
+       
+        layer_out_list = []
+        with profile(activities=[ProfilerActivity.CUDA],
             schedule=torch.profiler.schedule(
                 skip_first=10,
                 wait=5,
-                warmup=1,
-                active=3,
-                repeat=2),
+                warmup=2,
+                active=3),
             on_trace_ready=trace_handler
                 ) as prof:
             # foward pass time
                 thread.start()
-                for idx in range(38):
+                for idx in range(20):
                     layer_out = m(X) # FP
+                    layer_out_list.append(layer_out)
+                    #X_ = X.detach().clone()
                     prof.step()
+               
                 run_thread = False
         thread.join()
         run_thread = True
-        print("gpu usage: ", gpu_usage)
-        gpu_usage = 0
-        #prof.export_chrome_trace("/scratch/abs5688/astra-sim/scripts/gpu_profiler/trace.json")
-        #prof.export_stacks("/scratch/abs5688/astra-sim/scripts/gpu_profileri/stacks.txt", 'self_cuda_total')
-            #fp_time = start.elapsed_time(end) 
-       
-        #print(prof.key_averages().table(sort_by="cuda_time_total", row_limit=5))
-        #print(prof.key_averages())
-        """
-        thread = Thread(target = record_gpu_usage, args=(str(l_idx),))
-        #thread.start()
-        start.record()
-        layer_out = m(X) # FP
-        end.record()
-        #run_thread = False
-        #thread.join()
-        run_thread = True
-        torch.cuda.synchronize()
-        fp_time = start.elapsed_time(end)
-        """
-        print(fp_time)
 
-        layer_loss = torch.sum(layer_out)
+        print("gpu usage: ", gpu_usage)
+        print("cuda_time: ", cuda_time)
+        fp_cycles = int(cuda_time * gpu_usage / 100)
+        print(fp_cycles)
+        gpu_usage = 0
+        cuda_time = 0
+        torch.cuda.synchronize()
 
         # weight gradient time
-        start.record()
-        layer_loss.backward()
-        end.record()
+        layer_loss_list = []
+        for i in range(len(layer_out_list)):
+            layer_loss_list.append(torch.sum(layer_out_list[i]))
+        layer_loss = torch.sum(layer_out)
+        thread = Thread(target = record_gpu_usage, args=(str(l_idx),))
+        
+        with profile(activities=[ProfilerActivity.CUDA],
+            schedule=torch.profiler.schedule(
+                skip_first=10,
+                wait=5,
+                warmup=2,
+                active=3),
+            on_trace_ready=trace_handler
+                ) as prof:
+            # wt gradient time
+                thread.start()
+                for idx in range(20):
+                    layer_loss_list[idx].backward()
+                    prof.step()
+
+                run_thread = False
+        thread.join()
+        run_thread = True
+
+        print("gpu usage: ", gpu_usage)
+        print("cuda_time: ", cuda_time)
+        wg_cycles = int(cuda_time * gpu_usage / 100)
+        print(fp_cycles)
+        gpu_usage = 0
+        cuda_time = 0
         torch.cuda.synchronize()
-        wg_time = start.elapsed_time(end) 
 
         # weight + input gradient time
-        start.record()
-        layer_out_y = m(Y) # FP with IG
-        end.record()
-        torch.cuda.synchronize()
-        layer_loss_y = torch.sum(layer_out_y)
+        layer_loss_y_list = [] 
+        for i in range(len(layer_out_list)):
+            layer_out_y = m(Y) # FP with IG
+            layer_loss_y_list.append(torch.sum(layer_out_y))
+        thread = Thread(target = record_gpu_usage, args=(str(l_idx),))
 
-        start.record()
-        layer_loss_y.backward()
-        end.record()
-        torch.cuda.synchronize()
-        wg_ig_time = start.elapsed_time(end) 
+        with profile(activities=[ProfilerActivity.CUDA],
+            schedule=torch.profiler.schedule(
+                skip_first=10,
+                wait=5,
+                warmup=2,
+                active=3),
+            on_trace_ready=trace_handler
+                ) as prof:
+            # wg + ig  time
+                thread.start()
+                for idx in range(20):
+                    layer_loss_y_list[idx].backward()
+                    #layer_loss_y_.backward()
+                    #layer_loss_y_ = layer_loss_y.detach().clone()
+                    prof.step()
 
-        # input gradient time
-        ig_time = wg_ig_time - wg_time
-        assert ig_time > 0, "Input gradient compute time {} CANNOT be negative!!".format(ig_time)
+                run_thread = False
+        thread.join()
+        run_thread = True
+
+        print("gpu usage: ", gpu_usage)
+        print("cuda_time: ", cuda_time)
+        wg_ig_cycles = int(cuda_time * gpu_usage / 100)
+        print(fp_cycles)
+        gpu_usage = 0
+        cuda_time = 0
+        torch.cuda.synchronize()
+
+        # input gradient cycles
+        print(wg_ig_cycles, wg_cycles)
+        ig_cycles = wg_ig_cycles - wg_cycles
+        assert ig_cycles > 0, "Input gradient compute time {} CANNOT be negative!!".format(ig_cycles)
 
         # weight update time
         start.record()
         m.weight.data = m.weight.data - lr * m.weight.grad
         end.record()
         torch.cuda.synchronize()
-        wu_time = start.elapsed_time(end) 
+        wu_time = int(start.elapsed_time(end))
 
         row_entry['#'] = l_idx
         row_entry['name'] = n
-        row_entry['FP'] = round(fp_time, 3)
-        row_entry['WG'] = round(wg_time, 3)
-        row_entry['IG'] = round(ig_time, 3)
+        row_entry['FP'] = round(fp_cycles, 3)
+        row_entry['WG'] = round(wg_cycles, 3)
+        row_entry['IG'] = round(ig_cycles, 3)
         row_entry['WU'] = round(wu_time, 3)
 
         wt_size = 1
@@ -191,7 +251,6 @@ for n, m in net.named_modules():
     else:
         continue
 
-    #print("in: {}, out: {}".format(X.size(), layer_out.size()))
     X = layer_out.detach()
     Y = layer_out_y.detach()
     Y.requires_grad = True
@@ -226,7 +285,7 @@ for row in rows:
     line.append(row["WG"] * TIME_SCALE)
     line.append("ALLREDUCE")
     line.append(row["wts"])
-    line.append(row["WU"] * TIME_SCALE)
+    line.append(row["WU"] * 1000000)
 
     line = map(lambda x: str(x), line)
     line_string = "\t".join(line)
