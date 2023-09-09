@@ -95,6 +95,10 @@ def trace_handler(p):
 
 for n, m in net.named_modules():
 
+    if 'layer' in n and 'conv1' in n and '0' in n:
+        X_pll = X.clone()
+        Y_pll = Y.clone()
+
     if isinstance(m, (nn.Conv2d, nn.Linear)):
         # csv row entry
         row_entry = {}
@@ -102,6 +106,10 @@ for n, m in net.named_modules():
         if isinstance(m, nn.Linear) and len(X.size()) > 2:
             X = torch.reshape(X, (X.size(0), -1))
             Y = torch.reshape(Y, (Y.size(0), -1))
+
+        if 'downsample' in n:
+            X = X_pll
+            Y = Y_pll
 
         thread = Thread(target = record_gpu_usage, args=(str(l_idx),))
        
