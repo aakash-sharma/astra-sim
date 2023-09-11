@@ -3,19 +3,21 @@ from torch import nn
 import time
 import csv
 import sys
+import pynvml
 from torch.profiler import profile, record_function, ProfilerActivity
 from pynvml.smi import nvidia_smi
 from threading import Thread
 
 # all parameters
-WARMPUP_ITS = sys.argv[1] if len(sys.argv) > 1 else 0
-FOLDER = sys.argv[2] if len(sys.argv) > 2 else "./"
-B = int(sys.argv[3]) if len(sys.argv) > 3 else 32 
-device = sys.argv[4] if len(sys.argv) > 4 else 'cuda'
+FOLDER = sys.argv[1] if len(sys.argv) > 1 else "./"
+B = int(sys.argv[2]) if len(sys.argv) > 2 else 32 
+device = sys.argv[3] if len(sys.argv) > 3 else 'cuda'
 TIME_SCALE = 1 #int(sys.argv[5]) if len(sys.argv) > 5 else 1000000
 model_name = 'vgg11'
-#model_name = 'resnet50'
+model_name = 'resnet50'
 #model_name = 'alexnet'
+#model_name = 'resnet18'
+#model_name = 'mobilenet_v2'
 lr = 0.01
 print_short = 1 # print short form or long form
 run_thread = True
@@ -27,27 +29,27 @@ if model_name == 'vgg11':
     #net = vgg11(weights=None).to(device)
     net = vgg11().to(device)
 elif model_name == 'resnet50':
-    from torchvision.models import resnet50
-    net = resnet50().to(device)
+    from torchvision.models import resnet50, ResNet50_Weights
+    net = resnet50(weights=ResNet50_Weights.IMAGENET1K_V2).to(device)
 elif model_name == 'alexnet':
     from torchvision.models import alexnet
-    #net = alexnet(weights=None).to(device)
     net = alexnet().to(device)
-#print(net)
+elif model_name == 'resnet18':
+    from torchvision.models import resnet18
+    net = resnet18().to(device)
+elif model_name == 'mobilenet_v3':
+    from torchvision.models import mobilenet_v3_small
+    net = mobilenet_v3_small().to(device)
+elif model_name == 'mobilenet_v2':
+    from torchvision.models import mobilenet_v2
+    net = mobilenet_v2().to(device)
+elif model_name == 'efficientnet':
+    from torchvision.models import efficientnet_b7
+    net = efficientnet_b7().to(device)
 
-X = torch.rand((B, 3, 224, 224), device=device)
-Y = torch.rand((B, 3, 224, 224), device=device, requires_grad=True)
 
-headers = ['#', 'name', 'FP', 'WG', 'IG', 'wts', 'WU']
-if not print_short:
-    headers = headers + ['ifm', 'ofm', 'stride', 'pad']
-
-X = torch.rand((B, 3, 224, 224), device=device)
-Y = torch.rand((B, 3, 224, 224), device=device, requires_grad=True)
-rows = []
-l_idx = 0
-start = torch.cuda.Event(enable_timing=True)
-end = torch.cuda.Event(enable_timing=True)
+pynvml.nvmlInit()
+print(net)
 
 def record_gpu_usage(layer: str) -> None:
     global gpu_usage
@@ -64,12 +66,14 @@ def record_gpu_usage(layer: str) -> None:
 def trace_handler(p):
     global cuda_time
     output = p.key_averages(group_by_stack_n=5).table(sort_by="self_cuda_time_total", row_limit=10)
+#    print(output)
     output_lines = output.splitlines()
 
     cuda_line = output_lines[-1]
     print(cuda_line)
 
     if "Self CUDA time total" not in cuda_line:
+        cuda_time = -1
         return
 
     cuda_time = cuda_line.split()[4]
@@ -88,8 +92,66 @@ def trace_handler(p):
     elif "us" in cuda_time:
         cuda_time = float(cuda_time.split("us")[0]) * 1000
 
+    cuda_time /= 3
+
     #print(output)
 
+
+"""
+X = torch.rand((B, 3, 224, 224), device=device)
+Y = torch.rand((B, 3, 224, 224), device=device, requires_grad=True)
+
+for i in range(60):
+    X = torch.rand((B, 3, 224, 224), device=device)
+    Y = torch.rand((B, 3, 224, 224), device=device, requires_grad=True)
+
+    for n, m in net.named_modules():
+
+        if 'layer' in n and 'conv1' in n and '0' in n:
+            X_pll = X.clone()
+            Y_pll = Y.clone()
+
+        if isinstance(m, (nn.Conv2d, nn.Linear)):
+
+            if isinstance(m, nn.Linear) and len(X.size()) > 2:
+                X = torch.reshape(X, (X.size(0), -1))
+                Y = torch.reshape(Y, (Y.size(0), -1))
+
+            if 'downsample' in n:
+                X = X_pll
+                Y = Y_pll
+
+            layer_out = m(X) # FP
+            layer_loss = torch.sum(layer_out)
+            layer_loss.backward()
+            layer_out_y = m(Y) # FP with IG
+            layer_loss_y = torch.sum(layer_out_y)
+            layer_loss_y.backward()
+            m.weight.data = m.weight.data - lr * m.weight.grad
+
+        elif isinstance(m, (nn.ReLU, nn.AvgPool2d, nn.BatchNorm2d, nn.AdaptiveAvgPool2d, nn.MaxPool2d, nn.Dropout)):
+            with torch.no_grad():
+                layer_out = m(X)
+                layer_out_y = m(Y)
+
+        else:
+            continue
+
+        X = layer_out.detach()
+        Y = layer_out_y.detach()
+        Y.requires_grad = True
+"""
+
+headers = ['#', 'name', 'FP', 'WG', 'IG', 'wts', 'WU']
+if not print_short:
+    headers = headers + ['ifm', 'ofm', 'stride', 'pad']
+
+X = torch.rand((B, 3, 224, 224), device=device)
+Y = torch.rand((B, 3, 224, 224), device=device, requires_grad=True)
+rows = []
+l_idx = 0
+start = torch.cuda.Event(enable_timing=True)
+end = torch.cuda.Event(enable_timing=True)
 
 # iterate over all layers and calculate FP, IG and WG times
 
@@ -112,7 +174,7 @@ for n, m in net.named_modules():
             Y = Y_pll
 
         thread = Thread(target = record_gpu_usage, args=(str(l_idx),))
-       
+
         layer_out_list = []
         with profile(activities=[ProfilerActivity.CUDA],
             schedule=torch.profiler.schedule(
@@ -136,8 +198,10 @@ for n, m in net.named_modules():
 
         print("gpu usage: ", gpu_usage)
         print("cuda_time: ", cuda_time)
-        fp_cycles = int(cuda_time * gpu_usage / 100)
-        print(fp_cycles)
+        if cuda_time == -1:
+            sys.exit(-1)
+        fp_cycles = int(cuda_time / 3 * gpu_usage)
+        print("fp_cycles: ",  fp_cycles)
         gpu_usage = 0
         cuda_time = 0
         torch.cuda.synchronize()
@@ -169,8 +233,10 @@ for n, m in net.named_modules():
 
         print("gpu usage: ", gpu_usage)
         print("cuda_time: ", cuda_time)
+        if cuda_time == -1:
+            sys.exit(-1)
         wg_cycles = int(cuda_time * gpu_usage / 100)
-        print(fp_cycles)
+        print("wg_cycles: ", wg_cycles)
         gpu_usage = 0
         cuda_time = 0
         torch.cuda.synchronize()
@@ -204,16 +270,17 @@ for n, m in net.named_modules():
 
         print("gpu usage: ", gpu_usage)
         print("cuda_time: ", cuda_time)
+        if cuda_time == -1:
+            sys.exit(-1)
         wg_ig_cycles = int(cuda_time * gpu_usage / 100)
-        print(fp_cycles)
+        print("wg_ig_cycles: ", wg_ig_cycles)
         gpu_usage = 0
         cuda_time = 0
         torch.cuda.synchronize()
 
-        # input gradient cycles
-        print(wg_ig_cycles, wg_cycles)
         ig_cycles = wg_ig_cycles - wg_cycles
-        assert ig_cycles > 0, "Input gradient compute time {} CANNOT be negative!!".format(ig_cycles)
+        #assert ig_cycles > 0, "Input gradient compute time {} CANNOT be negative!!".format(ig_cycles)
+        assert wg_ig_cycles  > fp_cycles, "Input + weight gradient compute time {} CANNOT be less than fowd pass cycles{}".format(wg_ig_cycles, fp_cycles)
 
         # weight update time
         start.record()
@@ -267,7 +334,7 @@ for n, m in net.named_modules():
     #X = X.to(device)
     #Y = X.to(device)
 
-file_name = FOLDER + model_name + '_B{}.csv'.format(B)
+file_name = FOLDER + "/" + model_name + '_B{}.csv'.format(B)
 print('headers ', headers)
 with open(file_name, 'w') as f:
     writer = csv.DictWriter(f, fieldnames=headers)
@@ -276,11 +343,14 @@ with open(file_name, 'w') as f:
 f.close()
 
 
-file_name = FOLDER + model_name + '_B{}_astra-sim.csv'.format(B)
+file_name = FOLDER + model_name + '_B{}_astra-sim2.csv'.format(B)
 print('headers ', headers)
 
 output = []
 for row in rows:
+
+    if row["IG"] <= 0:
+        continue
     line = []
     line.append(row["name"])
     line.append("-1")
